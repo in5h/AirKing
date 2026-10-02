@@ -843,6 +843,17 @@ tr.flash td { animation: rowflash 1.5s ease; }
 .form [hidden] { display: none !important; }
 .hp-field { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; overflow: hidden; }
 
+/* ---------- External links (China head office) ---------- */
+.ext-link { display: inline-flex; align-items: center; gap: 6px; }
+.ext-icon { width: 14px; height: 14px; flex: none; }
+.btn .ext-icon { width: 16px; height: 16px; }
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 1.6rem;
+  background: transparent; color: var(--brand-dark); box-shadow: inset 0 0 0 2px var(--brand);
+}
+.btn-outline:hover { background: var(--brand); color: #fff; box-shadow: 0 10px 28px rgba(61,122,184,0.35); }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
 /* ---------- Reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: none; }
