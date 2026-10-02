@@ -7,11 +7,9 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `css/style.css` – styling (brand colours at the top in `:root`)
 - `js/main.js` – menu, animations, query form (`SALES_EMAIL` at the top)
 - `assets/logo.jpg` – logo
-- `assets/products/` – product photos: `air-washer.jpg`, `axial-fan.jpg`, `drum-filter.jpg`, `dust-collector.jpg`, `high-pressure.jpg`, `controls.jpg`
+- `assets/equipment/` – equipment photos: `electric-panels.jpg`, `inverters.jpg`, `components.jpg`, `sensors.jpg`, `showering-area.jpg`, `spray-nozzle.jpg`, `eliminator-plates.jpg`, `supply-return-fan.jpg`, `return-air-fan.jpg`, `dampers.jpg`, `weather-louvre.jpg`, `rotary-filter.jpg`, `dust-collection.jpg`
 - `assets/team/` – optional team photos
 
-## Still to fill in from the presentation
-- About text and stats
-- Company history years/milestones
-- Product names/descriptions and photos
+## Still to fill in
 - Team names and designations
+- Equipment photos (cards show a placeholder until a photo is added)

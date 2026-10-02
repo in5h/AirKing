@@ -16,13 +16,37 @@ toggle.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   toggle.setAttribute('aria-expanded', open);
 });
+
+// Equipment dropdown: click/tap to open (hover also opens it on desktop via CSS)
+const dropdown = document.getElementById('equipDropdown');
+const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+const setDropdown = open => {
+  dropdown.classList.toggle('open', open);
+  dropdownToggle.setAttribute('aria-expanded', open);
+};
+dropdownToggle.addEventListener('click', () => setDropdown(!dropdown.classList.contains('open')));
+document.addEventListener('click', e => { if (!dropdown.contains(e.target)) setDropdown(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') setDropdown(false); });
+
 nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   nav.classList.remove('open');
   toggle.setAttribute('aria-expanded', 'false');
+  setDropdown(false);
+}));
+
+// Customer tabs
+const tabs = document.querySelectorAll('.tab');
+tabs.forEach(tab => tab.addEventListener('click', () => {
+  tabs.forEach(t => {
+    const active = t === tab;
+    t.classList.toggle('active', active);
+    t.setAttribute('aria-selected', active);
+    document.getElementById(t.dataset.tab).classList.toggle('active', active);
+  });
 }));
 
 // Reveal sections and count up stats when they scroll into view
-const revealTargets = document.querySelectorAll('.section-head, .about-grid > *, .timeline-item, .card, .industry, .member, .contact-grid > *');
+const revealTargets = document.querySelectorAll('.section-head, .pillar, .about-grid > *, .timeline-item, .division-title, .card, .control-grid > *, .why, .reason-box, .saving-card, .industry, .table-wrap, .member, .contact-grid > *');
 revealTargets.forEach(el => el.classList.add('reveal'));
 
 const countUp = el => {
@@ -30,7 +54,7 @@ const countUp = el => {
   const start = performance.now();
   const step = now => {
     const t = Math.min((now - start) / 1400, 1);
-    el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3)));
+    el.textContent = Math.round(target * (1 - Math.pow(1 - t, 3))).toLocaleString('en-US');
     if (t < 1) requestAnimationFrame(step);
   };
   requestAnimationFrame(step);
@@ -48,7 +72,6 @@ if ('IntersectionObserver' in window) {
   revealTargets.forEach(el => io.observe(el));
 } else {
   revealTargets.forEach(el => el.classList.add('visible'));
-  document.querySelectorAll('[data-count]').forEach(el => { el.textContent = el.dataset.count; });
 }
 
 // Query form: validates, then opens the visitor's email app with the query pre-filled.

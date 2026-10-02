@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AirKing | Air Engineering Solutions</title>
-  <meta name="description" content="AirKing (艾金空气工程) – air engineering, humidification, air conditioning and filtration solutions for the textile and process industries. Pakistan office: Faisalabad.">
+  <title>AirKing | Textile Air Conditioning &amp; Air Engineering</title>
+  <meta name="description" content="Shanghai Air King Air Equipment Co., Ltd. (上海艾金空气设备有限公司) – textile air conditioning, automation and dust handling since 1996. Turn-key delivery, energy-saving control, local support in Pakistan.">
   <link rel="icon" href="assets/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,8 +25,43 @@
       <nav class="nav" id="nav">
         <a href="#about">About</a>
         <a href="#history">History</a>
-        <a href="#products">Products</a>
-        <a href="#industries">Industries</a>
+
+        <!-- Equipment dropdown: one group per division, each link jumps to that item in the Equipment section -->
+        <div class="dropdown" id="equipDropdown">
+          <button class="dropdown-toggle" aria-expanded="false" aria-controls="equipMenu">
+            Equipment <span class="caret" aria-hidden="true"></span>
+          </button>
+          <div class="dropdown-menu" id="equipMenu">
+            <div class="dropdown-col">
+              <a href="#div-automation" class="dropdown-head">Automation &amp; Controls</a>
+              <a href="#eq-panels">Electric Panels</a>
+              <a href="#eq-inverters">Inverters &amp; Automation System</a>
+              <a href="#eq-components">Electrical Components</a>
+              <a href="#eq-sensors">Temperature &amp; Humidity Sensors</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#div-washer" class="dropdown-head">Air Washer</a>
+              <a href="#eq-showering">Showering Area</a>
+              <a href="#eq-nozzles">Water Spray Nozzles</a>
+              <a href="#eq-eliminators">Eliminator Plates</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#div-airhandling" class="dropdown-head">Air Handling</a>
+              <a href="#eq-supply-fan">Supply &amp; Return Air Fan</a>
+              <a href="#eq-return-fan">Return Air Fan</a>
+              <a href="#eq-dampers">Air Control Dampers</a>
+              <a href="#eq-louvre">Weather Control Louvre</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#div-filtration" class="dropdown-head">Filtration &amp; Dust Handling</a>
+              <a href="#eq-rotary-filter">Rotary Air Filtration System</a>
+              <a href="#eq-dust">Dust Collection System</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#control">Control System</a>
+        <a href="#clients">Clients</a>
         <a href="#team">Our Team</a>
         <a href="#contact" class="btn btn-sm">Get a Quote</a>
       </nav>
@@ -37,154 +72,467 @@
   <section class="hero" id="home">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="container hero-content">
-      <p class="eyebrow">AirKing · 艾金空气工程</p>
-      <h1>Engineering the air<br>your industry runs on.</h1>
-      <p class="lead">Humidification, air conditioning, ventilation and filtration systems that keep production stable, efficient and clean — designed, supplied and supported for mills across Pakistan.</p>
+      <p class="eyebrow">AirKing · Textile Air Conditioning</p>
+      <h1>Global solution for<br>air engineering.</h1>
+      <p class="lead">For three decades, Shanghai Air King Air Equipment Co., Ltd. has engineered precise, energy-saving air conditioning for the textile industry — from design to commissioning.</p>
       <div class="hero-actions">
-        <a href="#products" class="btn">Explore Products</a>
+        <a href="#equipment" class="btn">Explore Equipment</a>
         <a href="#contact" class="btn btn-ghost">Talk to Sales</a>
       </div>
     </div>
   </section>
 
+  <!-- ===================== PILLARS ===================== -->
+  <section class="pillars-wrap">
+    <div class="container pillars">
+      <div class="pillar">
+        <span class="pillar-icon" aria-hidden="true">🛠️</span>
+        <h3>Turn-Key Delivery</h3>
+        <p>Designing · Installation · Commissioning</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon" aria-hidden="true">🎛️</span>
+        <h3>Auto Control</h3>
+        <p>Precision temperature &amp; humidity control with energy-saving logic</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-icon" aria-hidden="true">🌀</span>
+        <h3>Dust Handling</h3>
+        <p>Centralized collection · Filtration · Bailing</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== ABOUT ===================== -->
-  <!-- EDIT: replace the paragraphs below with the company introduction from the presentation -->
   <section class="section" id="about">
     <div class="container about-grid">
       <div>
-        <p class="eyebrow">About Us</p>
+        <p class="eyebrow">Company Profile</p>
         <h2>Who we are</h2>
-        <p>AirKing (艾金空气工程) is an air engineering company specialising in industrial air conditioning, humidification and dust filtration systems. From the first site survey to commissioning and after-sales service, we deliver complete air solutions that protect product quality and reduce energy use.</p>
-        <p>In Pakistan, AirKing is represented from Faisalabad — the heart of the country's textile industry — so customers get local engineering support, fast spare-parts supply and on-site service.</p>
+        <p><strong>Shanghai Air King Air Equipment Co., Ltd.</strong> (上海艾金空气设备有限公司) was founded in 1996. Our factory is located in Taicang City / Jinjiang City, Jiangsu Province, China, and covers an area of 25,000 square meters with more than 150 professional staff.</p>
+        <p>For three decades we have been deeply engaged in the textile air conditioning market, and our energy-saving automatic control systems rank among the most advanced in the industry. We are a highly competitive textile AC enterprise both domestically and internationally.</p>
         <ul class="checklist">
-          <li>Complete turnkey air engineering projects</li>
-          <li>In-house design, manufacturing and installation</li>
-          <li>Energy-efficient systems with intelligent controls</li>
-          <li>Local sales, service and spare-parts support</li>
+          <li>30% market share in China's mid-to-high-end textile AC</li>
+          <li>Annual output value of textile AC products exceeds US$ 45 million</li>
+          <li>Products exported to over 10 countries</li>
+          <li>Local sales &amp; service support in Faisalabad, Pakistan</li>
         </ul>
       </div>
-      <!-- EDIT: replace numbers with real figures from the presentation -->
       <div class="stats">
-        <div class="stat"><span class="stat-num" data-count="20">0</span><span class="stat-plus">+</span><p>Years of experience</p></div>
-        <div class="stat"><span class="stat-num" data-count="500">0</span><span class="stat-plus">+</span><p>Projects delivered</p></div>
-        <div class="stat"><span class="stat-num" data-count="10">0</span><span class="stat-plus">+</span><p>Countries served</p></div>
-        <div class="stat"><span class="stat-num" data-count="24">0</span><span class="stat-plus">/7</span><p>Service support</p></div>
+        <div class="stat"><span class="stat-num">1996</span><p>Founded</p></div>
+        <div class="stat"><span class="stat-num" data-count="25000">25,000</span><span class="stat-plus"> m²</span><p>Factory area</p></div>
+        <div class="stat"><span class="stat-num" data-count="150">150</span><span class="stat-plus">+</span><p>Professional staff</p></div>
+        <div class="stat"><span class="stat-plus">$</span><span class="stat-num" data-count="45">45</span><span class="stat-plus">M+</span><p>Annual output (USD)</p></div>
+        <div class="stat"><span class="stat-num" data-count="30">30</span><span class="stat-plus">%</span><p>Mid-to-high-end market share in China</p></div>
+        <div class="stat"><span class="stat-num" data-count="10">10</span><span class="stat-plus">+</span><p>Export countries</p></div>
       </div>
     </div>
   </section>
 
   <!-- ===================== HISTORY ===================== -->
-  <!-- EDIT: replace years and milestones with the company history from the presentation -->
   <section class="section section-alt" id="history">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">Our Journey</p>
-        <h2>Company history</h2>
-        <p>Milestones that shaped AirKing into a trusted air engineering partner.</p>
+        <p class="eyebrow">Developing History</p>
+        <h2>Our journey since 1996</h2>
+        <p>Milestones that shaped AirKing into a leading textile air conditioning brand.</p>
       </div>
       <ol class="timeline">
         <li class="timeline-item">
-          <span class="timeline-year">20XX</span>
+          <span class="timeline-year">1996</span>
           <div class="timeline-card">
-            <h3>Company founded</h3>
-            <p>AirKing was established with a focus on air conditioning and humidification for textile mills.</p>
+            <h3>Founded in Shanghai</h3>
+            <p>AirKing established the OEM factory for AC systems in Shanghai.</p>
           </div>
         </li>
         <li class="timeline-item">
-          <span class="timeline-year">20XX</span>
+          <span class="timeline-year">2003</span>
           <div class="timeline-card">
-            <h3>Manufacturing facility</h3>
-            <p>Opened its own production base for fans, air washers and filtration equipment.</p>
+            <h3>First automation system</h3>
+            <p>Developed the first-generation automation system — the No. 1 in China.</p>
           </div>
         </li>
         <li class="timeline-item">
-          <span class="timeline-year">20XX</span>
+          <span class="timeline-year">2006</span>
           <div class="timeline-card">
-            <h3>International expansion</h3>
-            <p>Began supplying complete air engineering projects to customers outside China.</p>
+            <h3>Large projects, independently</h3>
+            <p>The company's scale expanded, with several key members from LUWA joining, and began taking on large projects independently.</p>
           </div>
         </li>
         <li class="timeline-item">
-          <span class="timeline-year">20XX</span>
+          <span class="timeline-year">2010</span>
           <div class="timeline-card">
-            <h3>Pakistan office</h3>
-            <p>Opened its Faisalabad office to provide local sales, engineering and service support.</p>
+            <h3>Energy-saving fans</h3>
+            <p>Developed new aerodynamic energy-saving fans.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-year">2014</span>
+          <div class="timeline-card">
+            <h3>A renowned brand</h3>
+            <p>AirKing became a renowned brand in China.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-year">2018</span>
+          <div class="timeline-card">
+            <h3>National award</h3>
+            <p>Awarded the First Prize for Scientific and Technological Progress by the China National Textile and Apparel Council.</p>
           </div>
         </li>
       </ol>
     </div>
   </section>
 
-  <!-- ===================== PRODUCTS ===================== -->
-  <!-- EDIT: product names/descriptions from the presentation; put photos in assets/products/ with these file names -->
-  <section class="section" id="products">
+  <!-- ===================== EQUIPMENT ===================== -->
+  <!-- Photos: put them in assets/equipment/ with the file names used below -->
+  <section class="section" id="equipment">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">What We Make</p>
-        <h2>Products &amp; solutions</h2>
-        <p>Proven equipment engineered for demanding, round-the-clock production environments.</p>
+        <p class="eyebrow">Premium Equipment of AirKing</p>
+        <h2>Equipment</h2>
+        <p>Every component of an AirKing plant is chosen or designed for narrow tolerances, long life and low energy use.</p>
       </div>
-      <div class="cards">
-        <article class="card product">
-          <div class="product-img"><img src="assets/products/air-washer.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-          <div class="card-body">
-            <h3>Air Washer &amp; Humidification Plants</h3>
-            <p>Central air conditioning plants that control temperature and humidity precisely for spinning, weaving and processing halls.</p>
-          </div>
-        </article>
-        <article class="card product">
-          <div class="product-img"><img src="assets/products/axial-fan.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-          <div class="card-body">
-            <h3>Axial Flow Fans</h3>
-            <p>High-efficiency fans with optimised blade profiles for large air volumes at low energy consumption.</p>
-          </div>
-        </article>
-        <article class="card product">
-          <div class="product-img"><img src="assets/products/drum-filter.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-          <div class="card-body">
-            <h3>Rotary Drum Filters</h3>
-            <p>Continuous self-cleaning filtration that separates fibre and dust from return air.</p>
-          </div>
-        </article>
-        <article class="card product">
-          <div class="product-img"><img src="assets/products/dust-collector.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-          <div class="card-body">
-            <h3>Dust &amp; Waste Collection Systems</h3>
-            <p>Waste removal and compacting systems that keep machines and working areas clean.</p>
-          </div>
-        </article>
-        <article class="card product">
-          <div class="product-img"><img src="assets/products/high-pressure.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-          <div class="card-body">
-            <h3>High-Pressure Humidification</h3>
-            <p>Fine-mist nozzle systems for direct room humidification and evaporative cooling.</p>
-          </div>
-        </article>
-        <article class="card product">
-          <div class="product-img"><img src="assets/products/controls.jpg" alt="" loading="lazy" onerror="this.remove()"></div>
-          <div class="card-body">
-            <h3>Intelligent Control Systems</h3>
-            <p>PLC and VFD-based automation that adjusts the plant to conditions in real time to save energy.</p>
-          </div>
-        </article>
+
+      <div class="division" id="div-automation">
+        <h3 class="division-title"><span>01</span> Automation &amp; Controls</h3>
+        <div class="cards">
+          <article class="card product" id="eq-panels">
+            <div class="product-img"><img src="assets/equipment/electric-panels.jpg" alt="Electric panels" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Electric Panels</h3>
+              <p>Rittal-equivalent quality enclosures — Rittal GmbH &amp; Co. KG (Germany) is the world's largest maker of industrial electrical enclosures.</p>
+            </div>
+          </article>
+          <article class="card product" id="eq-inverters">
+            <div class="product-img"><img src="assets/equipment/inverters.jpg" alt="ABB inverters and Beckhoff automation" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Inverters &amp; Automation System</h3>
+              <p>ABB inverters with original BECKHOFF (Germany) automation technology.</p>
+            </div>
+          </article>
+          <article class="card product" id="eq-components">
+            <div class="product-img"><img src="assets/equipment/components.jpg" alt="Electrical components" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Electrical Components</h3>
+              <p>Switchgear and components from ABB or Schneider for dependable, long-life operation.</p>
+            </div>
+          </article>
+          <article class="card product" id="eq-sensors">
+            <div class="product-img"><img src="assets/equipment/sensors.jpg" alt="Temperature and humidity sensors" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Temperature &amp; Humidity Sensors</h3>
+              <p>BECKHOFF (Germany) sensors feeding precise, real-time values to the control system.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="division" id="div-washer">
+        <h3 class="division-title"><span>02</span> Air Washer</h3>
+        <div class="cards">
+          <article class="card product" id="eq-showering">
+            <div class="product-img"><img src="assets/equipment/showering-area.jpg" alt="Showering area" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Showering Area</h3>
+              <p>Air washer showering chamber built by AirKing for efficient humidification and cooling.</p>
+            </div>
+          </article>
+          <article class="card product" id="eq-nozzles">
+            <div class="product-img"><img src="assets/equipment/spray-nozzle.jpg" alt="Water spray nozzle" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Water Spray Nozzles</h3>
+              <p>Nozzles designed by AirKing for an even, efficient spray pattern.</p>
+            </div>
+          </article>
+          <article class="card product" id="eq-eliminators">
+            <div class="product-img"><img src="assets/equipment/eliminator-plates.jpg" alt="Eliminator plates" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Eliminator Plates</h3>
+              <p>Separate water droplets from the conditioned air before it enters the production hall.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="division" id="div-airhandling">
+        <h3 class="division-title"><span>03</span> Air Handling</h3>
+        <div class="cards">
+          <article class="card product" id="eq-supply-fan">
+            <div class="product-img"><img src="assets/equipment/supply-return-fan.jpg" alt="Supply and return air fan" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Supply &amp; Return Air Fan</h3>
+              <p>Aerodynamic energy-saving fans developed by AirKing for large air volumes.</p>
+            </div>
+          </article>
+          <article class="card product" id="eq-return-fan">
+            <div class="product-img"><img src="assets/equipment/return-air-fan.jpg" alt="Return air fan" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Return Air Fan</h3>
+              <p>Draws air back from the production hall to the plant for filtration and reconditioning.</p>
+            </div>
+          </article>
+          <article class="card product" id="eq-dampers">
+            <div class="product-img"><img src="assets/equipment/dampers.jpg" alt="Air control dampers" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Air Control Dampers</h3>
+              <p>Dampers with auto drive motors, positioned by the control system to mix fresh and return air.</p>
+            </div>
+          </article>
+          <article class="card product" id="eq-louvre">
+            <div class="product-img"><img src="assets/equipment/weather-louvre.jpg" alt="Weather control louvre" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Weather Control Louvre</h3>
+              <p>Fresh-air intake louvres that keep out rain and debris.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="division" id="div-filtration">
+        <h3 class="division-title"><span>04</span> Filtration &amp; Dust Handling</h3>
+        <div class="cards">
+          <article class="card product" id="eq-rotary-filter">
+            <div class="product-img"><img src="assets/equipment/rotary-filter.jpg" alt="Rotary air filtration system" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Rotary Air Filtration System</h3>
+              <p>Continuous filtration of fibre and dust from the return air.</p>
+            </div>
+          </article>
+          <article class="card product" id="eq-dust">
+            <div class="product-img"><img src="assets/equipment/dust-collection.jpg" alt="Dust collection system" loading="lazy" onerror="this.remove()"></div>
+            <div class="card-body">
+              <h3>Dust Collection System</h3>
+              <p>Centralized collection, filtration and bailing of waste and dust.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTROL SYSTEM ===================== -->
+  <section class="section section-alt" id="control">
+    <div class="container control-grid">
+      <div>
+        <p class="eyebrow">AirKing Control System</p>
+        <h2>Tex-Auto automation</h2>
+        <p>The Tex-Auto AirKing Automation System is built on original Beckhoff (Germany) technology and runs the whole plant with energy-saving logic.</p>
+        <ul class="checklist">
+          <li>Developed for industrial use</li>
+          <li>Narrow tolerances for the best production conditions</li>
+          <li>Easy to handle and maintain</li>
+          <li>Centralized reporting and monitoring</li>
+        </ul>
+      </div>
+      <div class="feature-box">
+        <h3>Self-explanatory dashboard</h3>
+        <ul class="feature-list">
+          <li>Plant overview</li>
+          <li>Recording of process values</li>
+          <li>Visualization of all data</li>
+          <li>Temperature &amp; humidity curves</li>
+          <li>Alarm reporting</li>
+          <li>Password protection</li>
+          <li>Online manuals</li>
+          <li>Maintenance information</li>
+          <li>Reporting</li>
+          <li>Central station with printer</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY AIRKING ===================== -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Why AirKing?</p>
+        <h2>The engineering excellence</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why">30 years of textile air conditioning experience</div>
+        <div class="why">Textile automation specialists</div>
+        <div class="why">Original Beckhoff automation technology (Germany)</div>
+        <div class="why">Intelligent energy-saving solutions</div>
+        <div class="why">Precision temperature &amp; humidity control</div>
+        <div class="why">Long equipment life &amp; reliability</div>
+        <div class="why">Complete turnkey solutions</div>
+        <div class="why">Proven references in China, Pakistan, Vietnam, Bangladesh, Uzbekistan &amp; Mexico</div>
+      </div>
+
+      <div class="reasons">
+        <div class="reason-box">
+          <h3>Why upgrade existing AC plants?</h3>
+          <ul class="tags">
+            <li>Reduced power consumption</li>
+            <li>Improved temperature &amp; RH stability</li>
+            <li>Lower maintenance costs</li>
+            <li>Improved production environment</li>
+            <li>Extended equipment life</li>
+            <li>Improved plant automation</li>
+            <li>Increased overall reliability</li>
+          </ul>
+        </div>
+        <div class="reason-box">
+          <h3>Why energy saving matters?</h3>
+          <ul class="tags">
+            <li>Rising energy costs</li>
+            <li>Reduced cost per kg of production</li>
+            <li>Improved operational efficiency</li>
+            <li>Faster return on investment</li>
+            <li>Sustainable manufacturing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section class="section section-dark" id="results">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">AirKing Performance Indicators</p>
+        <h2>Measured energy savings</h2>
+        <p>Energy analyzer data from AC plant modifications, peak season (Jun–Aug 2026). Annual average savings are expected to be even higher.</p>
+      </div>
+      <div class="savings">
+        <div class="saving-card">
+          <span class="saving-pct">60.2%</span>
+          <p class="saving-label">energy saving · Plant A</p>
+          <table class="mini-table">
+            <thead><tr><th></th><th>Before</th><th>AirKing</th></tr></thead>
+            <tbody>
+              <tr><td>Installed kWh</td><td>196.24</td><td>206.48</td></tr>
+              <tr><td>Running kWh</td><td>153.5</td><td>61.43</td></tr>
+            </tbody>
+          </table>
+          <p class="saving-foot">Saved <strong>92 kWh</strong> · avg. running kWh: Jun 61.06 · Jul 59.59 · Aug 63.63</p>
+        </div>
+        <div class="saving-card">
+          <span class="saving-pct">66.9%</span>
+          <p class="saving-label">energy saving · Plant B</p>
+          <table class="mini-table">
+            <thead><tr><th></th><th>Before</th><th>AirKing</th></tr></thead>
+            <tbody>
+              <tr><td>Installed kWh</td><td>203.48</td><td>166.48</td></tr>
+              <tr><td>Running kWh</td><td>145.0</td><td>47.96</td></tr>
+            </tbody>
+          </table>
+          <p class="saving-foot">Saved <strong>97 kWh</strong> · avg. running kWh: Jun 41.41 · Jul 40.71 · Aug 61.76</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ===================== INDUSTRIES ===================== -->
-  <section class="section section-dark" id="industries">
+  <section class="section" id="industries">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Where We Work</p>
         <h2>Industries we serve</h2>
+        <p>We provide complete air solutions for the following industries.</p>
       </div>
       <div class="industries">
         <div class="industry"><span class="industry-icon" aria-hidden="true">🧵</span><h3>Spinning</h3></div>
         <div class="industry"><span class="industry-icon" aria-hidden="true">🪡</span><h3>Weaving</h3></div>
         <div class="industry"><span class="industry-icon" aria-hidden="true">🧶</span><h3>Knitting</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🎨</span><h3>Dyeing &amp; Finishing</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🚬</span><h3>Tobacco</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🏭</span><h3>General Industry</h3></div>
+        <div class="industry"><span class="industry-icon" aria-hidden="true">🧪</span><h3>Chemical Fibre</h3></div>
+        <div class="industry"><span class="industry-icon" aria-hidden="true">🔬</span><h3>Fibre Glass</h3></div>
+        <div class="industry"><span class="industry-icon" aria-hidden="true">📄</span><h3>Papermaking</h3></div>
+        <div class="industry"><span class="industry-icon" aria-hidden="true">🛞</span><h3>Tyre</h3></div>
+        <div class="industry"><span class="industry-icon" aria-hidden="true">🚬</span><h3>Cigarette</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CLIENTS ===================== -->
+  <section class="section section-alt" id="clients">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">References</p>
+        <h2>Key customers</h2>
+        <p>A selection of mills running AirKing systems. The complete client list is available on demand.</p>
+      </div>
+
+      <div class="tabs" role="tablist">
+        <button class="tab active" role="tab" aria-selected="true" data-tab="tab-pk">Pakistan</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="tab-intl">International</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="tab-cn">China</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-pk" role="tabpanel">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Customer</th><th>Application</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Nishat Chunian Ltd #3</td><td>2 × AC Plants 3 &amp; 4 (Ring)</td><td><span class="badge run">Running</span></td></tr>
+              <tr><td>Nishat Chunian Ltd #3</td><td>2 × AC Plants 1 &amp; 2 (Ring)</td><td><span class="badge wait">LC Awaited</span></td></tr>
+              <tr><td>Naveena Denim Pvt Ltd</td><td>Weaving (6 plants)</td><td><span class="badge run">Running</span></td></tr>
+              <tr><td>Din Industries Ltd</td><td>Ring &amp; Simplex</td><td><span class="badge run">Running</span></td></tr>
+              <tr><td>Din Industries Ltd</td><td>Ring &amp; Autocone</td><td><span class="badge transit">In Transit</span></td></tr>
+              <tr><td>Crescent Textile Mills Ltd</td><td>Ring AC Plant</td><td><span class="badge transit">In Transit</span></td></tr>
+              <tr><td>Fazal Cloth Ltd #6</td><td>Weaving AC Plant</td><td><span class="badge transit">In Transit</span></td></tr>
+              <tr><td>Rafiq Jameel Weaving Mills Ltd</td><td>Warping &amp; Weaving AC Plant</td><td><span class="badge transit">In Transit</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-intl" role="tabpanel">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Customer</th><th>Country</th><th>Produce</th><th>AirKing Share</th></tr></thead>
+            <tbody>
+              <tr><td>Matin Textile</td><td>Bangladesh</td><td>Composite Unit</td><td>50,000 Spindles</td></tr>
+              <tr><td>Square Textile</td><td>Bangladesh</td><td>Composite Unit</td><td>40,000 Spindles</td></tr>
+              <tr><td>AA Yarn Spinning</td><td>Bangladesh</td><td>Spinning Unit</td><td>500,000 Spindles</td></tr>
+              <tr><td>Zagis Textile Mills</td><td>Mexico</td><td>Composite Unit</td><td>100,000 Spindles</td></tr>
+              <tr><td>Global Denim</td><td>Mexico</td><td>Composite Unit</td><td>50,000 Spindles · 500 Looms</td></tr>
+              <tr><td>UZ Textile</td><td>Uzbekistan</td><td>Composite Unit</td><td>200,000 Spindles · 500 Looms</td></tr>
+              <tr><td>MST Textile Mills Ltd</td><td>Uzbekistan</td><td>Composite Unit</td><td>150,000 Spindles</td></tr>
+              <tr><td>SST Textile Mills Ltd</td><td>Uzbekistan</td><td>Composite Unit</td><td>100,000 Spindles</td></tr>
+              <tr><td>Tex Home Textile</td><td>Vietnam</td><td>Spinning Unit</td><td>150,000 Spindles</td></tr>
+              <tr><td>All Med Textile</td><td>Vietnam</td><td>Composite Unit</td><td>100,000 Spindles</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-cn" role="tabpanel">
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Customer</th><th>Produce</th><th>AirKing Share</th></tr></thead>
+            <tbody>
+              <tr><td>Anhui Huamao Group Co., Ltd</td><td>Composite Unit</td><td>1,000,000 Spindles · 500 Looms</td></tr>
+              <tr><td>Huamao</td><td>Composite Unit</td><td>700,000 Spindles · 1,000 Looms</td></tr>
+              <tr><td>Xinhuayuan Group</td><td>Spinning Unit</td><td>650,000 Spindles</td></tr>
+              <tr><td>Changyuan Textile Group</td><td>Spinning Unit</td><td>500,000 Spindles</td></tr>
+              <tr><td>Tianyi Textile</td><td>Spinning Unit</td><td>500,000 Spindles</td></tr>
+              <tr><td>Xuyuan Textile</td><td>Spinning Unit</td><td>500,000 Spindles</td></tr>
+              <tr><td>DIW China</td><td>Spinning Mills</td><td>400,000 Spindles</td></tr>
+              <tr><td>Yueyang Kelijia Textile</td><td>Spinning Unit</td><td>220,000 Spindles</td></tr>
+              <tr><td>Changshixin Textile</td><td>Composite Unit</td><td>200,000 Spindles · 3,000 Looms</td></tr>
+              <tr><td>Sanyang Textile Co., Ltd</td><td>Composite Unit</td><td>200,000 Spindles · Weaving new project</td></tr>
+              <tr><td>Yueda Textile Group</td><td>Spinning</td><td>200,000 Spindles</td></tr>
+              <tr><td>Henyuan Textile</td><td>Spinning Unit</td><td>200,000 Spindles</td></tr>
+              <tr><td>Xiangyuan Textile</td><td>Spinning Unit</td><td>150,000 Spindles</td></tr>
+              <tr><td>Fujian Haixia Textile</td><td>Spinning Unit</td><td>140,000 Spindles</td></tr>
+              <tr><td>Weiqiao Group</td><td>Spinning Unit</td><td>120,000 Spindles</td></tr>
+              <tr><td>Huayuan Eco-Technology</td><td>Spinning &amp; O.E</td><td>80,000 Spindles · 40 Vortex Machines</td></tr>
+              <tr><td>Wanzhou Group</td><td>Weaving</td><td>4,200 Looms</td></tr>
+              <tr><td>Longfeng Textile</td><td>Weaving Unit</td><td>1,000 Looms</td></tr>
+              <tr><td>Seazon</td><td>Weaving</td><td>800 Looms</td></tr>
+              <tr><td>Daiyin Group</td><td>Weaving Unit</td><td>290 Looms</td></tr>
+              <tr><td>Maofeng Textile</td><td>Weaving Unit</td><td>290 Looms</td></tr>
+              <tr><td>Jieen Textile</td><td>Weaving Unit</td><td>192 Looms</td></tr>
+              <tr><td>Nanhai Mingjie Textile</td><td>Weaving Unit</td><td>180 Looms</td></tr>
+              <tr><td>Lishun Textile</td><td>Weaving Unit</td><td>140 Looms</td></tr>
+              <tr><td>Xianglong Textile</td><td>Weaving Unit</td><td>120 Looms</td></tr>
+              <tr><td>Xianbao Textile</td><td>Weaving Unit</td><td>120 Looms</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </section>
@@ -233,7 +581,7 @@
         <ul class="contact-list">
           <li>
             <span class="ci" aria-hidden="true">📍</span>
-            <div><strong>Address</strong><br>P-56, Main Kashmir Road, Amin Town, Faisalabad, Pakistan</div>
+            <div><strong>Pakistan Office</strong><br>P-56, Main Kashmir Road, Amin Town, Faisalabad, Pakistan</div>
           </li>
           <li>
             <span class="ci" aria-hidden="true">📞</span>
@@ -243,9 +591,17 @@
             <span class="ci" aria-hidden="true">✉️</span>
             <div><strong>Email</strong><br><a href="mailto:sales@nextexpk.com">sales@nextexpk.com</a></div>
           </li>
+          <li>
+            <span class="ci" aria-hidden="true">🏢</span>
+            <div><strong>Shanghai Office</strong> (上海办事处)<br>上海市松江区广富林路799弄中展瑞景22号楼808室</div>
+          </li>
+          <li>
+            <span class="ci" aria-hidden="true">🏭</span>
+            <div><strong>Factory</strong> (工厂地址)<br>江苏省太仓市沙溪镇沙直路3号</div>
+          </li>
         </ul>
         <div class="map">
-          <iframe title="Office location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          <iframe title="Pakistan office location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
             src="https://www.google.com/maps?q=P-56+Main+Kashmir+Road+Amin+Town+Faisalabad&output=embed"></iframe>
         </div>
       </div>
@@ -262,13 +618,13 @@
         <label>Interested in
           <select name="product">
             <option>General enquiry</option>
-            <option>Air Washer &amp; Humidification Plants</option>
-            <option>Axial Flow Fans</option>
-            <option>Rotary Drum Filters</option>
-            <option>Dust &amp; Waste Collection Systems</option>
-            <option>High-Pressure Humidification</option>
-            <option>Intelligent Control Systems</option>
-            <option>Service &amp; Spare Parts</option>
+            <option>New textile AC plant (turn-key)</option>
+            <option>Upgrade of existing AC plant</option>
+            <option>Automation &amp; controls</option>
+            <option>Air washer equipment</option>
+            <option>Fans, dampers &amp; louvres</option>
+            <option>Filtration &amp; dust handling</option>
+            <option>Service &amp; spare parts</option>
           </select>
         </label>
         <label>Your query *<textarea name="message" rows="5" required></textarea></label>
@@ -282,8 +638,9 @@
   <footer class="footer">
     <div class="container footer-inner">
       <img src="assets/logo.jpg" alt="AirKing" class="footer-logo">
+      <p class="tagline">AIRKING · THE ENGINEERING EXCELLENCE</p>
       <p>P-56, Main Kashmir Road, Amin Town, Faisalabad · <a href="tel:+923276889999">0327 6889999</a> · <a href="mailto:sales@nextexpk.com">sales@nextexpk.com</a></p>
-      <p class="copy">© <span id="year"></span> AirKing. All rights reserved.</p>
+      <p class="copy">© <span id="year"></span> Shanghai Air King Air Equipment Co., Ltd. All rights reserved.</p>
     </div>
   </footer>
 
