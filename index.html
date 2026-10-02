@@ -4,32 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AirKing | Textile Air Conditioning &amp; Air Engineering</title>
-  <meta name="description" content="Shanghai Air King Air Equipment Co., Ltd. (上海艾金空气设备有限公司) – textile air conditioning, automation and dust handling since 1996. Turn-key delivery, energy-saving control, local support in Pakistan.">
+  <meta name="description" content="Shanghai Air King Air Equipment Co., Ltd. – textile air conditioning, automation and dust handling since 1996. Turn-key delivery, energy-saving control, local support in Pakistan.">
   <link rel="icon" href="assets/logo.jpg">
+  <meta name="theme-color" content="#0b1f36">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Apply the saved (or system) theme before first paint to avoid a flash.
+    (function () {
+      var t;
+      try { t = localStorage.getItem('airking-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 <body>
 
-  <!-- ===================== HEADER ===================== -->
-  <header class="header" id="header">
-    <div class="container header-inner">
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ===================== HEADER (floating glass nav) ===================== -->
+  <header class="header on-dark" id="header">
+    <div class="nav-shell">
       <a href="#home" class="brand" aria-label="AirKing home">
-        <img src="assets/logo.jpg" alt="AirKing 艾金空气工程 logo">
+        <img src="assets/logo-white.png" alt="AirKing" class="logo-on-dark">
+        <img src="assets/logo-blue.png" alt="" class="logo-on-light" aria-hidden="true">
       </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav" id="nav">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#history">History</a>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <span class="nav-bubble" id="navBubble" aria-hidden="true"></span>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#history" class="nav-link">History</a>
 
         <!-- Equipment dropdown: one group per division, each link jumps to that item in the Equipment section -->
         <div class="dropdown" id="equipDropdown">
-          <button class="dropdown-toggle" aria-expanded="false" aria-controls="equipMenu">
+          <button class="nav-link dropdown-toggle" data-section="equipment" aria-expanded="false" aria-controls="equipMenu">
             Equipment <span class="caret" aria-hidden="true"></span>
           </button>
           <div class="dropdown-menu" id="equipMenu">
@@ -61,26 +73,43 @@
           </div>
         </div>
 
-        <a href="#control">Control System</a>
-        <a href="#clients">Clients</a>
-        <a href="#team">Our Team</a>
-        <a href="#contact" class="btn btn-sm">Get a Quote</a>
+        <a href="#control" class="nav-link">Control</a>
+        <a href="#clients" class="nav-link">Clients</a>
+        <a href="#team" class="nav-link">Team</a>
+        <a href="#contact" class="nav-link nav-link-mobile">Contact</a>
       </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+      </button>
+      <a href="#contact" class="nav-cta magnetic">Get a Quote</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <!-- ===================== HERO ===================== -->
+  <!-- ===================== HERO (3D) ===================== -->
   <section class="hero" id="home">
     <div class="hero-bg" aria-hidden="true"></div>
+    <canvas id="heroCanvas" class="hero-canvas" aria-label="3D model of an AirKing axial fan. Drag to rotate, click to speed it up."></canvas>
     <div class="container hero-content">
-      <p class="eyebrow">AirKing · Textile Air Conditioning</p>
-      <h1>Global solution for<br>air engineering.</h1>
+      <span class="hero-badge glass"><span class="dot"></span>Textile air conditioning since 1996</span>
+      <h1>Global solution for <span class="grad-text">air engineering</span>.</h1>
       <p class="lead">For three decades, Shanghai Air King Air Equipment Co., Ltd. has engineered precise, energy-saving air conditioning for the textile industry — from design to commissioning.</p>
       <div class="hero-actions">
-        <a href="#equipment" class="btn">Explore Equipment</a>
-        <a href="#contact" class="btn btn-ghost">Talk to Sales</a>
+        <a href="#equipment" class="btn magnetic">Explore Equipment</a>
+        <a href="#contact" class="btn btn-glass magnetic">Talk to Sales</a>
+      </div>
+      <div class="hero-stats">
+        <div class="glass hero-stat"><strong>30</strong><span>years of textile AC</span></div>
+        <div class="glass hero-stat"><strong>60%+</strong><span>measured energy saving</span></div>
+        <div class="glass hero-stat"><strong>10+</strong><span>countries served</span></div>
       </div>
     </div>
+    <p class="hero-hint" aria-hidden="true">Drag the fan to rotate · click to boost</p>
+    <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
   </section>
 
   <!-- ===================== PILLARS ===================== -->
@@ -110,7 +139,7 @@
       <div>
         <p class="eyebrow">Company Profile</p>
         <h2>Who we are</h2>
-        <p><strong>Shanghai Air King Air Equipment Co., Ltd.</strong> (上海艾金空气设备有限公司) was founded in 1996. Our factory is located in Taicang City / Jinjiang City, Jiangsu Province, China, and covers an area of 25,000 square meters with more than 150 professional staff.</p>
+        <p><strong>Shanghai Air King Air Equipment Co., Ltd.</strong> was founded in 1996. Our factory is located in Taicang City / Jinjiang City, Jiangsu Province, China, and covers an area of 25,000 square meters with more than 150 professional staff.</p>
         <p>For three decades we have been deeply engaged in the textile air conditioning market, and our energy-saving automatic control systems rank among the most advanced in the industry. We are a highly competitive textile AC enterprise both domestically and internationally.</p>
         <ul class="checklist">
           <li>30% market share in China's mid-to-high-end textile AC</li>
@@ -698,14 +727,44 @@
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <img src="assets/logo.jpg" alt="AirKing" class="footer-logo">
-      <p class="tagline">AIRKING · THE ENGINEERING EXCELLENCE</p>
-      <p>P-56, Main Kashmir Road, Amin Town, Faisalabad · <a href="tel:+923276889999">0327 6889999</a> · <a href="mailto:sales@nextexpk.com">sales@nextexpk.com</a></p>
-      <p class="copy">© <span id="year"></span> Shanghai Air King Air Equipment Co., Ltd. All rights reserved.</p>
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-white.png" alt="AirKing" class="footer-logo">
+        <p class="tagline">THE ENGINEERING EXCELLENCE</p>
+        <p>Textile air conditioning, automation and dust handling — turn-key, energy-saving and backed by local support in Pakistan.</p>
+      </div>
+      <nav class="footer-col" aria-label="Company">
+        <h4>Company</h4>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#history">History</a>
+        <a href="#clients">Clients</a>
+        <a href="#team">Our Team</a>
+      </nav>
+      <nav class="footer-col" aria-label="Equipment">
+        <h4>Equipment</h4>
+        <a href="#div-automation">Automation &amp; Controls</a>
+        <a href="#div-washer">Air Washer</a>
+        <a href="#div-airhandling">Air Handling</a>
+        <a href="#div-filtration">Filtration &amp; Dust</a>
+        <a href="#control">Control System</a>
+      </nav>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>P-56, Main Kashmir Road, Amin Town, Faisalabad, Pakistan</p>
+        <a href="tel:+923276889999">0327 6889999</a>
+        <a href="mailto:sales@nextexpk.com">sales@nextexpk.com</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> Shanghai Air King Air Equipment Co., Ltd. All rights reserved.</p>
+      <a href="#home" class="to-top-link">Back to top ↑</a>
     </div>
   </footer>
 
+  <a href="#home" class="to-top glass" id="toTop" aria-label="Back to top">↑</a>
+
   <script src="js/main.js"></script>
+  <script src="js/hero.js" defer></script>
 </body>
 </html>
