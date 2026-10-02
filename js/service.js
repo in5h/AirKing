@@ -1,0 +1,255 @@
+// Service detail page: content for each service + the page's nav behaviour.
+(function () {
+  const SERVICES = [
+    {
+      slug: 'design', title: 'Design & Engineering', img: 'assets/services/design.jpg', interest: 'plant',
+      tagline: 'Every efficient plant starts with the right numbers.',
+      intro: [
+        'We design the complete air conditioning plant around your mill — its production process, machine heat load, local climate and the room conditions your yarn or fabric needs.',
+        'The result is a plant sized correctly from day one: not oversized and wasting power, not undersized and losing control in peak season.',
+      ],
+      includes: [
+        'Site survey of production halls and existing systems',
+        'Heat-load and air-volume calculation',
+        'Air washer and fan sizing',
+        'Supply and return air ducting design',
+        'Return-air filtration and dust handling layout',
+        'Electrical and control system design',
+        'Layout drawings and equipment schedule',
+      ],
+      steps: [
+        ['Survey', 'We study your halls, machines and current plant on site.'],
+        ['Calculate', 'Heat load, air volumes and target temperature & RH.'],
+        ['Design', 'Plant, ducting, filtration and controls engineered together.'],
+        ['Review', 'Drawings and proposal reviewed with your team.'],
+      ],
+      stats: [['30', 'years of textile AC'], ['1996', 'designing since'], ['10+', 'export countries']],
+      related: ['eq-showering', 'eq-supply-fan', 'eq-rotary-filter', 'eq-panels'],
+    },
+    {
+      slug: 'installation', title: 'Installation', img: 'assets/services/installation.jpg', interest: 'plant',
+      tagline: 'One company responsible — from our factory to your production hall.',
+      intro: [
+        'AirKing supplies and installs the complete plant with its own teams: air washers, fans, ducting, filtration and electrical systems.',
+        'Because the equipment comes from our own 25,000 m² factory, quality and delivery stay under one roof — and so does responsibility.',
+      ],
+      includes: [
+        'Supply of all plant equipment from our own factory',
+        'Air washer chamber, spray nozzles and eliminator plates',
+        'Supply and return air fans, dampers and louvres',
+        'Ducting and air distribution',
+        'Rotary filters and dust collection',
+        'Electric panels, cabling and sensors',
+        'Site supervision by AirKing engineers',
+      ],
+      steps: [
+        ['Manufacture', 'Equipment built in our factory in Jiangsu, China.'],
+        ['Deliver', 'Shipped to site and checked on arrival.'],
+        ['Install', 'Mechanical and electrical installation by our teams.'],
+        ['Hand over', 'Ready for commissioning and start-up.'],
+      ],
+      stats: [['25,000 m²', 'own factory'], ['150+', 'professional staff'], ['$45M+', 'annual output']],
+      related: ['eq-showering', 'eq-eliminators', 'eq-dampers', 'eq-louvre'],
+    },
+    {
+      slug: 'commissioning', title: 'Commissioning', img: 'assets/services/commissioning.jpg', interest: 'plant',
+      tagline: 'Tuned until temperature and humidity hold steady in every hall.',
+      intro: [
+        'A plant is only as good as its tuning. Our engineers start up every system, balance the air flows and fine-tune the control loops.',
+        'We stay until temperature and relative humidity hold steady in every hall — and your operators are confident running the plant.',
+      ],
+      includes: [
+        'Pre-start checks of mechanical and electrical work',
+        'Start-up of fans, pumps and dampers',
+        'Air-flow balancing between halls',
+        'Temperature & RH control-loop tuning',
+        'Alarm and safety tests',
+        'Operator training on the Tex-Auto dashboard',
+        'Documentation and handover',
+      ],
+      steps: [
+        ['Check', 'Every installation item verified before power-on.'],
+        ['Start up', 'Systems started one by one under supervision.'],
+        ['Balance & tune', 'Air flows balanced, control loops tuned.'],
+        ['Train', 'Operators trained and the plant handed over.'],
+      ],
+      stats: [['T & RH', 'curves on the dashboard'], ['Alarm', 'reporting built in'], ['Online', 'manuals & maintenance info']],
+      related: ['eq-sensors', 'eq-inverters', 'eq-panels', 'eq-dampers'],
+    },
+    {
+      slug: 'control', title: 'Automation & Control', img: 'assets/services/control.jpg', interest: 'controls',
+      tagline: 'Tex-Auto: precise conditions with the least possible energy.',
+      intro: [
+        'The Tex-Auto AirKing Automation System runs the plant automatically — adjusting fans, pumps and dampers to the outside conditions so the hall stays on target with the least possible energy.',
+        'It is built on original Beckhoff (Germany) automation with ABB inverters, developed for industrial use, with narrow tolerances for the best production conditions.',
+      ],
+      includes: [
+        'Beckhoff PLC and temperature & humidity sensors',
+        'ABB inverters on fans and pumps',
+        'ABB or Schneider electrical components',
+        'Rittal-equivalent electric panels',
+        'Central station with printer',
+        'Self-explanatory dashboard: plant overview, process values, T & RH curves',
+        'Alarm reporting, password protection, online manuals, maintenance information and reporting',
+      ],
+      steps: [
+        ['Measure', 'Sensors read room and outside conditions continuously.'],
+        ['Decide', 'Energy-saving logic picks the cheapest way to hit target.'],
+        ['Act', 'Inverters, pumps and dampers adjust automatically.'],
+        ['Report', 'Everything recorded, visualised and reported centrally.'],
+      ],
+      stats: [['2003', 'first automation system — No. 1 in China'], ['2018', 'national award for technological progress'], ['Beckhoff', 'original German automation']],
+      related: ['eq-inverters', 'eq-sensors', 'eq-components', 'eq-panels'],
+    },
+    {
+      slug: 'dust', title: 'Dust Handling', img: 'assets/services/dust.jpg', interest: 'filtration',
+      tagline: 'Clean return air, clean machines, compact waste.',
+      intro: [
+        'Fibre and dust in the return air hurt product quality, clog equipment and waste energy.',
+        'AirKing dust handling systems collect it centrally, filter the return air continuously and bale the waste for easy removal.',
+      ],
+      includes: [
+        'Rotary air filtration (drum filters) with suction nozzles',
+        'Centralized dust and waste collection',
+        'Cyclones and collection units',
+        'Bailing press for compact waste',
+        'Integration with the AC plant\'s return air',
+      ],
+      steps: [
+        ['Collect', 'Dust and fibre drawn from the production hall.'],
+        ['Filter', 'Rotary filters clean the return air continuously.'],
+        ['Separate', 'Waste separated and collected centrally.'],
+        ['Bale', 'Compressed into bales for easy handling.'],
+      ],
+      stats: [['Centralized', 'collection'], ['Continuous', 'rotary filtration'], ['Compact', 'baled waste']],
+      related: ['eq-rotary-filter', 'eq-dust', 'eq-return-fan', 'eq-dampers'],
+    },
+    {
+      slug: 'upgrade', title: 'AC Plant Upgrade', img: 'assets/services/upgrade.jpg', interest: 'upgrade',
+      tagline: 'Measured savings of 60–67% in running power.',
+      intro: [
+        'Many mills run AC plants that use far more power than they need. AirKing modifies existing plants — fans, controls and air washers — to cut running power while improving temperature and RH stability.',
+        'In peak season (Jun–Aug 2026) two modified plants in Pakistan dropped from 153.5 to 61.4 kWh and from 145.0 to 48.0 kWh of running power. Annual average savings are expected to be higher still.',
+      ],
+      includes: [
+        'Energy audit of the existing plant',
+        'New aerodynamic energy-saving fans',
+        'Inverters on fans and pumps',
+        'Tex-Auto automation retrofit',
+        'Air washer and filtration improvements',
+        'Measured before / after results',
+      ],
+      benefits: ['Reduced power consumption', 'Improved temperature & RH stability', 'Lower maintenance costs', 'Improved production environment',
+        'Extended equipment life', 'Improved plant automation', 'Increased overall reliability'],
+      steps: [
+        ['Audit', 'Measure what the existing plant really uses.'],
+        ['Propose', 'Upgrade plan with expected savings.'],
+        ['Modify', 'Fans, inverters and controls upgraded.'],
+        ['Prove', 'Energy analyzer data before and after.'],
+      ],
+      stats: [['60.2%', 'saving · Plant A (92 kWh)'], ['66.9%', 'saving · Plant B (97 kWh)'], ['Peak', 'season data, Jun–Aug 2026']],
+      related: ['eq-supply-fan', 'eq-inverters', 'eq-sensors', 'eq-showering'],
+    },
+  ];
+
+  // Equipment referenced by "related" (names/images match the home page cards)
+  const EQUIPMENT = {
+    'eq-panels': ['Electric Panels', 'electric-panels'],
+    'eq-inverters': ['Inverters & Automation System', 'inverters'],
+    'eq-components': ['Electrical Components', 'components'],
+    'eq-sensors': ['Temperature & Humidity Sensors', 'sensors'],
+    'eq-showering': ['Showering Area', 'showering-area'],
+    'eq-nozzles': ['Water Spray Nozzles', 'spray-nozzle'],
+    'eq-eliminators': ['Eliminator Plates', 'eliminator-plates'],
+    'eq-supply-fan': ['Supply & Return Air Fan', 'supply-return-fan'],
+    'eq-return-fan': ['Return Air Fan', 'return-air-fan'],
+    'eq-dampers': ['Air Control Dampers', 'dampers'],
+    'eq-louvre': ['Weather Control Louvre', 'weather-louvre'],
+    'eq-rotary-filter': ['Rotary Air Filtration System', 'rotary-filter'],
+    'eq-dust': ['Dust Collection System', 'dust-collection'],
+  };
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const $ = id => document.getElementById(id);
+
+  // ---------- render ----------
+  const slug = new URLSearchParams(location.search).get('s');
+  const i = Math.max(0, SERVICES.findIndex(s => s.slug === slug));
+  const svc = SERVICES[i];
+  const quoteUrl = `index.html?interest=${svc.interest}&about=${encodeURIComponent(svc.title)}#contact`;
+
+  document.title = `${svc.title} | AirKing Services`;
+  const meta = document.querySelector('meta[name="description"]');
+  if (meta) meta.setAttribute('content', `${svc.title} — ${svc.tagline}`);
+
+  $('svcCrumb').textContent = svc.title;
+  $('svcNum').textContent = String(i + 1).padStart(2, '0');
+  $('svcTitle').textContent = svc.title;
+  $('svcTagline').textContent = svc.tagline;
+  $('svcImg').src = svc.img; $('svcImg').alt = svc.title;
+  $('svcIntro').innerHTML = svc.intro.map(p => `<p>${esc(p)}</p>`).join('');
+  $('svcIncludes').innerHTML = svc.includes.map(x => `<li>${esc(x)}</li>`).join('');
+  $('svcSteps').innerHTML = svc.steps.map(([h, p], k) =>
+    `<li class="step"><span class="step-num">${k + 1}</span><h3>${esc(h)}</h3><p>${esc(p)}</p></li>`).join('');
+  $('svcStats').innerHTML = svc.stats.map(([v, l]) => `<div class="aside-stat"><strong>${esc(v)}</strong><span>${esc(l)}</span></div>`).join('');
+  if (svc.benefits) {
+    $('svcBenefits').hidden = false;
+    $('svcBenefitList').innerHTML = svc.benefits.map(b => `<li>${esc(b)}</li>`).join('');
+  }
+  $('svcRelated').innerHTML = svc.related.map(id => {
+    const [name, file] = EQUIPMENT[id];
+    return `<a class="card product rel-card" href="index.html#${id}">
+      <div class="product-img"><img src="assets/equipment/${file}.jpg" alt="${esc(name)}" loading="lazy"></div>
+      <div class="card-body"><h3>${esc(name)}</h3><span class="rel-more">View equipment →</span></div></a>`;
+  }).join('');
+  document.querySelectorAll('[data-quote]').forEach(a => { a.href = quoteUrl; });
+  $('svcAsideTitle').textContent = `Interested in ${svc.title}?`;
+
+  const prev = SERVICES[(i + SERVICES.length - 1) % SERVICES.length], next = SERVICES[(i + 1) % SERVICES.length];
+  $('svcPrev').href = `service.html?s=${prev.slug}`; $('svcPrevTitle').textContent = prev.title;
+  $('svcNext').href = `service.html?s=${next.slug}`; $('svcNextTitle').textContent = next.title;
+  $('svcAll').innerHTML = SERVICES.map(s =>
+    `<a href="service.html?s=${s.slug}" class="${s === svc ? 'active' : ''}"${s === svc ? ' aria-current="page"' : ''}>${esc(s.title)}</a>`).join('');
+
+  // ---------- page chrome: theme, header, menus ----------
+  $('year').textContent = new Date().getFullYear();
+  const header = $('header'), hero = $('svcHero');
+  const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+  const onScroll = () => {
+    header.classList.toggle('on-dark', isDark() || window.scrollY < hero.offsetHeight - 80);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    $('scrollProgress').style.setProperty('--progress', max > 0 ? window.scrollY / max : 0);
+    $('toTop').classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const themeToggle = $('themeToggle');
+  const syncTheme = () => themeToggle.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode');
+  themeToggle.addEventListener('click', () => {
+    const t = isDark() ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('airking-theme', t); } catch (e) {}
+    syncTheme(); onScroll();
+  });
+  syncTheme();
+
+  const nav = $('nav'), toggle = $('navToggle'), dropdown = $('equipDropdown'), ddToggle = dropdown.querySelector('.dropdown-toggle');
+  const setMenu = o => { nav.classList.toggle('open', o); toggle.setAttribute('aria-expanded', o); };
+  const setDD = o => { dropdown.classList.toggle('open', o); ddToggle.setAttribute('aria-expanded', o); };
+  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  ddToggle.addEventListener('click', () => setDD(!dropdown.classList.contains('open')));
+  document.addEventListener('click', e => { if (!dropdown.contains(e.target)) setDD(false); if (!header.contains(e.target)) setMenu(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { setDD(false); setMenu(false); } });
+  // the "Services" link stays highlighted on this page
+  const svcLink = nav.querySelector('a[href="index.html#services"]');
+  if (svcLink) { svcLink.classList.add('active'); svcLink.setAttribute('aria-current', 'page'); }
+  const bubble = $('navBubble');
+  const placeBubble = () => {
+    if (!svcLink || getComputedStyle(bubble).display === 'none') return;
+    bubble.style.width = svcLink.offsetWidth + 'px'; bubble.style.height = svcLink.offsetHeight + 'px';
+    bubble.style.top = svcLink.offsetTop + 'px'; bubble.style.transform = `translateX(${svcLink.offsetLeft}px)`;
+    bubble.style.opacity = 1;
+  };
+  window.addEventListener('load', placeBubble); window.addEventListener('resize', placeBubble); placeBubble();
+})();

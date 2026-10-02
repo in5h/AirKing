@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services | AirKing</title>
+  <meta name="description" content="Shanghai Air King Air Equipment Co., Ltd. – textile air conditioning, automation and dust handling since 1996. Turn-key delivery, energy-saving control, local support in Pakistan.">
+  <link rel="icon" href="assets/logo.jpg">
+  <meta name="theme-color" content="#0b1f36">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Apply the saved (or system) theme before first paint to avoid a flash.
+    (function () {
+      var t;
+      try { t = localStorage.getItem('airking-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body id="top">
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ===================== HEADER (floating glass nav) ===================== -->
+  <header class="header on-dark" id="header">
+    <div class="nav-shell">
+      <a href="index.html#home" class="brand" aria-label="AirKing home">
+        <img src="assets/logo-white.png" alt="AirKing" class="logo-on-dark">
+        <img src="assets/logo-blue.png" alt="" class="logo-on-light" aria-hidden="true">
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Main">
+        <span class="nav-bubble" id="navBubble" aria-hidden="true"></span>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#history" class="nav-link">History</a>
+
+        <!-- Equipment dropdown: one group per division, each link jumps to that item in the Equipment section -->
+        <div class="dropdown" id="equipDropdown">
+          <button class="nav-link dropdown-toggle" data-section="equipment" aria-expanded="false" aria-controls="equipMenu">
+            Equipment <span class="caret" aria-hidden="true"></span>
+          </button>
+          <div class="dropdown-menu" id="equipMenu">
+            <div class="dropdown-col">
+              <a href="index.html#div-automation" class="dropdown-head">Automation &amp; Controls</a>
+              <a href="index.html#eq-panels">Electric Panels</a>
+              <a href="index.html#eq-inverters">Inverters &amp; Automation System</a>
+              <a href="index.html#eq-components">Electrical Components</a>
+              <a href="index.html#eq-sensors">Temperature &amp; Humidity Sensors</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="index.html#div-washer" class="dropdown-head">Air Washer</a>
+              <a href="index.html#eq-showering">Showering Area</a>
+              <a href="index.html#eq-nozzles">Water Spray Nozzles</a>
+              <a href="index.html#eq-eliminators">Eliminator Plates</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="index.html#div-airhandling" class="dropdown-head">Air Handling</a>
+              <a href="index.html#eq-supply-fan">Supply &amp; Return Air Fan</a>
+              <a href="index.html#eq-return-fan">Return Air Fan</a>
+              <a href="index.html#eq-dampers">Air Control Dampers</a>
+              <a href="index.html#eq-louvre">Weather Control Louvre</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="index.html#div-filtration" class="dropdown-head">Filtration &amp; Dust Handling</a>
+              <a href="index.html#eq-rotary-filter">Rotary Air Filtration System</a>
+              <a href="index.html#eq-dust">Dust Collection System</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="index.html#control" class="nav-link">Control</a>
+        <a href="index.html#clients" class="nav-link">Clients</a>
+        <a href="index.html#team" class="nav-link">Team</a>
+        <a href="index.html#contact" class="nav-link nav-link-mobile">Contact</a>
+      </nav>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+      </button>
+      <a href="index.html#contact" class="nav-cta magnetic" data-quote><span class="cta-label">Get a Quote</span><span class="cta-arrow" aria-hidden="true">→</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== SERVICE HERO ===================== -->
+    <section class="svc-hero" id="svcHero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container svc-hero-grid">
+        <div class="svc-hero-text">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="index.html">Home</a><span aria-hidden="true">/</span>
+            <a href="index.html#services">Services</a><span aria-hidden="true">/</span>
+            <span id="svcCrumb" aria-current="page"></span>
+          </nav>
+          <span class="svc-hero-num glass">Service <strong id="svcNum">01</strong></span>
+          <h1 id="svcTitle">Service</h1>
+          <p class="lead" id="svcTagline"></p>
+          <div class="hero-actions">
+            <a href="index.html#contact" class="btn" data-quote>Get a Quote</a>
+            <a href="tel:+923276889999" class="btn btn-glass">Call 0327 6889999</a>
+          </div>
+        </div>
+        <div class="svc-hero-media glass">
+          <img id="svcImg" src="assets/services/design.jpg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICE BODY ===================== -->
+    <section class="section svc-detail">
+      <div class="container svc-layout">
+        <article class="svc-main">
+          <p class="eyebrow">Overview</p>
+          <div class="svc-intro" id="svcIntro"></div>
+
+          <h2 class="svc-h2">What's included</h2>
+          <ul class="svc-includes" id="svcIncludes"></ul>
+
+          <div class="svc-benefits" id="svcBenefits" hidden>
+            <h2 class="svc-h2">Why upgrade?</h2>
+            <ul class="tags" id="svcBenefitList"></ul>
+          </div>
+
+          <h2 class="svc-h2">How we work</h2>
+          <ol class="steps" id="svcSteps"></ol>
+        </article>
+
+        <aside class="svc-aside">
+          <div class="aside-card">
+            <h3 id="svcAsideTitle">Interested?</h3>
+            <p>Tell us about your mill and our engineers will prepare a proposal.</p>
+            <div class="aside-stats" id="svcStats"></div>
+            <a href="index.html#contact" class="btn btn-block" data-quote>Request a Quote</a>
+            <div class="aside-contact">
+              <a href="tel:+923276889999">📞 0327 6889999</a>
+              <a href="mailto:sales@nextexpk.com">✉️ sales@nextexpk.com</a>
+            </div>
+          </div>
+          <nav class="aside-card svc-all" aria-label="All services">
+            <h3>All services</h3>
+            <div id="svcAll"></div>
+          </nav>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== RELATED EQUIPMENT ===================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Equipment</p>
+          <h2>Related equipment</h2>
+        </div>
+        <div class="cards rel-grid" id="svcRelated"></div>
+      </div>
+    </section>
+
+    <!-- ===================== PREV / NEXT ===================== -->
+    <section class="container svc-pager">
+      <a class="pager-link" id="svcPrev" href="#"><span>← Previous service</span><strong id="svcPrevTitle"></strong></a>
+      <a class="pager-link next" id="svcNext" href="#"><span>Next service →</span><strong id="svcNextTitle"></strong></a>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="assets/logo-white.png" alt="AirKing" class="footer-logo">
+        <p class="tagline">THE ENGINEERING EXCELLENCE</p>
+        <p>Textile air conditioning, automation and dust handling — turn-key, energy-saving and backed by local support in Pakistan.</p>
+      </div>
+      <nav class="footer-col" aria-label="Company">
+        <h4>Company</h4>
+        <a href="index.html#about">About Us</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#history">History</a>
+        <a href="index.html#clients">Clients</a>
+        <a href="index.html#team">Our Team</a>
+      </nav>
+      <nav class="footer-col" aria-label="Equipment">
+        <h4>Equipment</h4>
+        <a href="index.html#div-automation">Automation &amp; Controls</a>
+        <a href="index.html#div-washer">Air Washer</a>
+        <a href="index.html#div-airhandling">Air Handling</a>
+        <a href="index.html#div-filtration">Filtration &amp; Dust</a>
+        <a href="index.html#control">Control System</a>
+      </nav>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>P-56, Main Kashmir Road, Amin Town, Faisalabad, Pakistan</p>
+        <a href="tel:+923276889999">0327 6889999</a>
+        <a href="mailto:sales@nextexpk.com">sales@nextexpk.com</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> Shanghai Air King Air Equipment Co., Ltd. All rights reserved.</p>
+      <a href="#top" class="to-top-link">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <a href="#top" class="to-top glass" id="toTop" aria-label="Back to top">↑</a>
+
+  <script src="js/service.js"></script>
+</body>
+</html>

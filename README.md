@@ -5,7 +5,9 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 ## Structure
 - `index.html` – all page content (sections marked with `<!-- EDIT -->` comments)
 - `css/style.css` – styling (colours at the top: `:root` for light mode, `[data-theme="dark"]` for dark mode)
-- `js/main.js` – menu, animations, query form (`SALES_EMAIL` at the top)
+- `js/main.js` – nav bar, animations, quotation form (`SALES_EMAIL` at the top)
+- `js/search.js` – site search (Ctrl/⌘+K) and the context-aware "Get a Quote" buttons
+- `service.html` + `js/service.js` – detail page for each service (`service.html?s=design`, `installation`, `commissioning`, `control`, `dust`, `upgrade`); the text for each service is in `js/service.js`
 - `assets/logo.jpg` – original logo (favicon); `assets/logo-white.png` / `assets/logo-blue.png` – English-only wordmarks used in the nav bar and footer
 - `js/src/hero.js` – the interactive 3D fan in the hero (Three.js); bundled into `js/hero.js`
 - `assets/equipment/` – equipment photos: `electric-panels.jpg`, `inverters.jpg`, `components.jpg`, `sensors.jpg`, `showering-area.jpg`, `spray-nozzle.jpg`, `eliminator-plates.jpg`, `supply-return-fan.jpg`, `return-air-fan.jpg`, `dampers.jpg`, `weather-louvre.jpg`, `rotary-filter.jpg`, `dust-collection.jpg`
@@ -34,3 +36,12 @@ Copy the results from `out/` into `assets/equipment/` (and `svc-*.jpg` into `ass
 npm install
 npm run build
 ```
+
+## Quotation emails (important — one-time activation)
+The quotation form sends each request as an email to **sales@nextexpk.com** through [FormSubmit](https://formsubmit.co) (free, no account or server needed).
+
+1. Publish the site (e.g. GitHub Pages) and send one test request from the form.
+2. FormSubmit emails **sales@nextexpk.com** an activation link — click it once.
+3. From then on every request arrives in that inbox; "Reply" goes straight to the customer.
+
+If sending ever fails, the form offers the visitor a pre-filled email or the phone number instead. To change the receiving address, edit `SALES_EMAIL` at the top of `js/main.js`.

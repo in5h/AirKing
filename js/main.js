@@ -6,21 +6,17 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').match
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ---------- Header: glass tint over the hero, hide on scroll down, scroll progress, back-to-top ----------
+// ---------- Header: glass tint over the hero, scroll progress, back-to-top ----------
 const header = document.getElementById('header');
 const hero = document.getElementById('home');
 const progress = document.getElementById('scrollProgress');
 const toTop = document.getElementById('toTop');
-let lastY = window.scrollY;
 
 const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
 
 const onScroll = () => {
   const y = window.scrollY;
   header.classList.toggle('on-dark', isDark() || y < hero.offsetHeight - 80);
-  const menuOpen = nav.classList.contains('open') || dropdown.classList.contains('open');
-  header.classList.toggle('hide', y > lastY && y > 300 && !menuOpen);
-  lastY = y;
   const max = document.documentElement.scrollHeight - window.innerHeight;
   progress.style.setProperty('--progress', max > 0 ? y / max : 0);
   toTop.classList.toggle('show', y > window.innerHeight);
@@ -164,40 +160,95 @@ if ('IntersectionObserver' in window) {
   revealTargets.forEach(el => el.classList.add('visible'));
 }
 
-// Query form: validates, then opens the visitor's email app with the query pre-filled.
+// ---------- Quotation form: emailed to the sales team via FormSubmit (no backend needed) ----------
+// The first submission sends a one-time activation email to SALES_EMAIL; after that, every request arrives as an email.
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${SALES_EMAIL}`;
 const form = document.getElementById('queryForm');
 const status = document.getElementById('formStatus');
+const submitBtn = document.getElementById('formSubmit');
+const formFields = [...form.children];
 
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  let valid = true;
+const validate = () => {
+  let valid = true, first = null;
   form.querySelectorAll('[required]').forEach(field => {
-    const ok = field.value.trim() !== '' && (field.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value));
+    const ok = field.value.trim() !== '' && (field.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim()));
     field.classList.toggle('invalid', !ok);
-    if (!ok) valid = false;
+    field.setAttribute('aria-invalid', !ok);
+    if (!ok) { valid = false; first = first || field; }
   });
-  if (!valid) {
+  if (first) first.focus();
+  return valid;
+};
+form.querySelectorAll('[required]').forEach(f => f.addEventListener('input', () => f.classList.remove('invalid')));
+
+const mailtoLink = d => {
+  const body = [`Name: ${d.name}`, `Company: ${d.company || '-'}`, `Email: ${d.email}`, `Phone: ${d.phone || '-'}`, `Interested in: ${d.product}`, '', d.message].join('\n');
+  return `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(`Quotation request: ${d.product} – ${d.name}`)}&body=${encodeURIComponent(body)}`;
+};
+
+const showSuccess = d => {
+  formFields.forEach(el => { el.hidden = true; });
+  const box = document.createElement('div');
+  box.className = 'form-success';
+  box.setAttribute('role', 'status');
+  box.innerHTML = `<span class="tick" aria-hidden="true">✓</span>
+    <h3>Quotation request sent!</h3>
+    <p>Thank you${d.name ? ', ' + d.name.split(' ')[0].replace(/[<>&"]/g, '') : ''}. Our sales team has received your request and will reply to <strong></strong> shortly.</p>
+    <button type="button" class="btn btn-sm">Send another request</button>`;
+  box.querySelector('strong').textContent = d.email;
+  box.querySelector('button').addEventListener('click', () => {
+    box.remove();
+    formFields.forEach(el => { el.hidden = false; });
+    form.reset(); status.textContent = ''; status.className = 'form-status';
+    form.querySelector('input[name="name"]').focus();
+  });
+  form.appendChild(box);
+  box.querySelector('button').focus({ preventScroll: true });
+};
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  if (!validate()) {
     status.className = 'form-status err';
     status.textContent = 'Please fill in your name, a valid email and your query.';
     return;
   }
-
   const d = Object.fromEntries(new FormData(form));
-  const subject = `Website query: ${d.product} – ${d.name}`;
-  const body = [
-    `Name: ${d.name}`,
-    `Company: ${d.company || '-'}`,
-    `Email: ${d.email}`,
-    `Phone: ${d.phone || '-'}`,
-    `Interested in: ${d.product}`,
-    '',
-    d.message,
-  ].join('\n');
+  if (d._honey) return; // bot
 
-  window.location.href = `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  status.className = 'form-status ok';
-  status.textContent = 'Thank you! Your email app has opened with your query — just press Send.';
-  form.reset();
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span>Sending…';
+  status.className = 'form-status'; status.textContent = '';
+
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({
+        _subject: `Quotation request: ${d.product} – ${d.name}${d.company ? ' (' + d.company + ')' : ''}`,
+        _template: 'table',
+        _captcha: 'false',
+        _replyto: d.email,
+        Name: d.name,
+        Company: d.company || '-',
+        Email: d.email,
+        Phone: d.phone || '-',
+        'Interested in': d.product,
+        Message: d.message,
+        Page: location.href,
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || `HTTP ${res.status}`);
+    showSuccess(d);
+  } catch (err) {
+    status.className = 'form-status err';
+    status.innerHTML = 'Sorry, your request could not be sent right now. <a href="#">Send it by email instead</a> or call 0327 6889999.';
+    status.querySelector('a').href = mailtoLink(d);
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Quotation Request';
+  }
 });
 
 // ---------- Interactive cards: 3D tilt + cursor spotlight ----------
