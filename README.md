@@ -8,8 +8,20 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `js/main.js` – menu, animations, query form (`SALES_EMAIL` at the top)
 - `assets/logo.jpg` – logo
 - `assets/equipment/` – equipment photos: `electric-panels.jpg`, `inverters.jpg`, `components.jpg`, `sensors.jpg`, `showering-area.jpg`, `spray-nozzle.jpg`, `eliminator-plates.jpg`, `supply-return-fan.jpg`, `return-air-fan.jpg`, `dampers.jpg`, `weather-louvre.jpg`, `rotary-filter.jpg`, `dust-collection.jpg`
+- `assets/services/` – service card images
 - `assets/team/` – optional team photos
+- `tools/renders/` – Three.js scenes that generated the equipment and service images (see below)
 
 ## Still to fill in
 - Team names and designations
-- Equipment photos (cards show a placeholder until a photo is added)
+- Real equipment photos, if wanted: overwrite the matching file in `assets/equipment/`
+
+## Regenerating the 3D images
+The equipment and service images are 3D renders made with Three.js. To change one, edit its scene in `tools/renders/scenes.js`, then from `tools/renders/`:
+
+```
+npm install three@0.170.0 playwright
+python3 -m http.server 8765 &
+node run.js out            # or: node run.js out dampers svc-design
+```
+Copy the results from `out/` into `assets/equipment/` (and `svc-*.jpg` into `assets/services/` without the prefix).
