@@ -284,6 +284,44 @@
     </div>
   </section>
 
+  <!-- ===================== FACTORY SETUP (photo gallery) ===================== -->
+  <!-- Add photos by copying a <figure>; g-big = large tile, g-wide = two columns wide -->
+  <section class="section section-alt" id="factory">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">AirKing Factory Setup</p>
+        <h2>Inside AirKing</h2>
+        <p>From engineering design to production and dispatch — a look inside our office and 25,000 m² factory in Jiangsu, China.</p>
+      </div>
+      <div class="gallery" data-gallery="Factory Setup">
+        <figure class="g-item g-big">
+          <button type="button" class="g-open" aria-label="View larger: Head office">
+            <img src="assets/factory/office-history-wall.jpg" alt="Head office wall showing AirKing's history timeline and project photos" loading="lazy">
+          </button>
+          <figcaption><strong>Head office</strong><span>Our history and project wall — milestones from 1996 to today</span></figcaption>
+        </figure>
+        <figure class="g-item ">
+          <button type="button" class="g-open" aria-label="View larger: Production workshop">
+            <img src="assets/factory/production-workshop.jpg" alt="AirKing production workshop with equipment being built" loading="lazy">
+          </button>
+          <figcaption><strong>Production workshop</strong><span>Equipment manufactured in our own factory</span></figcaption>
+        </figure>
+        <figure class="g-item ">
+          <button type="button" class="g-open" aria-label="View larger: Ready for dispatch">
+            <img src="assets/factory/finished-equipment.jpg" alt="Finished AirKing dampers and louvres wrapped for dispatch" loading="lazy">
+          </button>
+          <figcaption><strong>Ready for dispatch</strong><span>Dampers and louvres packed for shipment</span></figcaption>
+        </figure>
+        <figure class="g-item g-wide">
+          <button type="button" class="g-open" aria-label="View larger: Engineering & 3D design">
+            <img src="assets/factory/engineering-design.jpg" alt="AirKing engineer designing equipment in 3D CAD software" loading="lazy">
+          </button>
+          <figcaption><strong>Engineering & 3D design</strong><span>Every plant is designed in-house</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== EQUIPMENT ===================== -->
   <!-- Images in assets/equipment/ are 3D renders; replace any file with a real photo of the same name -->
   <section class="section" id="equipment">
@@ -533,15 +571,62 @@
         <h2>Industries we serve</h2>
         <p>We provide complete air solutions for the following industries.</p>
       </div>
+      <!-- Photos: assets/industries/<name>.jpg — a card shows its icon until its photo is added -->
       <div class="industries">
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🧵</span><h3>Spinning</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🪡</span><h3>Weaving</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🧶</span><h3>Knitting</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🧪</span><h3>Chemical Fibre</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🔬</span><h3>Fibre Glass</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">📄</span><h3>Papermaking</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🛞</span><h3>Tyre</h3></div>
-        <div class="industry"><span class="industry-icon" aria-hidden="true">🚬</span><h3>Cigarette</h3></div>
+        <article class="industry">
+          <div class="ind-img" data-icon="🧵">
+            <img src="assets/industries/spinning.jpg" alt="Spinning production" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ind-body">
+            <h3>Spinning</h3>
+            <p>Stable humidity keeps yarn strong and cuts end breaks.</p>
+          </div>
+        </article>
+        <article class="industry">
+          <div class="ind-img" data-icon="🪡">
+            <img src="assets/industries/weaving.jpg" alt="Weaving production" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ind-body">
+            <h3>Weaving</h3>
+            <p>Even conditions across the loom shed for consistent fabric.</p>
+          </div>
+        </article>
+        <article class="industry">
+          <div class="ind-img" data-icon="🧪">
+            <img src="assets/industries/synthetic-fibre.jpg" alt="Synthetic Fibre production" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ind-body">
+            <h3>Synthetic Fibre</h3>
+            <p>Precise climate for chemical fibre spinning and winding.</p>
+          </div>
+        </article>
+        <article class="industry">
+          <div class="ind-img" data-icon="🧶">
+            <img src="assets/industries/knitting.jpg" alt="Knitting production" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ind-body">
+            <h3>Knitting</h3>
+            <p>Controlled air for circular and flat knitting halls.</p>
+          </div>
+        </article>
+        <article class="industry">
+          <div class="ind-img" data-icon="🧻">
+            <img src="assets/industries/nonwoven.jpg" alt="Non-woven Fabric production" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ind-body">
+            <h3>Non-woven Fabric</h3>
+            <p>Clean, conditioned air for non-woven production lines.</p>
+          </div>
+        </article>
+        <article class="industry">
+          <div class="ind-img" data-icon="🏭">
+            <img src="assets/industries/other.jpg" alt="Other Industries production" loading="lazy" onerror="this.remove()">
+          </div>
+          <div class="ind-body">
+            <h3>Other Industries</h3>
+            <p>Fibre glass · Papermaking · Tyre · Cigarette</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -753,6 +838,7 @@
         <a href="#about">About Us</a>
         <a href="#services">Services</a>
         <a href="#history">History</a>
+        <a href="#factory">Factory</a>
         <a href="#clients">Clients</a>
         <a href="#team">Our Team</a>
       </nav>
@@ -799,6 +885,7 @@
   <a href="#home" class="to-top glass" id="toTop" aria-label="Back to top">↑</a>
 
   <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
   <script src="js/search.js"></script>
   <script src="js/hero.js" defer></script>
 </body>

@@ -165,6 +165,10 @@
       keywords: div ? text(div.querySelector('.division-title')) : '',
     });
   });
+  document.querySelectorAll('[data-gallery] figure').forEach(f => push({
+    cat: f.closest('[data-gallery]').dataset.gallery, title: text(f.querySelector('figcaption strong')), desc: text(f.querySelector('figcaption span')),
+    img: f.querySelector('img').getAttribute('src'), target: f, keywords: 'factory photo gallery',
+  }));
   document.querySelectorAll('.timeline-item').forEach(t => push({
     cat: 'History', title: `${text(t.querySelector('.timeline-year'))} · ${text(t.querySelector('h3'))}`,
     desc: text(t.querySelector('p')), target: t, icon: '◷',
@@ -174,7 +178,8 @@
   }));
   document.querySelectorAll('.why').forEach(w => push({ cat: 'Why AirKing', title: text(w), target: w, icon: '★' }));
   document.querySelectorAll('.industry').forEach(i => push({
-    cat: 'Industries', title: text(i.querySelector('h3')), desc: 'Industry we serve', target: i, icon: text(i.querySelector('.industry-icon')),
+    cat: 'Industries', title: text(i.querySelector('h3')), desc: text(i.querySelector('p')), target: i, icon: i.querySelector('.ind-img').dataset.icon,
+    img: i.querySelector('.ind-img img') ? i.querySelector('.ind-img img').getAttribute('src') : '',
   }));
   document.querySelectorAll('.tab-panel').forEach(panel => {
     const tab = document.querySelector(`.tab[data-tab="${panel.id}"]`);
@@ -246,7 +251,7 @@
     let html = q ? '' : '<p class="search-group">Suggestions</p>', lastCat = null;
     results.forEach((it, i) => {
       if (q && it.cat !== lastCat) { html += `<p class="search-group">${esc(it.cat)}</p>`; lastCat = it.cat; }
-      const thumb = it.img ? `<img src="${esc(it.img)}" alt="" loading="lazy">` : `<span class="search-icon">${esc(it.icon || '•')}</span>`;
+      const thumb = it.img ? `<img src="${esc(it.img)}" alt="" loading="lazy" onerror="this.remove()">` : `<span class="search-icon">${esc(it.icon || '•')}</span>`;
       html += `<div class="search-item" role="option" id="sr-${i}" data-i="${i}" aria-selected="false">
         <span class="search-thumb">${thumb}</span>
         <span class="search-text"><span class="search-title">${highlight(it.title, terms)}</span>${it.desc ? `<span class="search-desc">${highlight(it.desc, terms)}</span>` : ''}</span>
