@@ -121,18 +121,6 @@
     a.setAttribute('aria-label', `Learn more about ${title}`);
     parent.appendChild(a);
   };
-  document.querySelectorAll('.card.product').forEach(card => {
-    const div = card.closest('.division');
-    const title = card.querySelector('h3').textContent.trim();
-    const url = `detail.html?eq=${card.id.replace(/^eq-/, '')}`;
-    const actions = document.createElement('div');
-    actions.className = 'card-actions';
-    card.querySelector('.card-body').appendChild(actions);
-    addEnquire(actions, title, divisionOpt[div && div.id] || 'general');
-    moreLink(actions, url, title);
-    card.dataset.url = url;
-    cardLink(card, url);
-  });
   document.querySelectorAll('.industry').forEach(card => {
     const img = card.querySelector('.ind-img img');
     const slug = img ? img.getAttribute('src').split('/').pop().replace('.jpg', '') : '';
@@ -180,17 +168,9 @@
     img: c.querySelector('img') && c.querySelector('img').getAttribute('src'), target: c,
     url: c.querySelector('.svc-link') && c.querySelector('.svc-link').getAttribute('href'),
   }));
-  document.querySelectorAll('.card.product').forEach(c => {
-    const div = c.closest('.division');
-    push({
-      cat: 'Equipment', title: text(c.querySelector('h3')), desc: text(c.querySelector('.card-body p')),
-      img: c.querySelector('img') && c.querySelector('img').getAttribute('src'), target: c,
-      keywords: div ? text(div.querySelector('.division-title')) : '', url: `detail.html?eq=${c.id.replace(/^eq-/, '')}`,
-    });
-  });
-  document.querySelectorAll('.gallery[data-gallery] figure').forEach(f => push({
-    cat: f.closest('[data-gallery]').dataset.gallery, title: text(f.querySelector('figcaption strong')), desc: text(f.querySelector('figcaption span')),
-    img: f.querySelector('img').getAttribute('src'), target: f, keywords: 'factory photo gallery',
+  document.querySelectorAll('.prod-link').forEach(c => push({
+    cat: 'Products', title: text(c.querySelector('span')), desc: text(c.closest('.prod-col').querySelector('.prod-head')).replace(/^\d+/, ''),
+    img: c.querySelector('img').getAttribute('src'), target: c, keywords: 'equipment product', url: c.getAttribute('href'),
   }));
   document.querySelectorAll('.member').forEach(m => push({
     cat: 'Team', title: text(m.querySelector('h3')), desc: text(m.querySelector('p')), target: m, icon: '👤',
@@ -257,7 +237,7 @@
           const st = stem(t);
           score += tl.startsWith(t) ? 6 : tl.includes(t) ? 4 : tl.includes(st) ? 3 : it.desc.toLowerCase().includes(t) ? 1 : 0.5;
         });
-        if (it.cat === 'Equipment' || it.cat === 'Services') score += 1;
+        if (it.cat === 'Products' || it.cat === 'Services') score += 1;
         return { it, score };
       })
       .sort((a, b) => b.score - a.score)

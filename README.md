@@ -8,6 +8,7 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `js/main.js` – nav bar, animations, quotation form (`SALES_EMAIL` at the top)
 - `js/search.js` – site search (Ctrl/⌘+K) and the context-aware "Get a Quote" buttons
 - `detail.html` + `js/detail.js` – detail page for every equipment item (`detail.html?eq=panels`, `inverters`, `components`, `sensors`, `showering`, `nozzles`, `eliminators`, `supply-fan`, `return-fan`, `dampers`, `louvre`, `rotary-filter`, `dust`) and industry (`detail.html?ind=spinning`, `weaving`, `synthetic-fibre`, `knitting`, `nonwoven`, `other`); the text for each is in `js/detail.js`
+- `send.php` – emails quotation requests when the site is hosted on cPanel/PHP
 - `privacy.html` – privacy policy (linked from every footer; update the effective date when the text changes)
 - `js/chrome.js` – shared header/theme/menu code for the inner pages
 - `service.html` + `js/service.js` – detail page for each service (`service.html?s=design`, `installation`, `commissioning`, `control`, `dust`, `upgrade`); the text for each service is in `js/service.js`
@@ -16,7 +17,7 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `assets/equipment/` – equipment photos: `electric-panels.jpg`, `inverters.jpg`, `components.jpg`, `sensors.jpg`, `showering-area.jpg`, `spray-nozzle.jpg`, `eliminator-plates.jpg`, `supply-return-fan.jpg`, `return-air-fan.jpg`, `dampers.jpg`, `weather-louvre.jpg`, `rotary-filter.jpg`, `dust-collection.jpg`
 - `assets/services/` – service card images
 - `assets/factory/` – Factory Setup gallery photos (add more by copying a `<figure>` in the gallery)
-- `assets/equipment/photos/` – real equipment photos; a card with photos gets a Photo 1 / Photo 2 / 3D switch (the 3D render stays available)
+- `assets/equipment/photos/` – real equipment photos (first photo is the thumbnail in the home page Products list; all photos + the 3D render show on each product's detail page)
 - `assets/industries/` – industry photos: `spinning.jpg`, `weaving.jpg`, `synthetic-fibre.jpg`, `knitting.jpg`, `nonwoven.jpg`, `other.jpg` (each card shows its icon until its photo is added)
 - `js/gallery.js` – full-screen photo viewer for any `[data-gallery]` section
 - `assets/clients/` – client logos for the scrolling logo row in Clients (add an `<li>` to both lists in index.html)

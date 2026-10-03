@@ -170,7 +170,7 @@ tabs.forEach(tab => tab.addEventListener('click', () => {
 }));
 
 // Reveal sections and count up stats when they scroll into view
-const revealTargets = document.querySelectorAll('.section-head, .pillar, .svc-card, .g-item, .about-grid > *, .timeline-item, .division-title, .card, .control-grid > *, .why, .reason-box, .saving-card, .industry, .table-wrap, .member, .contact-grid > *');
+const revealTargets = document.querySelectorAll('.section-head, .pillar, .svc-card, .g-item, .about-grid > *, .timeline-item, .prod-col, .card, .control-grid > *, .why, .saving-card, .industry, .table-wrap, .member, .contact-grid > *');
 revealTargets.forEach(el => {
   el.classList.add('reveal');
   // stagger siblings in grids so cards cascade in
