@@ -12,7 +12,7 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `js/chrome.js` – shared header/theme/menu code for the inner pages
 - `service.html` + `js/service.js` – detail page for each service (`service.html?s=design`, `installation`, `commissioning`, `control`, `dust`, `upgrade`); the text for each service is in `js/service.js`
 - `assets/logo.jpg` – original logo (favicon); `assets/logo-white.png` / `assets/logo-blue.png` – English-only wordmarks used in the nav bar and footer
-- `js/src/hero.js` – the interactive 3D fan in the hero (Three.js); bundled into `js/hero.js`
+- `assets/hero-video.mp4` + `assets/hero-poster.jpg` – the muted, looping background video at the top of the home page (until the file exists, a blue gradient shows)
 - `assets/equipment/` – equipment photos: `electric-panels.jpg`, `inverters.jpg`, `components.jpg`, `sensors.jpg`, `showering-area.jpg`, `spray-nozzle.jpg`, `eliminator-plates.jpg`, `supply-return-fan.jpg`, `return-air-fan.jpg`, `dampers.jpg`, `weather-louvre.jpg`, `rotary-filter.jpg`, `dust-collection.jpg`
 - `assets/services/` – service card images
 - `assets/factory/` – Factory Setup gallery photos (add more by copying a `<figure>` in the gallery)
@@ -35,13 +35,6 @@ node run.js out            # or: node run.js out dampers svc-design
 ```
 Copy the results from `out/` into `assets/equipment/` (and `svc-*.jpg` into `assets/services/` without the prefix).
 
-## Building the 3D hero
-`js/hero.js` is a ready-built bundle, so the site works as plain files (even opened straight from disk). After editing `js/src/hero.js`, rebuild it:
-
-```
-npm install
-npm run build
-```
 
 ## Quotation emails (important — one-time activation)
 The quotation form sends each request as an email to **sales@nextexpk.com** through [FormSubmit](https://formsubmit.co) (free, no account or server needed).

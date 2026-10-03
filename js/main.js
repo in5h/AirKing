@@ -35,6 +35,28 @@ themeToggle.addEventListener('click', () => {
 });
 syncThemeLabel();
 
+// ---------- Hero background video ----------
+const heroVideo = document.getElementById('heroVideo');
+const videoToggle = document.getElementById('heroVideoToggle');
+if (heroVideo) {
+  // the browser tries each <source> in turn; if the last one fails there's no playable file — keep the gradient
+  const sources = heroVideo.querySelectorAll('source');
+  sources[sources.length - 1].addEventListener('error', () => heroVideo.remove());
+  heroVideo.addEventListener('loadeddata', () => { hero.classList.add('has-video'); videoToggle.hidden = false; });
+  if (reduceMotion) heroVideo.removeAttribute('autoplay'), heroVideo.pause();
+  const syncToggle = () => {
+    const paused = heroVideo.paused;
+    videoToggle.classList.toggle('is-paused', paused);
+    videoToggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+  };
+  videoToggle.addEventListener('click', () => { heroVideo.paused ? heroVideo.play() : heroVideo.pause(); });
+  heroVideo.addEventListener('play', syncToggle); heroVideo.addEventListener('pause', syncToggle);
+  // save battery/data: pause while the hero is off screen
+  new IntersectionObserver(([e]) => { if (!e.isIntersecting) heroVideo.pause(); else if (!videoToggle.classList.contains('user-paused') && !reduceMotion) heroVideo.play().catch(() => {}); }).observe(hero);
+  videoToggle.addEventListener('click', () => videoToggle.classList.toggle('user-paused', heroVideo.paused));
+  syncToggle();
+}
+
 // ---------- Mobile menu ----------
 const toggle = document.getElementById('navToggle');
 const nav = document.getElementById('nav');

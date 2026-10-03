@@ -334,7 +334,6 @@
   };
 
   document.getElementById('searchOpen').addEventListener('click', () => open());
-  document.getElementById('heroSearch').addEventListener('click', () => open());
   overlay.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', close));
   input.addEventListener('input', render);
   list.addEventListener('click', e => {
@@ -368,7 +367,6 @@
   });
   // show ⌘ on Macs
   if (/Mac|iPhone|iPad/.test(navigator.platform)) {
-    document.querySelectorAll('.hero-search kbd').forEach(k => { k.textContent = '⌘ K'; });
     document.getElementById('searchOpen').setAttribute('aria-label', 'Search the site (⌘K)');
   }
 })();

@@ -158,30 +158,33 @@
     </div>
   </header>
 
-  <!-- ===================== HERO (3D) ===================== -->
+  <!-- ===================== HERO (background video) ===================== -->
+  <!-- Video files: assets/hero-video.webm + assets/hero-video.mp4 (muted, looping). Until they exist the blue gradient shows. -->
   <section class="hero" id="home">
     <div class="hero-bg" aria-hidden="true"></div>
-    <canvas id="heroCanvas" class="hero-canvas" aria-label="3D model of an AirKing axial fan. Drag to rotate, click to speed it up."></canvas>
+    <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="assets/hero-poster.jpg" aria-hidden="true">
+      <source src="assets/hero-video.webm" type="video/webm">
+      <source src="assets/hero-video.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container hero-content">
       <span class="hero-badge glass"><span class="dot"></span>Textile air conditioning since 1996</span>
       <h1>Global solution for <span class="grad-text">air engineering</span>.</h1>
       <p class="lead">For three decades, Shanghai Air King Air Equipment Co., Ltd. has engineered precise, energy-saving air conditioning for the textile industry — from design to commissioning.</p>
       <div class="hero-actions">
-        <a href="#equipment" class="btn magnetic">Explore Equipment</a>
+        <a href="#equipment" class="btn magnetic">Explore Products</a>
         <a href="#contact" class="btn btn-glass magnetic">Talk to Sales</a>
       </div>
-      <button class="hero-search glass" id="heroSearch" type="button" aria-haspopup="dialog">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-        <span>Search equipment, services, clients…</span>
-        <kbd>Ctrl K</kbd>
-      </button>
       <div class="hero-stats">
         <div class="glass hero-stat"><strong>30</strong><span>years of textile AC</span></div>
         <div class="glass hero-stat"><strong>60%+</strong><span>measured energy saving</span></div>
         <div class="glass hero-stat"><strong>10+</strong><span>countries served</span></div>
       </div>
     </div>
-    <p class="hero-hint" aria-hidden="true">Drag the fan to rotate · click to boost</p>
+    <button type="button" class="hero-video-toggle" id="heroVideoToggle" aria-label="Pause background video" hidden>
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+    </button>
     <a href="#about" class="scroll-cue" aria-label="Scroll to About"><span></span></a>
   </section>
 
@@ -1194,6 +1197,5 @@
   <script src="js/main.js"></script>
   <script src="js/gallery.js"></script>
   <script src="js/search.js"></script>
-  <script src="js/hero.js" defer></script>
 </body>
 </html>
