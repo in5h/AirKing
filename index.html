@@ -36,44 +36,84 @@
       <nav class="nav" id="nav" aria-label="Main">
         <span class="nav-bubble" id="navBubble" aria-hidden="true"></span>
         <a href="#about" class="nav-link">About</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="#history" class="nav-link">History</a>
-
-        <!-- Equipment dropdown: one group per division, each link jumps to that item in the Equipment section -->
-        <div class="dropdown" id="equipDropdown">
-          <button class="nav-link dropdown-toggle" data-section="equipment" aria-expanded="false" aria-controls="equipMenu">
-            Equipment <span class="caret" aria-hidden="true"></span>
+        <div class="dropdown" id="servicesDropdown">
+          <button class="nav-link dropdown-toggle" data-section="services" aria-expanded="false" aria-controls="servicesMenu">
+            Services <span class="caret" aria-hidden="true"></span>
           </button>
-          <div class="dropdown-menu" id="equipMenu">
+          <div class="dropdown-menu cols-2" id="servicesMenu">
             <div class="dropdown-col">
-              <a href="#div-automation" class="dropdown-head">Automation &amp; Controls</a>
-              <a href="#eq-panels">Electric Panels</a>
-              <a href="#eq-inverters">Inverters &amp; Automation System</a>
-              <a href="#eq-components">Electrical Components</a>
-              <a href="#eq-sensors">Temperature &amp; Humidity Sensors</a>
+              <a href="#services" class="dropdown-head">Project delivery</a>
+              <a href="service.html?s=design">Design &amp; Engineering</a>
+              <a href="service.html?s=installation">Installation</a>
+              <a href="service.html?s=commissioning">Commissioning</a>
             </div>
             <div class="dropdown-col">
-              <a href="#div-washer" class="dropdown-head">Air Washer</a>
-              <a href="#eq-showering">Showering Area</a>
-              <a href="#eq-nozzles">Water Spray Nozzles</a>
-              <a href="#eq-eliminators">Eliminator Plates</a>
-            </div>
-            <div class="dropdown-col">
-              <a href="#div-airhandling" class="dropdown-head">Air Handling</a>
-              <a href="#eq-supply-fan">Supply &amp; Return Air Fan</a>
-              <a href="#eq-return-fan">Return Air Fan</a>
-              <a href="#eq-dampers">Air Control Dampers</a>
-              <a href="#eq-louvre">Weather Control Louvre</a>
-            </div>
-            <div class="dropdown-col">
-              <a href="#div-filtration" class="dropdown-head">Filtration &amp; Dust Handling</a>
-              <a href="#eq-rotary-filter">Rotary Air Filtration System</a>
-              <a href="#eq-dust">Dust Collection System</a>
+              <a href="#services" class="dropdown-head">Plant solutions</a>
+              <a href="service.html?s=control">Automation &amp; Control</a>
+              <a href="service.html?s=dust">Dust Handling</a>
+              <a href="service.html?s=upgrade">AC Plant Upgrade</a>
             </div>
           </div>
         </div>
-
-        <a href="#control" class="nav-link">Control</a>
+        <a href="#history" class="nav-link">History</a>
+        <div class="dropdown" id="equipmentDropdown">
+          <button class="nav-link dropdown-toggle" data-section="equipment" aria-expanded="false" aria-controls="equipmentMenu">
+            Equipment <span class="caret" aria-hidden="true"></span>
+          </button>
+          <div class="dropdown-menu cols-4" id="equipmentMenu">
+            <div class="dropdown-col">
+              <a href="#div-automation" class="dropdown-head">Automation &amp; Controls</a>
+              <a href="detail.html?eq=panels">Electric Panels</a>
+              <a href="detail.html?eq=inverters">Inverters &amp; Automation System</a>
+              <a href="detail.html?eq=components">Electrical Components</a>
+              <a href="detail.html?eq=sensors">Temperature &amp; Humidity Sensors</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#div-washer" class="dropdown-head">Air Washer</a>
+              <a href="detail.html?eq=showering">Showering Area</a>
+              <a href="detail.html?eq=nozzles">Water Spray Nozzles</a>
+              <a href="detail.html?eq=eliminators">Eliminator Plates</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#div-airhandling" class="dropdown-head">Air Handling</a>
+              <a href="detail.html?eq=supply-fan">Supply &amp; Return Air Fan</a>
+              <a href="detail.html?eq=return-fan">Return Air Fan</a>
+              <a href="detail.html?eq=dampers">Air Control Dampers</a>
+              <a href="detail.html?eq=louvre">Weather Control Louvre</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#div-filtration" class="dropdown-head">Filtration &amp; Dust Handling</a>
+              <a href="detail.html?eq=rotary-filter">Rotary Air Filtration System</a>
+              <a href="detail.html?eq=dust">Dust Collection System</a>
+            </div>
+          </div>
+        </div>
+        <div class="dropdown" id="controlDropdown">
+          <button class="nav-link dropdown-toggle" data-section="control" aria-expanded="false" aria-controls="controlMenu">
+            Control <span class="caret" aria-hidden="true"></span>
+          </button>
+          <div class="dropdown-menu cols-3" id="controlMenu">
+            <div class="dropdown-col">
+              <a href="#control" class="dropdown-head">Tex-Auto system</a>
+              <a href="#control">System overview</a>
+              <a href="#control">Self-explanatory dashboard</a>
+              <a href="#results">Measured energy savings</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#div-automation" class="dropdown-head">Control hardware</a>
+              <a href="detail.html?eq=panels">Electric Panels</a>
+              <a href="detail.html?eq=inverters">Inverters &amp; Automation System</a>
+              <a href="detail.html?eq=components">Electrical Components</a>
+              <a href="detail.html?eq=sensors">Temperature &amp; Humidity Sensors</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#services" class="dropdown-head">Related services</a>
+              <a href="service.html?s=control">Automation &amp; Control</a>
+              <a href="service.html?s=upgrade">AC Plant Upgrade</a>
+              <a href="service.html?s=commissioning">Commissioning</a>
+            </div>
+          </div>
+        </div>
         <a href="#clients" class="nav-link">Clients</a>
         <a href="#team" class="nav-link">Team</a>
         <a href="#contact" class="nav-link nav-link-mobile">Contact</a>
@@ -123,21 +163,36 @@
   <!-- ===================== PILLARS ===================== -->
   <section class="pillars-wrap">
     <div class="container pillars">
-      <div class="pillar">
-        <span class="pillar-icon" aria-hidden="true">🛠️</span>
+      <a class="pillar" href="service.html?s=design">
+        <span class="pillar-top">
+          <span class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg></span>
+          <span class="pillar-num">01</span>
+        </span>
         <h3>Turn-Key Delivery</h3>
-        <p>Designing · Installation · Commissioning</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon" aria-hidden="true">🎛️</span>
+        <p>One partner from the first drawing to a running plant.</p>
+        <span class="pillar-tags"><span>Designing</span><span>Installation</span><span>Commissioning</span></span>
+        <span class="pillar-more">Explore <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="pillar" href="service.html?s=control">
+        <span class="pillar-top">
+          <span class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg></span>
+          <span class="pillar-num">02</span>
+        </span>
         <h3>Auto Control</h3>
-        <p>Precision temperature &amp; humidity control with energy-saving logic</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar-icon" aria-hidden="true">🌀</span>
+        <p>Precision temperature &amp; humidity control with energy-saving logic.</p>
+        <span class="pillar-tags"><span>Beckhoff PLC</span><span>ABB inverters</span><span>Tex-Auto</span></span>
+        <span class="pillar-more">Explore <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="pillar" href="service.html?s=dust">
+        <span class="pillar-top">
+          <span class="pillar-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.6 4.6A2 2 0 1 1 11 8H2M12.6 19.4A2 2 0 1 0 14 16H2M17.5 8a2.5 2.5 0 1 1 2 4H2"/></svg></span>
+          <span class="pillar-num">03</span>
+        </span>
         <h3>Dust Handling</h3>
-        <p>Centralized collection · Filtration · Bailing</p>
-      </div>
+        <p>Clean return air and machines, with waste baled for removal.</p>
+        <span class="pillar-tags"><span>Collection</span><span>Filtration</span><span>Bailing</span></span>
+        <span class="pillar-more">Explore <span aria-hidden="true">→</span></span>
+      </a>
     </div>
   </section>
 

@@ -45,23 +45,26 @@ const setMenu = open => {
 };
 toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
 
-// ---------- Equipment dropdown: click/tap to open (hover also opens it on desktop via CSS) ----------
-const dropdown = document.getElementById('equipDropdown');
-const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
-const setDropdown = open => {
-  dropdown.classList.toggle('open', open);
-  dropdownToggle.setAttribute('aria-expanded', open);
+// ---------- Dropdown menus (Services, Equipment, Control): click/tap to open, hover also opens them on desktop via CSS ----------
+const dropdowns = [...document.querySelectorAll('.nav .dropdown')];
+const setDropdown = (dd, open) => {
+  dd.classList.toggle('open', open);
+  dd.querySelector('.dropdown-toggle').setAttribute('aria-expanded', open);
 };
-dropdownToggle.addEventListener('click', () => setDropdown(!dropdown.classList.contains('open')));
+const closeDropdowns = (except) => dropdowns.forEach(dd => { if (dd !== except) setDropdown(dd, false); });
+dropdowns.forEach(dd => dd.querySelector('.dropdown-toggle').addEventListener('click', () => {
+  closeDropdowns(dd);
+  setDropdown(dd, !dd.classList.contains('open'));
+}));
 document.addEventListener('click', e => {
-  if (!dropdown.contains(e.target)) setDropdown(false);
+  if (!e.target.closest('.nav .dropdown')) closeDropdowns();
   if (!header.contains(e.target)) setMenu(false);
 });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { setDropdown(false); setMenu(false); } });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeDropdowns(); setMenu(false); } });
 
 nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   setMenu(false);
-  setDropdown(false);
+  closeDropdowns();
 }));
 
 window.addEventListener('scroll', onScroll, { passive: true });
@@ -70,15 +73,23 @@ onScroll();
 // ---------- iOS-style bubble: sits under the active section's link and follows the pointer ----------
 const bubble = document.getElementById('navBubble');
 const navLinks = [...nav.querySelectorAll('.nav-link')];
-const linkFor = id => navLinks.find(l => (l.dataset.section || (l.getAttribute('href') || '').slice(1)) === id);
+// only links that are actually shown (the "Contact" link exists only in the phone menu)
+const linkFor = id => navLinks.find(l => (l.dataset.section || (l.getAttribute('href') || '').slice(1)) === id && l.getClientRects().length);
 let activeLink = null;
+let bubbleTarget = null;   // the link the bubble is on right now (hovered or active)
 
 const moveBubble = link => {
+  bubbleTarget = link;
   if (!link || getComputedStyle(bubble).display === 'none') { bubble.style.opacity = 0; return; }
-  bubble.style.width = link.offsetWidth + 'px';
-  bubble.style.height = link.offsetHeight + 'px';
-  bubble.style.top = link.offsetTop + 'px';
-  bubble.style.transform = `translateX(${link.offsetLeft}px)`;
+  // measure against the nav itself (dropdown toggles sit inside a wrapper)
+  const n = nav.getBoundingClientRect(), r = link.getBoundingClientRect();
+  const wasHidden = getComputedStyle(bubble).opacity === '0';
+  if (wasHidden) bubble.style.transition = 'none';   // appear in place instead of sliding in from the left
+  bubble.style.width = r.width + 'px';
+  bubble.style.height = r.height + 'px';
+  bubble.style.top = (r.top - n.top) + 'px';
+  bubble.style.transform = `translateX(${r.left - n.left}px)`;
+  if (wasHidden) { void bubble.offsetWidth; bubble.style.transition = ''; }
   bubble.style.opacity = 1;
 };
 const setActive = link => {
@@ -93,7 +104,15 @@ if (canHover) {
   navLinks.forEach(l => l.addEventListener('pointerenter', () => moveBubble(l)));
   nav.addEventListener('pointerleave', () => moveBubble(activeLink));
 }
-window.addEventListener('resize', () => moveBubble(activeLink));
+// the links shift whenever the bar's contents change size (e.g. the quote button's wording
+// changes per section) — keep the bubble locked to its link when that happens
+const realign = () => { if (bubbleTarget) moveBubble(bubbleTarget); };
+window.addEventListener('resize', realign);
+if ('ResizeObserver' in window) {
+  const ro = new ResizeObserver(realign);
+  [nav, document.querySelector('.nav-shell'), document.querySelector('.nav-cta')].forEach(el => el && ro.observe(el));
+}
+document.fonts && document.fonts.ready.then(realign);
 
 // Scrollspy: the section crossing a line 35% down the viewport is the active one
 const spySections = ['about', 'services', 'history', 'equipment', 'control', 'clients', 'team', 'contact']
