@@ -1106,19 +1106,37 @@ tr.flash td { animation: rowflash 1.5s ease; }
 @media (max-width: 1080px) { .prod-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .prod-grid { grid-template-columns: 1fr; } }
 
-/* ---------- Compact history (grid instead of the tall zig-zag) ---------- */
-.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 18px; max-width: none; }
+/* ---------- History as a flow chart: year nodes joined by arrows ---------- */
+.timeline { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0 14px; max-width: none; position: relative; }
 .timeline::before { display: none; }
-.timeline-item, .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { width: auto; left: 0; padding: 0; text-align: left; }
-.timeline-item::before { display: none; }
-.timeline-item .timeline-card { height: 100%; border-top: 3px solid var(--brand); }
-.timeline-year { font-size: 1.15rem; margin-bottom: 8px; }
-.timeline-card h3 { font-size: 1.02rem; }
-.timeline-card p { font-size: 0.9rem; line-height: 1.5; }
-.timeline-item:last-child .timeline-card { background: linear-gradient(135deg, #3d7ab8, #255b91); }
-.timeline-item:last-child .timeline-card h3, .timeline-item:last-child .timeline-card p { color: #fff; }
-@media (max-width: 1080px) { .timeline { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .timeline { grid-template-columns: 1fr; } }
+.timeline .timeline-item, .timeline .timeline-item:nth-child(odd), .timeline .timeline-item:nth-child(even) { position: relative; left: 0; width: auto; padding: 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.timeline .timeline-item:nth-child(n)::before {             /* connector to the next year */
+  content: ""; display: block; position: absolute; z-index: 0; top: 35px; left: 50%; right: auto;
+  width: calc(100% + 14px); height: 3px; border: 0; border-radius: 0; background: linear-gradient(90deg, var(--brand), #9fd1ff);
+}
+.timeline .timeline-item:nth-child(n)::after {              /* arrow head halfway between the nodes */
+  content: ""; position: absolute; z-index: 1; top: 31px; left: calc(100% + 2px);
+  width: 9px; height: 9px; border-top: 3px solid var(--brand); border-right: 3px solid var(--brand); transform: rotate(45deg);
+}
+.timeline .timeline-item:last-child::before, .timeline .timeline-item:last-child::after { display: none; }
+.timeline .timeline-year {
+  position: relative; z-index: 2; flex: none; width: 72px; height: 72px; margin: 0 0 16px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 1.05rem; font-weight: 800; color: var(--brand-dark);
+  background: var(--surface); border: 3px solid var(--brand); box-shadow: var(--shadow);
+}
+.timeline .timeline-item:last-child .timeline-year { background: linear-gradient(135deg, #4b90d4, #255b91); color: #fff; border-color: transparent; }
+.timeline .timeline-card { flex: 1; width: 100%; padding: 16px 14px; border-top: 3px solid var(--brand); }
+.timeline .timeline-card h3 { font-size: 0.95rem; }
+.timeline .timeline-card p { font-size: 0.84rem; line-height: 1.5; margin-top: 6px; }
+.timeline .timeline-item:last-child .timeline-card { background: linear-gradient(135deg, #3d7ab8, #255b91); }
+.timeline .timeline-item:last-child .timeline-card h3, .timeline .timeline-item:last-child .timeline-card p { color: #fff; }
+@media (max-width: 1080px) {                   /* top-to-bottom flow on tablets and phones */
+  .timeline { grid-template-columns: 1fr; gap: 22px; max-width: 640px; margin: 0 auto; }
+  .timeline .timeline-item, .timeline .timeline-item:nth-child(odd), .timeline .timeline-item:nth-child(even) { flex-direction: row; align-items: flex-start; text-align: left; gap: 16px; left: 0; width: auto; padding: 0; }
+  .timeline .timeline-year { width: 62px; height: 62px; margin: 0; font-size: 0.95rem; }
+  .timeline .timeline-item:nth-child(n)::before { top: 62px; left: 30px; width: 3px; height: calc(100% - 62px + 22px); background: linear-gradient(180deg, var(--brand), #9fd1ff); }
+  .timeline .timeline-item:nth-child(n)::after { top: auto; bottom: -15px; left: 27px; transform: rotate(135deg); }
+}
 .why-more { text-align: center; margin-top: 28px; font-weight: 600; }
 
 /* ---------- Reveal on scroll ---------- */
