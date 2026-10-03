@@ -13,6 +13,7 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `assets/equipment/` – equipment photos: `electric-panels.jpg`, `inverters.jpg`, `components.jpg`, `sensors.jpg`, `showering-area.jpg`, `spray-nozzle.jpg`, `eliminator-plates.jpg`, `supply-return-fan.jpg`, `return-air-fan.jpg`, `dampers.jpg`, `weather-louvre.jpg`, `rotary-filter.jpg`, `dust-collection.jpg`
 - `assets/services/` – service card images
 - `assets/factory/` – Factory Setup gallery photos (add more by copying a `<figure>` in the gallery)
+- `assets/equipment/photos/` – real equipment photos; a card with photos gets a Photo 1 / Photo 2 / 3D switch (the 3D render stays available)
 - `assets/industries/` – industry photos: `spinning.jpg`, `weaving.jpg`, `synthetic-fibre.jpg`, `knitting.jpg`, `nonwoven.jpg`, `other.jpg` (each card shows its icon until its photo is added)
 - `js/gallery.js` – full-screen photo viewer for any `[data-gallery]` section
 - `assets/team/` – optional team photos

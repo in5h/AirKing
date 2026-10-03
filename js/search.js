@@ -165,7 +165,7 @@
       keywords: div ? text(div.querySelector('.division-title')) : '',
     });
   });
-  document.querySelectorAll('[data-gallery] figure').forEach(f => push({
+  document.querySelectorAll('.gallery[data-gallery] figure').forEach(f => push({
     cat: f.closest('[data-gallery]').dataset.gallery, title: text(f.querySelector('figcaption strong')), desc: text(f.querySelector('figcaption span')),
     img: f.querySelector('img').getAttribute('src'), target: f, keywords: 'factory photo gallery',
   }));

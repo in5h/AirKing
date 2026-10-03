@@ -60,6 +60,18 @@
     if (lastFocus) lastFocus.focus({ preventScroll: true });
   };
 
+  // Equipment cards: switch between real photos and the 3D model
+  document.querySelectorAll('.has-photos').forEach(card => {
+    const slides = [...card.querySelectorAll('.pi-slide')];
+    const tabs = [...card.querySelectorAll('.pi-tab')];
+    tabs.forEach(tab => tab.addEventListener('click', e => {
+      e.stopPropagation();
+      const i = +tab.dataset.slide;
+      slides.forEach((s, k) => s.classList.toggle('active', k === i));
+      tabs.forEach((t, k) => { t.classList.toggle('active', k === i); t.setAttribute('aria-pressed', k === i); });
+    }));
+  });
+
   galleries.forEach(g => {
     g.querySelectorAll('figure').forEach((fig, i) => {
       fig.querySelector('.g-open').addEventListener('click', () => open(g, i));
