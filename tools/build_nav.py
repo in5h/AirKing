@@ -40,7 +40,7 @@ def nav(p):  # p = '' on the home page, 'index.html' on inner pages
         col(f'{p}#services', 'Project delivery', [(svc(s), t) for s, t in SERVICES[:3]]),
         col(f'{p}#services', 'Plant solutions', [(svc(s), t) for s, t in SERVICES[3:]]),
     ], 2)
-    equipment = dropdown('equipment', 'Equipment', [col(f'{p}#{a}', h, [(eq(e), t) for e, t in items]) for a, h, items in EQUIPMENT], 4)
+    equipment = dropdown('equipment', 'Products', [col(f'{p}#{a}', h, [(eq(e), t) for e, t in items]) for a, h, items in EQUIPMENT], 4)
     control = dropdown('control', 'Control', [
         col(f'{p}#control', 'Tex-Auto system', [(f'{p}#control', 'System overview'), (f'{p}#control', 'Self-explanatory dashboard'), (f'{p}#results', 'Measured energy savings')]),
         col(f'{p}#div-automation', 'Control hardware', [(eq(e), t) for e, t in EQUIPMENT[0][2]]),
@@ -62,7 +62,7 @@ def nav(p):  # p = '' on the home page, 'index.html' on inner pages
       </nav>'''
 
 
-for page, prefix in [('index.html', ''), ('service.html', 'index.html'), ('detail.html', 'index.html')]:
+for page, prefix in [('index.html', ''), ('service.html', 'index.html'), ('detail.html', 'index.html'), ('privacy.html', 'index.html')]:
     html = open(page, encoding='utf-8').read()
     html, n = re.subn(r'<nav class="nav" id="nav".*?</nav>', lambda m: nav(prefix), html, count=1, flags=re.S)
     assert n == 1, page
