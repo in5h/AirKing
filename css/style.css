@@ -45,7 +45,6 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 [data-theme="dark"] .section-dark { background: #050d17; }
 [data-theme="dark"] .footer { background: linear-gradient(180deg, #050d17, #030810); }
 [data-theme="dark"] .product-img img, [data-theme="dark"] .svc-card img { filter: brightness(0.92) saturate(1.05); }
-[data-theme="dark"] .tilt::after { background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(140,192,240,0.14), transparent 45%); }
 [data-theme="dark"] .pillar, [data-theme="dark"] .hero-stat { box-shadow: 0 16px 40px rgba(0,0,0,0.45); }
 [data-theme="dark"] .badge.run { background: rgba(46,204,113,0.15); color: #6be29b; }
 [data-theme="dark"] .badge.wait { background: rgba(245,176,65,0.15); color: #f5c06b; }
@@ -306,8 +305,8 @@ p + p { margin-top: 1rem; }
 .hero-overlay {   /* keeps the headline readable over any footage */
   position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 1.2s ease;
   background:
-    linear-gradient(90deg, rgba(6,21,42,0.88) 0%, rgba(6,21,42,0.62) 45%, rgba(6,21,42,0.25) 100%),
-    linear-gradient(0deg, rgba(6,21,42,0.7) 0%, transparent 35%);
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(6,21,42,0.55), transparent 75%),
+    linear-gradient(180deg, rgba(6,21,42,0.72) 0%, rgba(6,21,42,0.6) 50%, rgba(6,21,42,0.85) 100%);
 }
 .hero.has-video .hero-overlay { opacity: 1; }
 .hero-video-toggle {
@@ -322,19 +321,22 @@ p + p { margin-top: 1rem; }
 .hero-video-toggle .i-play, .hero-video-toggle.is-paused .i-pause { display: none; }
 .hero-video-toggle.is-paused .i-play { display: block; }
 @media (max-width: 900px) {
-  .hero-overlay { background: linear-gradient(0deg, rgba(6,21,42,0.92) 0%, rgba(6,21,42,0.6) 60%, rgba(6,21,42,0.35) 100%); }
-  .hero-video-toggle { right: 16px; bottom: 80px; }
+  .hero-video-toggle { right: 14px; top: 84px; bottom: auto; width: 36px; height: 36px; }
+  .scroll-cue { display: none; }
 }
 
-/* ---------- Interactive cards: 3D tilt + cursor spotlight ---------- */
-.tilt { position: relative; transform-style: preserve-3d; will-change: transform; }
-.tilt::after {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 3;
-  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.28), transparent 45%);
-  opacity: 0; transition: opacity 0.3s;
-}
-.tilt:hover::after { opacity: 1; }
-.tilt.tilting { transition: transform 0.08s linear, box-shadow 0.25s !important; }
+/* ---------- Centred, high-contrast hero text ---------- */
+.hero-content { display: flex; flex-direction: column; align-items: center; text-align: center; margin-inline: auto; }
+.hero-content > * { max-width: 760px; }
+.hero h1 { font-size: clamp(2.4rem, 5.6vw, 4.4rem); text-shadow: 0 2px 24px rgba(0,0,0,0.45); }
+.hero h1 .hl { color: #8fd3ff; }
+.hero .lead { color: #e6eef7; font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 640px; text-shadow: 0 1px 12px rgba(0,0,0,0.5); }
+.hero-badge { background: rgba(6,21,42,0.45); }
+.hero-actions { justify-content: center; }
+.hero-stats { width: 100%; max-width: 640px; }
+.hero-stat { text-align: center; background: rgba(6,21,42,0.45); }
+.hero-stat:hover { transform: none; }
+.hero-stat span { display: block; line-height: 1.35; margin-top: 2px; }
 
 /* ---------- Back to top ---------- */
 .to-top {
@@ -408,13 +410,11 @@ p + p { margin-top: 1rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 900px) {
-  .hero { align-items: flex-end; padding: 48vh 0 96px; }
-    .hero-content > * { max-width: none; }
+  .hero { padding: 130px 0 110px; }
 }
 @media (max-width: 600px) {
   .header { top: 10px; padding: 0 10px; }
   .dropdown-menu, .dropdown.open .dropdown-menu { grid-template-columns: 1fr; }
-  .hero { padding-top: 46vh; }
   .hero-stats { gap: 8px; }
   .hero-stat { padding: 10px 12px; }
   .hero-stat strong { font-size: 1.2rem; }
@@ -1093,7 +1093,7 @@ tr.flash td { animation: rowflash 1.5s ease; }
 }
 
 /* ---------- Reveal on scroll ---------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

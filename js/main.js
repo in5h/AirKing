@@ -173,7 +173,7 @@ revealTargets.forEach(el => {
   el.classList.add('reveal');
   // stagger siblings in grids so cards cascade in
   const i = [...el.parentElement.children].indexOf(el);
-  if (el.parentElement.children.length > 2) el.style.transitionDelay = `${Math.min(i, 8) * 70}ms`;
+  if (el.parentElement.children.length > 2) el.style.transitionDelay = `${Math.min(i, 6) * 50}ms`;
 });
 
 const countUp = el => {
@@ -307,33 +307,3 @@ form.addEventListener('submit', async e => {
   }
 });
 
-// ---------- Interactive cards: 3D tilt + cursor spotlight ----------
-if (canHover && !reduceMotion) {
-  document.querySelectorAll('.card, .svc-card, .saving-card, .pillar, .why, .industry, .hero-stat').forEach(card => {
-    card.classList.add('tilt');
-    const max = card.classList.contains('card') || card.classList.contains('svc-card') ? 7 : 10;
-    card.addEventListener('pointermove', e => {
-      const r = card.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
-      card.style.setProperty('--mx', `${px * 100}%`);
-      card.style.setProperty('--my', `${py * 100}%`);
-      card.classList.add('tilting');
-      card.style.transitionDelay = '0ms';
-      card.style.transform = `perspective(900px) rotateX(${(0.5 - py) * max}deg) rotateY(${(px - 0.5) * max}deg) translateY(-6px)`;
-    });
-    card.addEventListener('pointerleave', () => {
-      card.classList.remove('tilting');
-      card.style.transform = '';
-    });
-  });
-
-  // ---------- Magnetic buttons ----------
-  document.querySelectorAll('.magnetic').forEach(btn => {
-    btn.addEventListener('pointermove', e => {
-      const r = btn.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width / 2, y = e.clientY - r.top - r.height / 2;
-      btn.style.transform = `translate(${x * 0.25}px, ${y * 0.35}px)`;
-    });
-    btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
-  });
-}

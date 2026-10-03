@@ -49,12 +49,6 @@
   const contactSec = document.getElementById('contact');
   let ctx = CONTEXT.home, ctxId = 'home';
 
-  const setLabel = (el, text) => {
-    const label = el.querySelector('.cta-label');
-    if (label.textContent === text) return;
-    el.classList.add('cta-swap');
-    setTimeout(() => { label.textContent = text; el.classList.remove('cta-swap'); }, 180);
-  };
 
   const updateContext = () => {
     const line = window.innerHeight * 0.4;
@@ -65,7 +59,7 @@
     if (id.startsWith('div-') && eq.bottom < line) id = 'equipment';
     if (id !== ctxId) {
       ctxId = id; ctx = CONTEXT[id] || CONTEXT.home;
-      ctas.forEach(el => setLabel(el, ctx.label));
+      // the label stays "Get a Quote"; the section only decides which interest the form pre-selects
     }
     const c = contactSec.getBoundingClientRect();
     const contactInView = c.top < window.innerHeight * 0.8 && c.bottom > 0;
