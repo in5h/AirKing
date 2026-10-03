@@ -35,7 +35,35 @@
 
       <nav class="nav" id="nav" aria-label="Main">
         <span class="nav-bubble" id="navBubble" aria-hidden="true"></span>
-        <a href="#about" class="nav-link">About</a>
+        <div class="dropdown" id="companyDropdown">
+          <button class="nav-link dropdown-toggle" data-section="company about history factory industries clients team why" aria-expanded="false" aria-controls="companyMenu">
+            Company <span class="caret" aria-hidden="true"></span>
+          </button>
+          <div class="dropdown-menu cols-3" id="companyMenu">
+            <div class="dropdown-col">
+              <a href="#about" class="dropdown-head">About AirKing</a>
+              <a href="#about">Who we are</a>
+              <a href="#history">Our history</a>
+              <a href="#factory">Inside AirKing (factory)</a>
+              <a href="#team">Meet our team</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#industries" class="dropdown-head">Industries</a>
+              <a href="detail.html?ind=spinning">Spinning</a>
+              <a href="detail.html?ind=weaving">Weaving</a>
+              <a href="detail.html?ind=synthetic-fibre">Synthetic Fibre</a>
+              <a href="detail.html?ind=knitting">Knitted Fabric</a>
+              <a href="detail.html?ind=nonwoven">Non-woven Fabric</a>
+              <a href="detail.html?ind=other">Other Industries</a>
+            </div>
+            <div class="dropdown-col">
+              <a href="#clients" class="dropdown-head">References</a>
+              <a href="#clients">Key customers</a>
+              <a href="#why">Why AirKing?</a>
+              <a href="#contact">Contact us</a>
+            </div>
+          </div>
+        </div>
         <div class="dropdown" id="servicesDropdown">
           <button class="nav-link dropdown-toggle" data-section="services" aria-expanded="false" aria-controls="servicesMenu">
             Services <span class="caret" aria-hidden="true"></span>
@@ -55,7 +83,6 @@
             </div>
           </div>
         </div>
-        <a href="#history" class="nav-link">History</a>
         <div class="dropdown" id="equipmentDropdown">
           <button class="nav-link dropdown-toggle" data-section="equipment" aria-expanded="false" aria-controls="equipmentMenu">
             Equipment <span class="caret" aria-hidden="true"></span>
@@ -89,7 +116,7 @@
           </div>
         </div>
         <div class="dropdown" id="controlDropdown">
-          <button class="nav-link dropdown-toggle" data-section="control" aria-expanded="false" aria-controls="controlMenu">
+          <button class="nav-link dropdown-toggle" data-section="control results" aria-expanded="false" aria-controls="controlMenu">
             Control <span class="caret" aria-hidden="true"></span>
           </button>
           <div class="dropdown-menu cols-3" id="controlMenu">
@@ -114,8 +141,6 @@
             </div>
           </div>
         </div>
-        <a href="#clients" class="nav-link">Clients</a>
-        <a href="#team" class="nav-link">Team</a>
         <a href="#contact" class="nav-link nav-link-mobile">Contact</a>
       </nav>
 

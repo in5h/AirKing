@@ -33,7 +33,7 @@ window.initPageChrome = function (opts) {
   document.addEventListener('click', e => { if (!e.target.closest('.dropdown')) closeDDs(); if (!header.contains(e.target)) setMenu(false); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeDDs(); setMenu(false); } });
   // the section this page belongs to stays highlighted in the nav
-  const svcLink = nav.querySelector(`[href="${opts.activeHref}"], [data-section="${opts.activeHref.split('#')[1]}"]`);
+  const svcLink = nav.querySelector(`[href="${opts.activeHref}"], [data-section~="${opts.activeHref.split('#')[1]}"]`);
   if (svcLink) { svcLink.classList.add('active'); svcLink.setAttribute('aria-current', 'page'); }
   const bubble = $('navBubble');
   const placeBubble = () => {

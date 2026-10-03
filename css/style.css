@@ -51,7 +51,7 @@ body { transition: background-color 0.4s ease, color 0.4s ease; }
 [data-theme="dark"] .badge.wait { background: rgba(245,176,65,0.15); color: #f5c06b; }
 /* glass panels go dark */
 [data-theme="dark"] .dropdown-menu, [data-theme="dark"] .to-top {
-  background: rgba(14,28,46,0.82); border-color: rgba(255,255,255,0.1);
+  background: rgba(14,28,46,0.95); border-color: rgba(255,255,255,0.1);
   box-shadow: 0 24px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.08);
 }
 [data-theme="dark"] .to-top { color: #fff; }
@@ -177,10 +177,10 @@ p + p { margin-top: 1rem; }
 .header:not(.on-dark) .logo-on-light { display: block; }
 .header:not(.on-dark) .logo-on-dark { display: none; }
 
-.nav { position: relative; display: flex; align-items: center; gap: 2px; margin: 0 auto; padding: 4px; }
+.nav { position: relative; display: flex; align-items: center; gap: 8px; margin: 0 auto; padding: 4px; }
 .nav-link {
   position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 7px;
-  padding: 9px 15px; border-radius: 999px; border: 0; background: none; cursor: pointer;
+  padding: 9px 18px; border-radius: 999px; border: 0; background: none; cursor: pointer;
   font: inherit; font-size: 0.93rem; font-weight: 500; white-space: nowrap;
   color: var(--ink); transition: color 0.25s;
 }
@@ -230,7 +230,7 @@ p + p { margin-top: 1rem; }
   display: grid; grid-template-columns: repeat(4, minmax(170px, 1fr)); gap: 24px;
   width: max-content; max-width: min(880px, calc(100vw - 32px)); padding: 26px 28px;
   border-radius: 26px; border: 1px solid rgba(255,255,255,0.75);
-  background: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.94);
   backdrop-filter: blur(28px) saturate(190%); -webkit-backdrop-filter: blur(28px) saturate(190%);
   box-shadow: 0 24px 60px rgba(15,39,66,0.22), inset 0 1px 0 rgba(255,255,255,0.9);
   opacity: 0; visibility: hidden; transform: translateX(-50%) translateY(-8px) scale(0.97); transform-origin: 50% 0;
@@ -353,8 +353,8 @@ p + p { margin-top: 1rem; }
 @media (min-width: 1081px) and (max-width: 1320px) {
   .nav-shell { padding-left: 18px; gap: 6px; }
   .brand img { height: 21px; }
-  .nav { gap: 0; }
-  .nav-link { padding: 8px 9px; font-size: 0.86rem; gap: 5px; }
+  .nav { gap: 6px; }
+  .nav-link { padding: 9px 15px; font-size: 0.92rem; gap: 6px; }
   .nav-cta { padding: 10px 14px; font-size: 0.84rem; gap: 6px; }
   .theme-toggle { width: 38px; height: 38px; }
 }

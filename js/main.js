@@ -74,7 +74,7 @@ onScroll();
 const bubble = document.getElementById('navBubble');
 const navLinks = [...nav.querySelectorAll('.nav-link')];
 // only links that are actually shown (the "Contact" link exists only in the phone menu)
-const linkFor = id => navLinks.find(l => (l.dataset.section || (l.getAttribute('href') || '').slice(1)) === id && l.getClientRects().length);
+const linkFor = id => navLinks.find(l => (l.dataset.section || (l.getAttribute('href') || '').slice(1)).split(' ').includes(id) && l.getClientRects().length);
 let activeLink = null;
 let bubbleTarget = null;   // the link the bubble is on right now (hovered or active)
 
@@ -115,7 +115,7 @@ if ('ResizeObserver' in window) {
 document.fonts && document.fonts.ready.then(realign);
 
 // Scrollspy: the section crossing a line 35% down the viewport is the active one
-const spySections = ['about', 'services', 'history', 'equipment', 'control', 'clients', 'team', 'contact']
+const spySections = ['about', 'services', 'history', 'factory', 'equipment', 'control', 'why', 'results', 'industries', 'clients', 'team', 'contact']
   .map(id => document.getElementById(id)).filter(Boolean);
 const spy = () => {
   const line = window.innerHeight * 0.35;

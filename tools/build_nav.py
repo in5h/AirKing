@@ -22,9 +22,9 @@ def col(head_href, head, links):
             </div>'''
 
 
-def dropdown(key, label, cols, ncols):
+def dropdown(key, label, cols, ncols, sections=None):
     return f'''        <div class="dropdown" id="{key}Dropdown">
-          <button class="nav-link dropdown-toggle" data-section="{key}" aria-expanded="false" aria-controls="{key}Menu">
+          <button class="nav-link dropdown-toggle" data-section="{sections or key}" aria-expanded="false" aria-controls="{key}Menu">
             {label} <span class="caret" aria-hidden="true"></span>
           </button>
           <div class="dropdown-menu cols-{ncols}" id="{key}Menu">
@@ -45,16 +45,19 @@ def nav(p):  # p = '' on the home page, 'index.html' on inner pages
         col(f'{p}#control', 'Tex-Auto system', [(f'{p}#control', 'System overview'), (f'{p}#control', 'Self-explanatory dashboard'), (f'{p}#results', 'Measured energy savings')]),
         col(f'{p}#div-automation', 'Control hardware', [(eq(e), t) for e, t in EQUIPMENT[0][2]]),
         col(f'{p}#services', 'Related services', [(svc('control'), 'Automation &amp; Control'), (svc('upgrade'), 'AC Plant Upgrade'), (svc('commissioning'), 'Commissioning')]),
-    ], 3)
+    ], 3, sections='control results')
+    ind = lambda i: f'detail.html?ind={i}'
+    company = dropdown('company', 'Company', [
+        col(f'{p}#about', 'About AirKing', [(f'{p}#about', 'Who we are'), (f'{p}#history', 'Our history'), (f'{p}#factory', 'Inside AirKing (factory)'), (f'{p}#team', 'Meet our team')]),
+        col(f'{p}#industries', 'Industries', [(ind('spinning'), 'Spinning'), (ind('weaving'), 'Weaving'), (ind('synthetic-fibre'), 'Synthetic Fibre'), (ind('knitting'), 'Knitted Fabric'), (ind('nonwoven'), 'Non-woven Fabric'), (ind('other'), 'Other Industries')]),
+        col(f'{p}#clients', 'References', [(f'{p}#clients', 'Key customers'), (f'{p}#why', 'Why AirKing?'), (f'{p}#contact', 'Contact us')]),
+    ], 3, sections='company about history factory industries clients team why')
     return f'''<nav class="nav" id="nav" aria-label="Main">
         <span class="nav-bubble" id="navBubble" aria-hidden="true"></span>
-        <a href="{p}#about" class="nav-link">About</a>
+{company}
 {services}
-        <a href="{p}#history" class="nav-link">History</a>
 {equipment}
 {control}
-        <a href="{p}#clients" class="nav-link">Clients</a>
-        <a href="{p}#team" class="nav-link">Team</a>
         <a href="{p}#contact" class="nav-link nav-link-mobile">Contact</a>
       </nav>'''
 
