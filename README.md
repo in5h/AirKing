@@ -36,14 +36,15 @@ node run.js out            # or: node run.js out dampers svc-design
 Copy the results from `out/` into `assets/equipment/` (and `svc-*.jpg` into `assets/services/` without the prefix).
 
 
-## Quotation emails (important — one-time activation)
-The quotation form sends each request as an email to **sales@nextexpk.com** through [FormSubmit](https://formsubmit.co) (free, no account or server needed).
+## Quotation emails
+Every request goes to **sales@nextexpk.com** with a copy to **insharahaman8@gmail.com**. The form tries these in order and stops at the first that works:
 
-1. Publish the site (e.g. GitHub Pages) and send one test request from the form.
-2. FormSubmit emails **sales@nextexpk.com** an activation link — click it once.
-3. From then on every request arrives in that inbox; "Reply" goes straight to the customer.
+1. **`send.php`** – on cPanel / any PHP hosting the server emails the request itself. Nothing to set up. (Recipients are at the top of `send.php`.)
+2. **Netlify Forms** – when hosted on Netlify. One-time setup in Netlify: *Site configuration → Forms →* enable form detection and redeploy, then *Forms → Form notifications → Add notification → Email notification* for each address. Submissions are also kept under *Forms* in the dashboard.
+3. **FormSubmit** – emails sales directly; the first time, click the "Activate Form" link it sends to sales@nextexpk.com.
+4. If all fail, the visitor gets a ready-to-send email link and the phone number.
 
-If sending ever fails, the form offers the visitor a pre-filled email or the phone number instead. To change the receiving address, edit `SALES_EMAIL` at the top of `js/main.js`; `CC_EMAILS` (insharahaman8@gmail.com) gets a copy of every query.
+Recipients for FormSubmit and the email link are `SALES_EMAIL` / `CC_EMAILS` at the top of `js/main.js`.
 
 ## Photo quality
 The photos in `assets/factory/`, `assets/industries/` and `assets/equipment/photos/` were cropped from slides and were small, so they were enlarged 4× with an AI super-resolution model (OpenCV EDSR), lightly de-noised and sharpened. For the best quality, replace any of them with the original camera photo of the same name.

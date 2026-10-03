@@ -204,7 +204,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // ---------- Quotation form: emailed to the sales team via FormSubmit (no backend needed) ----------
-// The first submission sends a one-time activation email to SALES_EMAIL; after that, every request arrives as an email.
+// Tried after Netlify Forms. The first FormSubmit submission sends a one-time activation email to SALES_EMAIL.
 const FORM_ENDPOINT = `https://formsubmit.co/ajax/${SALES_EMAIL}`;
 const form = document.getElementById('queryForm');
 const status = document.getElementById('formStatus');
@@ -272,12 +272,29 @@ form.addEventListener('submit', async e => {
   submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span>Sending…';
   status.className = 'form-status'; status.textContent = '';
 
-  try {
+  const subject = `Quotation request: ${d.product} – ${d.name}${d.company ? ' (' + d.company + ')' : ''}`;
+
+  // 1) send.php — on cPanel / PHP hosting the server emails sales itself (most reliable there)
+  const viaPhp = async () => {
+    const res = await fetch('send.php', { method: 'POST', body: new FormData(form) });
+    const data = await res.json().catch(() => null);   // a host without PHP returns the file or a 404, not JSON
+    if (!data || data.ok !== true) throw new Error((data && data.error) || `send.php HTTP ${res.status}`);
+  };
+  // 2) Netlify Forms — when the site is hosted on Netlify (also saved in the Netlify dashboard)
+  const viaNetlify = async () => {
+    const body = new URLSearchParams({ 'form-name': 'quotation', subject, ...d });
+    body.delete('_honey');
+    const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body.toString() });
+    // only count it when Netlify itself answered (other servers may reply 200 to any POST)
+    if (!res.ok || !/netlify/i.test(res.headers.get('server') || '')) throw new Error(`Netlify Forms HTTP ${res.status}`);
+  };
+  // 3) FormSubmit — emails sales directly (needs a one-time activation click in the sales inbox)
+  const viaFormSubmit = async () => {
     const res = await fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: JSON.stringify({
-        _subject: `Quotation request: ${d.product} – ${d.name}${d.company ? ' (' + d.company + ')' : ''}`,
+        _subject: subject,
         _template: 'table',
         _cc: CC_EMAILS,
         _captcha: 'false',
@@ -292,21 +309,25 @@ form.addEventListener('submit', async e => {
       }),
     });
     const data = await res.json().catch(() => ({}));
-    if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || `HTTP ${res.status}`);
-    showSuccess(d);
-  } catch (err) {
-    status.className = 'form-status err';
-    // FormSubmit holds messages until sales@nextexpk.com clicks its one-time activation link
-    const pending = /activat/i.test(err.message);
-    status.innerHTML = (pending
-      ? 'Our online form is being set up, so your request could not be delivered yet. '
-      : 'Sorry, your request could not be sent right now. ') +
-      '<a href="#">Send it by email instead</a> (it opens ready to send) or call 0327 6889999.';
-    status.querySelector('a').href = mailtoLink(d);
-    if (pending) console.warn('FormSubmit: the form is not activated yet — check the inbox of ' + SALES_EMAIL + ' for the "Activate Form" email.');
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Send Quotation Request';
+    if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || `FormSubmit HTTP ${res.status}`);
+  };
+
+  const errors = [];
+  let sent = false;
+  for (const send of [viaPhp, viaNetlify, viaFormSubmit]) {
+    try { await send(); sent = true; break; } catch (err) { errors.push(err.message); }
   }
+
+  if (sent) {
+    showSuccess(d);
+  } else {
+    console.warn('Quotation form could not be delivered:', errors);
+    status.className = 'form-status err';
+    // 4) last resort: the visitor's own email app, already addressed to sales
+    status.innerHTML = 'Sorry, your request could not be sent automatically. <a href="#">Send it by email instead</a> (it opens ready to send) or call 0327 6889999.';
+    status.querySelector('a').href = mailtoLink(d);
+  }
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'Send Quotation Request';
 });
 

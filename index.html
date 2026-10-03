@@ -1107,7 +1107,10 @@
         </div>
       </div>
 
-      <form class="form" id="queryForm" novalidate>
+      <!-- Netlify Forms: Netlify detects this form on deploy (name="quotation"); submissions appear under
+           Site > Forms and are emailed to the addresses set in Site configuration > Notifications > Form submissions. -->
+      <form class="form" id="queryForm" name="quotation" method="POST" data-netlify="true" netlify-honeypot="_honey" novalidate>
+        <input type="hidden" name="form-name" value="quotation">
         <div>
           <h3>Request a quotation</h3>
           <p class="form-intro">Your request goes straight to our sales team at sales@nextexpk.com. We usually reply within one working day.</p>
