@@ -235,6 +235,15 @@ form.addEventListener('submit', async e => {
   const d = Object.fromEntries(new FormData(form));
   if (d._honey) return; // bot
 
+  // Opened straight from a computer (file://): the email service only works on a published
+  // website, so hand the query to the visitor's email app, addressed to sales, instead.
+  if (location.protocol === 'file:') {
+    window.location.href = mailtoLink(d);
+    status.className = 'form-status ok';
+    status.textContent = `Your email app has opened with the query addressed to ${SALES_EMAIL} — just press Send.`;
+    return;
+  }
+
   submitBtn.disabled = true;
   submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span>Sending…';
   status.className = 'form-status'; status.textContent = '';
@@ -262,8 +271,14 @@ form.addEventListener('submit', async e => {
     showSuccess(d);
   } catch (err) {
     status.className = 'form-status err';
-    status.innerHTML = 'Sorry, your request could not be sent right now. <a href="#">Send it by email instead</a> or call 0327 6889999.';
+    // FormSubmit holds messages until sales@nextexpk.com clicks its one-time activation link
+    const pending = /activat/i.test(err.message);
+    status.innerHTML = (pending
+      ? 'Our online form is being set up, so your request could not be delivered yet. '
+      : 'Sorry, your request could not be sent right now. ') +
+      '<a href="#">Send it by email instead</a> (it opens ready to send) or call 0327 6889999.';
     status.querySelector('a').href = mailtoLink(d);
+    if (pending) console.warn('FormSubmit: the form is not activated yet — check the inbox of ' + SALES_EMAIL + ' for the "Activate Form" email.');
   } finally {
     submitBtn.disabled = false;
     submitBtn.textContent = 'Send Quotation Request';
