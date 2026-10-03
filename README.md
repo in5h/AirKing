@@ -7,6 +7,8 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `css/style.css` – styling (colours at the top: `:root` for light mode, `[data-theme="dark"]` for dark mode)
 - `js/main.js` – nav bar, animations, quotation form (`SALES_EMAIL` at the top)
 - `js/search.js` – site search (Ctrl/⌘+K) and the context-aware "Get a Quote" buttons
+- `detail.html` + `js/detail.js` – detail page for every equipment item (`detail.html?eq=panels`, `inverters`, `components`, `sensors`, `showering`, `nozzles`, `eliminators`, `supply-fan`, `return-fan`, `dampers`, `louvre`, `rotary-filter`, `dust`) and industry (`detail.html?ind=spinning`, `weaving`, `synthetic-fibre`, `knitting`, `nonwoven`, `other`); the text for each is in `js/detail.js`
+- `js/chrome.js` – shared header/theme/menu code for the inner pages
 - `service.html` + `js/service.js` – detail page for each service (`service.html?s=design`, `installation`, `commissioning`, `control`, `dust`, `upgrade`); the text for each service is in `js/service.js`
 - `assets/logo.jpg` – original logo (favicon); `assets/logo-white.png` / `assets/logo-blue.png` – English-only wordmarks used in the nav bar and footer
 - `js/src/hero.js` – the interactive 3D fan in the hero (Three.js); bundled into `js/hero.js`

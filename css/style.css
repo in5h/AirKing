@@ -795,7 +795,7 @@ tr.flash td { animation: rowflash 1.5s ease; }
 .aside-stat span { font-size: 0.85rem; color: var(--muted); line-height: 1.35; }
 .aside-contact { display: grid; gap: 8px; margin-top: 16px; font-size: 0.92rem; }
 .svc-all h3 { margin-bottom: 10px; }
-.svc-all #svcAll { display: grid; gap: 2px; }
+.svc-all #svcAll, .svc-all #dAll { display: grid; gap: 2px; }
 .svc-all a { padding: 9px 12px; border-radius: 12px; color: var(--ink); font-weight: 500; transition: background 0.2s, color 0.2s; }
 .svc-all a:hover { background: var(--chip); color: var(--brand-dark); }
 .svc-all a.active { background: linear-gradient(135deg, #4b90d4, #2a64a0); color: #fff; }
@@ -931,6 +931,33 @@ tr.flash td { animation: rowflash 1.5s ease; }
 .pi-tab:hover { background: rgba(255,255,255,0.15); }
 .pi-tab.active { background: #fff; color: var(--navy); }
 .card:hover .product-img.has-photos img { transform: none; }
+
+/* ---------- Equipment / industry detail page ---------- */
+.d-hero-media { position: relative; display: block; border: 0; cursor: zoom-in; font: inherit; color: #fff; }
+.d-hero-media img { background: #fff; }
+.d-zoom {
+  position: absolute; right: 22px; bottom: 22px; padding: 7px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
+  background: rgba(10,24,42,0.5); border: 1px solid rgba(255,255,255,0.25); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.d-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.d-thumb { position: relative; margin: 0; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; background: var(--bg-alt); border: 1px solid var(--line); }
+.d-thumb .g-open { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+.d-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.d-thumb:hover img { transform: scale(1.07); }
+.d-thumb figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 10px 7px; font-size: 0.72rem; color: #fff; background: linear-gradient(180deg, transparent, rgba(6,16,30,0.75)); pointer-events: none; }
+.d-thumb figcaption strong { display: none; }
+.d-table { max-width: none; }
+.chip-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip-link { padding: 9px 16px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; color: var(--brand-dark); background: var(--chip); transition: background 0.2s, color 0.2s; }
+.chip-link:hover { background: var(--brand); color: #fff; }
+.svc-all a.all-link { color: var(--brand); font-weight: 600; margin-top: 6px; }
+
+/* cards on the home page that open a detail page */
+.card-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+.card-actions .card-cta { margin-top: 0; }
+.card-more { position: relative; z-index: 4; font-size: 0.88rem; font-weight: 600; color: var(--brand); }
+.card.product, .industry { cursor: pointer; }
+.ind-body .card-more { display: inline-block; margin-top: 10px; }
 
 /* ---------- Reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }

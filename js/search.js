@@ -116,9 +116,38 @@
     b.addEventListener('click', () => openForm(optKey, `I'm interested in: ${title}.\n\n`));
     body.appendChild(b);
   };
+  // a whole card opens its detail page; buttons and links inside keep their own action
+  const cardLink = (card, url) => card.addEventListener('click', e => {
+    if (!e.target.closest('a, button')) window.location.href = url;
+  });
+  const moreLink = (parent, url, title) => {
+    const a = document.createElement('a');
+    a.className = 'card-more'; a.href = url;
+    a.innerHTML = 'Learn more <span aria-hidden="true">→</span>';
+    a.setAttribute('aria-label', `Learn more about ${title}`);
+    parent.appendChild(a);
+  };
   document.querySelectorAll('.card.product').forEach(card => {
     const div = card.closest('.division');
-    addEnquire(card.querySelector('.card-body'), card.querySelector('h3').textContent.trim(), divisionOpt[div && div.id] || 'general');
+    const title = card.querySelector('h3').textContent.trim();
+    const url = `detail.html?eq=${card.id.replace(/^eq-/, '')}`;
+    const actions = document.createElement('div');
+    actions.className = 'card-actions';
+    card.querySelector('.card-body').appendChild(actions);
+    addEnquire(actions, title, divisionOpt[div && div.id] || 'general');
+    moreLink(actions, url, title);
+    card.dataset.url = url;
+    cardLink(card, url);
+  });
+  document.querySelectorAll('.industry').forEach(card => {
+    const img = card.querySelector('.ind-img img');
+    const slug = img ? img.getAttribute('src').split('/').pop().replace('.jpg', '') : '';
+    if (!slug) return;
+    const url = `detail.html?ind=${slug}`;
+    const title = card.querySelector('h3').textContent.trim();
+    moreLink(card.querySelector('.ind-body'), url, title);
+    card.dataset.url = url;
+    cardLink(card, url);
   });
   document.querySelectorAll('.svc-card').forEach(card => {
     const title = card.querySelector('h3').textContent.trim();
@@ -162,7 +191,7 @@
     push({
       cat: 'Equipment', title: text(c.querySelector('h3')), desc: text(c.querySelector('.card-body p')),
       img: c.querySelector('img') && c.querySelector('img').getAttribute('src'), target: c,
-      keywords: div ? text(div.querySelector('.division-title')) : '',
+      keywords: div ? text(div.querySelector('.division-title')) : '', url: `detail.html?eq=${c.id.replace(/^eq-/, '')}`,
     });
   });
   document.querySelectorAll('.gallery[data-gallery] figure').forEach(f => push({
@@ -180,6 +209,7 @@
   document.querySelectorAll('.industry').forEach(i => push({
     cat: 'Industries', title: text(i.querySelector('h3')), desc: text(i.querySelector('p')), target: i, icon: i.querySelector('.ind-img').dataset.icon,
     img: i.querySelector('.ind-img img') ? i.querySelector('.ind-img img').getAttribute('src') : '',
+    url: i.querySelector('.ind-img img') ? `detail.html?ind=${i.querySelector('.ind-img img').getAttribute('src').split('/').pop().replace('.jpg', '')}` : '',
   }));
   document.querySelectorAll('.tab-panel').forEach(panel => {
     const tab = document.querySelector(`.tab[data-tab="${panel.id}"]`);

@@ -211,45 +211,5 @@
   $('svcAll').innerHTML = SERVICES.map(s =>
     `<a href="service.html?s=${s.slug}" class="${s === svc ? 'active' : ''}"${s === svc ? ' aria-current="page"' : ''}>${esc(s.title)}</a>`).join('');
 
-  // ---------- page chrome: theme, header, menus ----------
-  $('year').textContent = new Date().getFullYear();
-  const header = $('header'), hero = $('svcHero');
-  const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
-  const onScroll = () => {
-    header.classList.toggle('on-dark', isDark() || window.scrollY < hero.offsetHeight - 80);
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    $('scrollProgress').style.setProperty('--progress', max > 0 ? window.scrollY / max : 0);
-    $('toTop').classList.toggle('show', window.scrollY > window.innerHeight * 0.6);
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  const themeToggle = $('themeToggle');
-  const syncTheme = () => themeToggle.setAttribute('aria-label', isDark() ? 'Switch to light mode' : 'Switch to dark mode');
-  themeToggle.addEventListener('click', () => {
-    const t = isDark() ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', t);
-    try { localStorage.setItem('airking-theme', t); } catch (e) {}
-    syncTheme(); onScroll();
-  });
-  syncTheme();
-
-  const nav = $('nav'), toggle = $('navToggle'), dropdown = $('equipDropdown'), ddToggle = dropdown.querySelector('.dropdown-toggle');
-  const setMenu = o => { nav.classList.toggle('open', o); toggle.setAttribute('aria-expanded', o); };
-  const setDD = o => { dropdown.classList.toggle('open', o); ddToggle.setAttribute('aria-expanded', o); };
-  toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
-  ddToggle.addEventListener('click', () => setDD(!dropdown.classList.contains('open')));
-  document.addEventListener('click', e => { if (!dropdown.contains(e.target)) setDD(false); if (!header.contains(e.target)) setMenu(false); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { setDD(false); setMenu(false); } });
-  // the "Services" link stays highlighted on this page
-  const svcLink = nav.querySelector('a[href="index.html#services"]');
-  if (svcLink) { svcLink.classList.add('active'); svcLink.setAttribute('aria-current', 'page'); }
-  const bubble = $('navBubble');
-  const placeBubble = () => {
-    if (!svcLink || getComputedStyle(bubble).display === 'none') return;
-    bubble.style.width = svcLink.offsetWidth + 'px'; bubble.style.height = svcLink.offsetHeight + 'px';
-    bubble.style.top = svcLink.offsetTop + 'px'; bubble.style.transform = `translateX(${svcLink.offsetLeft}px)`;
-    bubble.style.opacity = 1;
-  };
-  window.addEventListener('load', placeBubble); window.addEventListener('resize', placeBubble); placeBubble();
+  window.initPageChrome({ heroId: 'svcHero', activeHref: 'index.html#services' });
 })();

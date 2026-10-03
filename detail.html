@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | AirKing</title>
+  <title>AirKing</title>
   <meta name="description" content="Shanghai Air King Air Equipment Co., Ltd. – textile air conditioning, automation and dust handling since 1996. Turn-key delivery, energy-saving control, local support in Pakistan.">
   <link rel="icon" href="assets/logo.jpg">
   <meta name="theme-color" content="#0b1f36">
@@ -91,83 +91,93 @@
   </header>
 
   <main>
-    <!-- ===================== SERVICE HERO ===================== -->
-    <section class="svc-hero" id="svcHero">
+    <!-- ===================== DETAIL HERO ===================== -->
+    <section class="svc-hero" id="dHero">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container svc-hero-grid">
         <div class="svc-hero-text">
           <nav class="crumbs" aria-label="Breadcrumb">
             <a href="index.html">Home</a><span aria-hidden="true">/</span>
-            <a href="index.html#services">Services</a><span aria-hidden="true">/</span>
-            <span id="svcCrumb" aria-current="page"></span>
+            <a href="index.html#equipment" id="dCrumbSection">Equipment</a><span aria-hidden="true">/</span>
+            <span id="dCrumb" aria-current="page"></span>
           </nav>
-          <span class="svc-hero-num glass">Service <strong id="svcNum">01</strong></span>
-          <h1 id="svcTitle">Service</h1>
-          <p class="lead" id="svcTagline"></p>
+          <span class="svc-hero-num glass" id="dBadge"></span>
+          <h1 id="dTitle">AirKing</h1>
+          <p class="lead" id="dTagline"></p>
           <div class="hero-actions">
             <a href="index.html#contact" class="btn" data-quote>Get a Quote</a>
             <a href="tel:+923276889999" class="btn btn-glass">Call 0327 6889999</a>
           </div>
         </div>
-        <div class="svc-hero-media glass">
-          <img id="svcImg" src="assets/services/design.jpg" alt="">
-        </div>
+        <button type="button" class="svc-hero-media glass d-hero-media" id="dHeroOpen" aria-label="View photos full-screen">
+          <img id="dHeroImg" src="" alt="">
+          <span class="d-zoom" aria-hidden="true">⤢ View photos</span>
+        </button>
       </div>
     </section>
 
-    <!-- ===================== SERVICE BODY ===================== -->
+    <!-- ===================== DETAIL BODY ===================== -->
     <section class="section svc-detail">
       <div class="container svc-layout">
         <article class="svc-main">
           <p class="eyebrow">Overview</p>
-          <div class="svc-intro" id="svcIntro"></div>
+          <div class="svc-intro" id="dIntro"></div>
 
-          <h2 class="svc-h2">What's included</h2>
-          <ul class="svc-includes" id="svcIncludes"></ul>
+          <h2 class="svc-h2" id="dPointsTitle">Key points</h2>
+          <ul class="svc-includes" id="dPoints"></ul>
 
-          <div class="svc-benefits" id="svcBenefits" hidden>
-            <h2 class="svc-h2">Why upgrade?</h2>
-            <ul class="tags" id="svcBenefitList"></ul>
+          <div id="dPhotosWrap">
+            <h2 class="svc-h2">Photos</h2>
+            <div class="d-gallery" id="dGallery" data-gallery=""></div>
           </div>
 
-          <h2 class="svc-h2">How we work</h2>
-          <ol class="steps" id="svcSteps"></ol>
+          <div id="dCustomers" hidden>
+            <h2 class="svc-h2">Key customers</h2>
+            <div class="table-wrap d-table">
+              <table class="data-table">
+                <thead><tr><th>Customer</th><th>Country</th><th>Produce</th><th>AirKing Share</th></tr></thead>
+                <tbody id="dCustomerRows"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <h2 class="svc-h2">Related services</h2>
+          <div class="chip-links" id="dServices"></div>
         </article>
 
         <aside class="svc-aside">
           <div class="aside-card">
-            <h3 id="svcAsideTitle">Interested?</h3>
+            <h3 id="dAsideTitle">Interested?</h3>
             <p>Tell us about your mill and our engineers will prepare a proposal.</p>
-            <div class="aside-stats" id="svcStats"></div>
             <a href="index.html#contact" class="btn btn-block" data-quote>Request a Quote</a>
             <div class="aside-contact">
               <a href="tel:+923276889999">📞 0327 6889999</a>
               <a href="mailto:sales@nextexpk.com">✉️ sales@nextexpk.com</a>
             </div>
           </div>
-          <nav class="aside-card svc-all" aria-label="All services">
-            <h3>All services</h3>
-            <div id="svcAll"></div>
+          <nav class="aside-card svc-all" aria-labelledby="dAllTitle">
+            <h3 id="dAllTitle">More</h3>
+            <div id="dAll"></div>
           </nav>
         </aside>
       </div>
     </section>
 
-    <!-- ===================== RELATED EQUIPMENT ===================== -->
+    <!-- ===================== RELATED ===================== -->
     <section class="section section-alt">
       <div class="container">
         <div class="section-head">
           <p class="eyebrow">Equipment</p>
-          <h2>Related equipment</h2>
+          <h2 id="dRelatedTitle">Related equipment</h2>
         </div>
-        <div class="cards rel-grid" id="svcRelated"></div>
+        <div class="cards rel-grid" id="dRelated"></div>
       </div>
     </section>
 
     <!-- ===================== PREV / NEXT ===================== -->
     <section class="container svc-pager">
-      <a class="pager-link" id="svcPrev" href="#"><span>← Previous service</span><strong id="svcPrevTitle"></strong></a>
-      <a class="pager-link next" id="svcNext" href="#"><span>Next service →</span><strong id="svcNextTitle"></strong></a>
+      <a class="pager-link" id="dPrev" href="#"><span id="dPrevLabel">← Previous</span><strong id="dPrevTitle"></strong></a>
+      <a class="pager-link next" id="dNext" href="#"><span id="dNextLabel">Next →</span><strong id="dNextTitle"></strong></a>
     </section>
   </main>
 
@@ -213,6 +223,7 @@
   <a href="#top" class="to-top glass" id="toTop" aria-label="Back to top">↑</a>
 
   <script src="js/chrome.js"></script>
-  <script src="js/service.js"></script>
+  <script src="js/detail.js"></script>
+  <script src="js/gallery.js"></script>
 </body>
 </html>
