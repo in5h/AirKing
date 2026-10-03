@@ -12,11 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script>
-    // Apply the saved (or system) theme before first paint to avoid a flash.
+    // Apply the theme before first paint: light unless the visitor switched to dark.
     (function () {
       var t;
       try { t = localStorage.getItem('airking-theme'); } catch (e) {}
-      if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      if (t !== 'dark') t = 'light';   // light by default; dark only if the visitor chose it
       document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
