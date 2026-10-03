@@ -198,6 +198,9 @@
     cat: f.closest('[data-gallery]').dataset.gallery, title: text(f.querySelector('figcaption strong')), desc: text(f.querySelector('figcaption span')),
     img: f.querySelector('img').getAttribute('src'), target: f, keywords: 'factory photo gallery',
   }));
+  document.querySelectorAll('.member').forEach(m => push({
+    cat: 'Team', title: text(m.querySelector('h3')), desc: text(m.querySelector('p')), target: m, icon: '👤',
+  }));
   document.querySelectorAll('.timeline-item').forEach(t => push({
     cat: 'History', title: `${text(t.querySelector('.timeline-year'))} · ${text(t.querySelector('h3'))}`,
     desc: text(t.querySelector('p')), target: t, icon: '◷',

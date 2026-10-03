@@ -272,7 +272,7 @@ form.addEventListener('submit', async e => {
 
 // ---------- Interactive cards: 3D tilt + cursor spotlight ----------
 if (canHover && !reduceMotion) {
-  document.querySelectorAll('.card, .svc-card, .member, .saving-card, .pillar, .why, .industry, .hero-stat').forEach(card => {
+  document.querySelectorAll('.card, .svc-card, .saving-card, .pillar, .why, .industry, .hero-stat').forEach(card => {
     card.classList.add('tilt');
     const max = card.classList.contains('card') || card.classList.contains('svc-card') ? 7 : 10;
     card.addEventListener('pointermove', e => {

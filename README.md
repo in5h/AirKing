@@ -18,11 +18,10 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `assets/equipment/photos/` – real equipment photos; a card with photos gets a Photo 1 / Photo 2 / 3D switch (the 3D render stays available)
 - `assets/industries/` – industry photos: `spinning.jpg`, `weaving.jpg`, `synthetic-fibre.jpg`, `knitting.jpg`, `nonwoven.jpg`, `other.jpg` (each card shows its icon until its photo is added)
 - `js/gallery.js` – full-screen photo viewer for any `[data-gallery]` section
-- `assets/team/` – optional team photos
+- `assets/clients/` – client logos for the scrolling logo row in Clients (add an `<li>` to both lists in index.html)
 - `tools/renders/` – Three.js scenes that generated the equipment and service images (see below)
 
 ## Still to fill in
-- Team names and designations
 - Real equipment photos, if wanted: overwrite the matching file in `assets/equipment/`
 
 ## Regenerating the 3D images
