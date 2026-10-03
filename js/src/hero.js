@@ -35,72 +35,94 @@ function init() {
   const rim = new THREE.DirectionalLight(0x6fb6ff, 2.5); rim.position.set(-6, 2, -4); scene.add(rim);
   const core = new THREE.PointLight(0x5ec8ff, 6, 6, 1.5); core.position.set(0, 0, 0.6);
 
-  // ---------- materials ----------
-  const chrome = new THREE.MeshPhysicalMaterial({ color: 0xdfe7ef, metalness: 1, roughness: 0.18, side: THREE.DoubleSide });
-  const steel = new THREE.MeshPhysicalMaterial({ color: 0x93a1b0, metalness: 1, roughness: 0.32 });
-  const bladeMat = new THREE.MeshPhysicalMaterial({ color: 0x3d7ab8, metalness: 0.35, roughness: 0.22, clearcoat: 1, clearcoatRoughness: 0.08 });
-  const navy = new THREE.MeshPhysicalMaterial({ color: 0x163a63, metalness: 0.5, roughness: 0.25, clearcoat: 1, clearcoatRoughness: 0.1 });
+  // ---------- materials (galvanized / stainless industrial axial fan) ----------
+  const steel = new THREE.MeshPhysicalMaterial({ color: 0xd9dee4, metalness: 1, roughness: 0.3, side: THREE.DoubleSide });
+  const steelDark = new THREE.MeshPhysicalMaterial({ color: 0x9aa4ae, metalness: 1, roughness: 0.4, side: THREE.DoubleSide });
+  const wire = new THREE.MeshStandardMaterial({ color: 0xeef2f6, metalness: 0.9, roughness: 0.25 });
+  const bladeMat = new THREE.MeshPhysicalMaterial({ color: 0xe3e7ec, metalness: 0.55, roughness: 0.38, side: THREE.DoubleSide });
+  const hubMat = new THREE.MeshPhysicalMaterial({ color: 0xd0d6dd, metalness: 0.8, roughness: 0.3 });
+  const capMat = new THREE.MeshStandardMaterial({ color: 0xf5f7f9, metalness: 0.1, roughness: 0.45 });
+  const interior = new THREE.MeshStandardMaterial({ color: 0x141b25, metalness: 0.3, roughness: 0.8, side: THREE.DoubleSide });
 
   // ---------- fan model (axis along +z, facing the viewer) ----------
-  const R = 1.6, L = 1.2;
+  const R = 1.6, L = 0.7;                 // inner radius of the duct, depth
   const rig = new THREE.Group();          // positioned/scaled for layout
   const fan = new THREE.Group();          // tilted by pointer / drag
   rig.add(fan); scene.add(rig);
   fan.add(core);
 
-  const shroud = new THREE.Mesh(new THREE.CylinderGeometry(R, R, L, 128, 1, true), chrome);
-  shroud.rotation.x = Math.PI / 2; fan.add(shroud);
-  const bellPts = [];
-  for (let i = 0; i <= 24; i++) { const t = i / 24; bellPts.push(new THREE.Vector2(R + 0.42 * t * t, t * 0.42)); }
-  const bell = new THREE.Mesh(new THREE.LatheGeometry(bellPts, 128), chrome);
-  bell.rotation.x = Math.PI / 2; bell.position.z = L / 2; fan.add(bell);
-  const ringGeo = new THREE.TorusGeometry(R + 0.03, 0.05, 16, 128);
-  const backRing = new THREE.Mesh(ringGeo, steel); backRing.position.z = -L / 2; fan.add(backRing);
-  const frontRing = new THREE.Mesh(new THREE.TorusGeometry(R + 0.42, 0.05, 16, 128), steel); frontRing.position.z = L / 2 + 0.42; fan.add(frontRing);
+  // rod between two points (guard wires)
+  const rod = (p1, p2, r, mat) => {
+    const a1 = new THREE.Vector3(...p1), a2 = new THREE.Vector3(...p2);
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, a1.distanceTo(a2), 6), mat);
+    m.position.copy(a1).add(a2).multiplyScalar(0.5);
+    m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), a2.clone().sub(a1).normalize());
+    fan.add(m); return m;
+  };
 
-  // guard grille
-  const wire = new THREE.MeshStandardMaterial({ color: 0x9fb0c2, metalness: 1, roughness: 0.3 });
-  for (let i = 1; i <= 5; i++) {
-    const g = new THREE.Mesh(new THREE.TorusGeometry(R * i / 5.2, 0.012, 8, 96), wire);
-    g.position.z = L / 2 + 0.06; fan.add(g);
+  // duct + thick rolled rim (the big rounded silver ring of the reference fan)
+  const duct = new THREE.Mesh(new THREE.CylinderGeometry(R, R, L, 128, 1, true), steelDark);
+  duct.rotation.x = Math.PI / 2; fan.add(duct);
+  const rimPts = [];
+  for (let i = 0; i <= 40; i++) {               // rounded lip: inner edge curls out and back
+    const t = i / 40, ang = Math.PI * t;
+    rimPts.push(new THREE.Vector2(R + 0.22 - Math.cos(ang) * 0.22, Math.sin(ang) * 0.2));
   }
-  for (let i = 0; i < 16; i++) {
-    const s = new THREE.Mesh(new THREE.CylinderGeometry(0.01, 0.01, R * 0.98, 6), wire);
-    const a = i / 16 * Math.PI * 2;
-    s.position.set(Math.cos(a) * R * 0.49, Math.sin(a) * R * 0.49, L / 2 + 0.06);
-    s.rotation.z = a - Math.PI / 2; fan.add(s);
+  const lip = new THREE.Mesh(new THREE.LatheGeometry(rimPts, 160), steel);
+  lip.rotation.x = Math.PI / 2; lip.position.z = L / 2; fan.add(lip);
+  const outer = new THREE.Mesh(new THREE.CylinderGeometry(R + 0.44, R + 0.36, L * 0.9, 128, 1, true), steel);
+  outer.rotation.x = Math.PI / 2; outer.position.z = L / 2 - L * 0.45; fan.add(outer);
+  // seam clamps and bolts around the rim
+  const bolt = new THREE.SphereGeometry(0.035, 12, 8);
+  for (let i = 0; i < 28; i++) {
+    const a = i / 28 * Math.PI * 2;
+    const bm = new THREE.Mesh(bolt, steelDark); bm.position.set(Math.cos(a) * (R + 0.3), Math.sin(a) * (R + 0.3), L / 2 + 0.19); fan.add(bm);
+  }
+  for (let i = 0; i < 8; i++) {
+    const a = i / 8 * Math.PI * 2 + 0.2;
+    const clamp = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.05, 0.05), steelDark);
+    clamp.position.set(Math.cos(a) * (R + 0.4), Math.sin(a) * (R + 0.4), L / 2 + 0.05); clamp.rotation.z = a; fan.add(clamp);
   }
 
-  // rotor
-  const rotor = new THREE.Group(); rotor.position.z = 0.12; fan.add(rotor);
-  const nose = new THREE.Mesh(new THREE.SphereGeometry(0.42, 48, 24, 0, Math.PI * 2, 0, Math.PI / 2), navy);
-  nose.rotation.x = Math.PI / 2; nose.position.z = 0.12; rotor.add(nose);
-  const hub = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.3, 48), navy);
-  hub.rotation.x = Math.PI / 2; hub.position.z = -0.03; rotor.add(hub);
-  const blade = makeBladeGeometry(0.36, R * 0.94, 0.95);
-  const N = 7;
+  // dark interior so the light blades stand out (as in the photo)
+  const back = new THREE.Mesh(new THREE.CircleGeometry(R, 96), interior); back.position.z = -L / 2; fan.add(back);
+
+  // front guard: concentric wire rings on a shallow dome + radial spokes
+  const guardZ = r => L / 2 + 0.24 + 0.16 * (1 - (r / (R + 0.15)) ** 2);
+  const ringR = [];
+  for (let i = 1; i <= 13; i++) ringR.push(0.38 + (R + 0.12 - 0.38) * (i - 1) / 12);
+  ringR.forEach(r => { const g = new THREE.Mesh(new THREE.TorusGeometry(r, 0.011, 8, 128), wire); g.position.z = guardZ(r); fan.add(g); });
+  const SPOKES = 24;
+  for (let i = 0; i < SPOKES; i++) {
+    const a = i / SPOKES * Math.PI * 2, c = Math.cos(a), sn = Math.sin(a);
+    const r0 = i % 2 ? ringR[2] : ringR[0];      // every other spoke starts further out, like a real guard
+    for (let k = 0; k < 4; k++) {               // follow the dome in a few straight segments
+      const ra = r0 + (R + 0.12 - r0) * k / 4, rb = r0 + (R + 0.12 - r0) * (k + 1) / 4;
+      rod([c * ra, sn * ra, guardZ(ra)], [c * rb, sn * rb, guardZ(rb)], 0.012, wire);
+    }
+  }
+
+  // rotor: 11 wide light-grey blades, cone hub with a flat white cap
+  const rotor = new THREE.Group(); rotor.position.z = 0.05; fan.add(rotor);
+  const hubPts = [new THREE.Vector2(0.62, -0.2), new THREE.Vector2(0.6, 0.05), new THREE.Vector2(0.48, 0.2), new THREE.Vector2(0.4, 0.26), new THREE.Vector2(0, 0.26)];
+  const hub = new THREE.Mesh(new THREE.LatheGeometry(hubPts, 64), hubMat);
+  hub.rotation.x = Math.PI / 2; rotor.add(hub);
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.4, 0.4, 0.03, 64), capMat);
+  cap.rotation.x = Math.PI / 2; cap.position.z = 0.27; rotor.add(cap);
+  const blade = makePaddleGeometry(0.55, R * 0.97, 0.36, 0.5);
+  const N = 11;
   for (let i = 0; i < N; i++) {
     const holder = new THREE.Group(); holder.rotation.z = i / N * Math.PI * 2;
-    const b = new THREE.Mesh(blade, bladeMat); b.rotation.x = 0.6; holder.add(b); rotor.add(holder);
+    const b = new THREE.Mesh(blade, bladeMat); b.rotation.x = 0.62; holder.add(b); rotor.add(holder);
   }
 
-  // motor + struts behind the rotor
-  const motor = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.9, 48), navy);
-  motor.rotation.x = Math.PI / 2; motor.position.z = -0.45; fan.add(motor);
-  for (let i = 0; i < 18; i++) {
-    const fin = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.1, 0.8), steel);
-    const a = i / 18 * Math.PI * 2;
-    fin.position.set(Math.cos(a) * 0.52, Math.sin(a) * 0.52, -0.45); fin.rotation.z = a + Math.PI / 2; fan.add(fin);
-  }
-  for (let i = 0; i < 4; i++) {
-    const st = new THREE.Mesh(new THREE.BoxGeometry(0.06, R - 0.5, 0.1), steel);
-    const a = i / 4 * Math.PI * 2 + Math.PI / 4;
-    st.position.set(Math.cos(a) * (R + 0.5) / 2, Math.sin(a) * (R + 0.5) / 2, -0.45); st.rotation.z = a - Math.PI / 2; fan.add(st);
-  }
+  // motor behind the rotor
+  const motor = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.6, 48), steelDark);
+  motor.rotation.x = Math.PI / 2; motor.position.z = -0.35; fan.add(motor);
 
   // soft halo behind the fan
   const halo = new THREE.Sprite(new THREE.SpriteMaterial({
-    map: radialTexture('rgba(94,200,255,0.55)', 'rgba(61,122,184,0)'), transparent: true,
+    map: radialTexture('rgba(120,190,255,0.45)', 'rgba(61,122,184,0)'), transparent: true,
     depthWrite: false, blending: THREE.AdditiveBlending,
   }));
   halo.scale.set(7.5, 7.5, 1); halo.position.z = -1.2; fan.add(halo);
@@ -136,11 +158,11 @@ function init() {
       rig.position.set(0, visH * 0.26, 0);
       rig.scale.setScalar(Math.min(visW * 0.16, visH * 0.1));
     }
-    base.ry = w >= 900 ? -0.5 : -0.3;
+    base.ry = w >= 900 ? -0.32 : -0.18;
   }
 
   // ---------- interaction ----------
-  const base = { ry: -0.5, rx: 0.12 };
+  const base = { ry: -0.32, rx: 0.08 };
   const pointer = { x: 0, y: 0 };
   const drag = { active: false, lastX: 0, lastY: 0, vy: 0, vx: 0, offY: 0, offX: 0 };
   let boost = 0;         // extra blade speed from clicks / hovering the fan
@@ -194,7 +216,7 @@ function init() {
 
     const speed = (spin + boost) * ease;
     rotor.rotation.z -= speed * dt;
-    core.intensity = 4 + boost * 0.6 + Math.sin(t * 2) * 0.6;
+    core.intensity = 1.5 + boost * 0.4 + Math.sin(t * 2) * 0.3;
     halo.material.opacity = 0.75 + boost * 0.02;
 
     // advance particles: converge into the inlet, swirl through the rotor, spread out of the outlet
@@ -220,6 +242,21 @@ function init() {
   window.addEventListener('resize', layout);
   hero.classList.add('webgl-ready');
   frame();
+}
+
+// straight industrial paddle blade: narrow at the root, wider square-ish tip
+function makePaddleGeometry(r0, r1, rootW, tipW) {
+  const s = new THREE.Shape();
+  s.moveTo(r0, -rootW / 2);
+  s.lineTo(r1 - 0.06, -tipW / 2);
+  s.quadraticCurveTo(r1, -tipW / 2, r1, -tipW / 2 + 0.06);
+  s.lineTo(r1, tipW / 2 - 0.06);
+  s.quadraticCurveTo(r1, tipW / 2, r1 - 0.06, tipW / 2);
+  s.lineTo(r0, rootW / 2);
+  s.closePath();
+  const g = new THREE.ExtrudeGeometry(s, { depth: 0.025, bevelEnabled: true, bevelThickness: 0.01, bevelSize: 0.01, bevelSegments: 2, curveSegments: 8 });
+  g.translate(0, 0, -0.012);
+  return g;
 }
 
 function makeBladeGeometry(r0, r1, chord) {

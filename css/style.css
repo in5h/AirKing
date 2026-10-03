@@ -1059,6 +1059,34 @@ tr.flash td { animation: rowflash 1.5s ease; }
 @media (prefers-reduced-motion: reduce) { .logo-row { animation: none; } .logo-track { flex-wrap: wrap; justify-content: center; } .logo-row[aria-hidden] { display: none; } }
 @media (max-width: 600px) { .logo-tile { height: 78px; width: 170px; padding: 12px 16px; } .logo-tile img { max-height: 48px; } }
 
+/* ---------- Privacy policy page ---------- */
+.policy-hero { padding: 150px 0 70px; }
+.policy-hero h1 { margin-bottom: 0.8rem; }
+.policy-hero .lead { max-width: 640px; }
+.policy-date { margin-top: 18px; font-size: 0.85rem; color: #9fe0ff; font-weight: 600; letter-spacing: 0.04em; }
+.policy-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 56px; align-items: start; }
+.policy-toc { position: sticky; top: 100px; }
+.policy-toc #dAll a span { font-size: 0.75rem; font-weight: 700; color: var(--brand); margin-right: 10px; }
+.policy-toc #dAll a { justify-content: flex-start; font-size: 0.92rem; }
+.policy { max-width: 760px; }
+.policy-block { padding: 28px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 110px; }
+.policy-block:first-child { padding-top: 0; }
+.policy-block h2 { display: flex; align-items: center; gap: 14px; font-size: 1.35rem; margin-bottom: 12px; }
+.policy-num { flex: none; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-size: 0.9rem; color: #fff; background: linear-gradient(135deg, #4b90d4, #255b91); }
+.policy-block p { color: var(--muted); }
+.policy-block ul { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.policy-block ul li { position: relative; padding-left: 22px; color: var(--ink); }
+.policy-block ul li::before { content: ""; position: absolute; left: 4px; top: 0.65em; width: 7px; height: 7px; border-radius: 2px; background: var(--brand); }
+.policy-contact { border-bottom: 0; }
+.policy-contact-list li::before { display: none; }
+.policy-contact-list li { padding-left: 0 !important; }
+.footer-links { display: inline-flex; gap: 22px; }
+.form-consent { font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: -6px; }
+@media (max-width: 860px) {
+  .policy-layout { grid-template-columns: 1fr; gap: 28px; }
+  .policy-toc { position: static; }
+}
+
 /* ---------- Reveal on scroll ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: none; }

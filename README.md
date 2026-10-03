@@ -8,6 +8,7 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `js/main.js` – nav bar, animations, quotation form (`SALES_EMAIL` at the top)
 - `js/search.js` – site search (Ctrl/⌘+K) and the context-aware "Get a Quote" buttons
 - `detail.html` + `js/detail.js` – detail page for every equipment item (`detail.html?eq=panels`, `inverters`, `components`, `sensors`, `showering`, `nozzles`, `eliminators`, `supply-fan`, `return-fan`, `dampers`, `louvre`, `rotary-filter`, `dust`) and industry (`detail.html?ind=spinning`, `weaving`, `synthetic-fibre`, `knitting`, `nonwoven`, `other`); the text for each is in `js/detail.js`
+- `privacy.html` – privacy policy (linked from every footer; update the effective date when the text changes)
 - `js/chrome.js` – shared header/theme/menu code for the inner pages
 - `service.html` + `js/service.js` – detail page for each service (`service.html?s=design`, `installation`, `commissioning`, `control`, `dust`, `upgrade`); the text for each service is in `js/service.js`
 - `assets/logo.jpg` – original logo (favicon); `assets/logo-white.png` / `assets/logo-blue.png` – English-only wordmarks used in the nav bar and footer
@@ -50,3 +51,6 @@ The quotation form sends each request as an email to **sales@nextexpk.com** thro
 3. From then on every request arrives in that inbox; "Reply" goes straight to the customer.
 
 If sending ever fails, the form offers the visitor a pre-filled email or the phone number instead. To change the receiving address, edit `SALES_EMAIL` at the top of `js/main.js`.
+
+## Photo quality
+The photos in `assets/factory/`, `assets/industries/` and `assets/equipment/photos/` were cropped from slides and were small, so they were enlarged 4× with an AI super-resolution model (OpenCV EDSR), lightly de-noised and sharpened. For the best quality, replace any of them with the original camera photo of the same name.
