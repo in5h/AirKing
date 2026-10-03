@@ -43,7 +43,7 @@ The quotation form sends each request as an email to **sales@nextexpk.com** thro
 2. FormSubmit emails **sales@nextexpk.com** an activation link — click it once.
 3. From then on every request arrives in that inbox; "Reply" goes straight to the customer.
 
-If sending ever fails, the form offers the visitor a pre-filled email or the phone number instead. To change the receiving address, edit `SALES_EMAIL` at the top of `js/main.js`.
+If sending ever fails, the form offers the visitor a pre-filled email or the phone number instead. To change the receiving address, edit `SALES_EMAIL` at the top of `js/main.js`; `CC_EMAILS` (insharahaman8@gmail.com) gets a copy of every query.
 
 ## Photo quality
 The photos in `assets/factory/`, `assets/industries/` and `assets/equipment/photos/` were cropped from slides and were small, so they were enlarged 4× with an AI super-resolution model (OpenCV EDSR), lightly de-noised and sharpened. For the best quality, replace any of them with the original camera photo of the same name.

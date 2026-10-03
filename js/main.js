@@ -1,5 +1,7 @@
 // Address that receives website queries.
 const SALES_EMAIL = 'sales@nextexpk.com';
+// Also receives a copy of every query (comma-separate to add more addresses).
+const CC_EMAILS = 'insharahaman8@gmail.com';
 
 const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -224,7 +226,7 @@ form.querySelectorAll('[required]').forEach(f => f.addEventListener('input', () 
 
 const mailtoLink = d => {
   const body = [`Name: ${d.name}`, `Company: ${d.company || '-'}`, `Email: ${d.email}`, `Phone: ${d.phone || '-'}`, `Interested in: ${d.product}`, '', d.message].join('\n');
-  return `mailto:${SALES_EMAIL}?subject=${encodeURIComponent(`Quotation request: ${d.product} – ${d.name}`)}&body=${encodeURIComponent(body)}`;
+  return `mailto:${SALES_EMAIL}?cc=${encodeURIComponent(CC_EMAILS)}&subject=${encodeURIComponent(`Quotation request: ${d.product} – ${d.name}`)}&body=${encodeURIComponent(body)}`;
 };
 
 const showSuccess = d => {
@@ -277,6 +279,7 @@ form.addEventListener('submit', async e => {
       body: JSON.stringify({
         _subject: `Quotation request: ${d.product} – ${d.name}${d.company ? ' (' + d.company + ')' : ''}`,
         _template: 'table',
+        _cc: CC_EMAILS,
         _captcha: 'false',
         _replyto: d.email,
         Name: d.name,
