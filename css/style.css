@@ -1043,7 +1043,8 @@ tr.flash td { animation: rowflash 1.5s ease; }
 .svc-all #dAll a.all-link { color: var(--brand); font-weight: 700; margin-top: 6px; border-top: 1px solid var(--line); border-radius: 0; padding-top: 14px; }
 
 /* ---------- Client logo marquee ---------- */
-.logo-marquee { margin-top: 56px; }
+.logo-band { padding: 48px 0 52px; background: var(--bg-alt); border-top: 1px solid var(--line); }
+.logo-marquee { margin: 0; }
 .logo-marquee-title { text-align: center; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
 .logo-track {
   display: flex; overflow: hidden;

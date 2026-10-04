@@ -165,12 +165,6 @@
 
   // Key customers (from the home page client tables)
   const CLIENTS = [
-    {"name": "Nishat Chunian Ltd #3", "country": "Pakistan", "produce": "Spinning", "share": "2 × AC Plants (Ring)"},
-    {"name": "Naveena Denim Pvt Ltd", "country": "Pakistan", "produce": "Weaving", "share": "Weaving (6 plants)"},
-    {"name": "Din Industries Ltd", "country": "Pakistan", "produce": "Spinning", "share": "Ring & Simplex · Ring & Autocone"},
-    {"name": "Crescent Textile Mills Ltd", "country": "Pakistan", "produce": "Spinning", "share": "Ring AC Plant"},
-    {"name": "Fazal Cloth Ltd #6", "country": "Pakistan", "produce": "Weaving", "share": "Weaving AC Plant"},
-    {"name": "Rafiq Jameel Weaving Mills Ltd", "country": "Pakistan", "produce": "Weaving", "share": "Warping & Weaving AC Plant"},
     {"name": "Matin Textile", "country": "Bangladesh", "produce": "Composite Unit", "share": "50,000 Spindles"},
     {"name": "Square Textile", "country": "Bangladesh", "produce": "Composite Unit", "share": "40,000 Spindles"},
     {"name": "AA Yarn Spinning", "country": "Bangladesh", "produce": "Spinning Unit", "share": "500,000 Spindles"},
