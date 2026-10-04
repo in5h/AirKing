@@ -155,53 +155,14 @@
   ];
 
   const INDUSTRIES = [
-    { id: 'spinning', title: 'Spinning', icon: '🧵', match: ['Spinning', 'Composite'], tagline: 'Ring spinning, air-jet spinning, compact spinning and vortex spinning.' },
-    { id: 'weaving', title: 'Weaving', icon: '🪡', match: ['Weaving', 'Composite'], tagline: 'Dual-dewpoint air supply for large and small weaving halls — yarn-dyed and raw white fabric.' },
-    { id: 'synthetic-fibre', title: 'Synthetic Fibre', icon: '🧪', match: [], tagline: 'Constant airflow and cooling capacity for each process section to hold temperature steady.' },
-    { id: 'knitting', title: 'Knitted Fabric', icon: '🧶', match: [], tagline: 'Air conditioning, refrigeration and direct-air-delivery systems for warp and weft knitting.' },
-    { id: 'nonwoven', title: 'Non-woven Fabric', icon: '🧻', match: [], tagline: 'Air conditioning systems for non-woven fabric workshops across their various processes.' },
-    { id: 'other', title: 'Other Industries', icon: '🏭', match: [], tagline: 'Medical dressings (preheating and analytical rooms), papermaking, fibre glass, tyre and cigarette factories.' },
+    { id: 'spinning', title: 'Spinning', icon: '🧵', tagline: 'Ring spinning, air-jet spinning, compact spinning and vortex spinning.' },
+    { id: 'weaving', title: 'Weaving', icon: '🪡', tagline: 'Dual-dewpoint air supply for large and small weaving halls — yarn-dyed and raw white fabric.' },
+    { id: 'synthetic-fibre', title: 'Synthetic Fibre', icon: '🧪', tagline: 'Constant airflow and cooling capacity for each process section to hold temperature steady.' },
+    { id: 'knitting', title: 'Knitted Fabric', icon: '🧶', tagline: 'Air conditioning, refrigeration and direct-air-delivery systems for warp and weft knitting.' },
+    { id: 'nonwoven', title: 'Non-woven Fabric', icon: '🧻', tagline: 'Air conditioning systems for non-woven fabric workshops across their various processes.' },
+    { id: 'other', title: 'Other Industries', icon: '🏭', tagline: 'Medical dressings (preheating and analytical rooms), papermaking, fibre glass, tyre and cigarette factories.' },
   ];
 
-  // Key customers (from the home page client tables)
-  const CLIENTS = [
-    {"name": "Matin Textile", "country": "Bangladesh", "produce": "Composite Unit", "share": "50,000 Spindles"},
-    {"name": "Square Textile", "country": "Bangladesh", "produce": "Composite Unit", "share": "40,000 Spindles"},
-    {"name": "AA Yarn Spinning", "country": "Bangladesh", "produce": "Spinning Unit", "share": "500,000 Spindles"},
-    {"name": "Zagis Textile Mills", "country": "Mexico", "produce": "Composite Unit", "share": "100,000 Spindles"},
-    {"name": "Global Denim", "country": "Mexico", "produce": "Composite Unit", "share": "50,000 Spindles · 500 Looms"},
-    {"name": "UZ Textile", "country": "Uzbekistan", "produce": "Composite Unit", "share": "200,000 Spindles · 500 Looms"},
-    {"name": "MST Textile Mills Ltd", "country": "Uzbekistan", "produce": "Composite Unit", "share": "150,000 Spindles"},
-    {"name": "SST Textile Mills Ltd", "country": "Uzbekistan", "produce": "Composite Unit", "share": "100,000 Spindles"},
-    {"name": "Tex Home Textile", "country": "Vietnam", "produce": "Spinning Unit", "share": "150,000 Spindles"},
-    {"name": "All Med Textile", "country": "Vietnam", "produce": "Composite Unit", "share": "100,000 Spindles"},
-    {"name": "Anhui Huamao Group Co., Ltd", "produce": "Composite Unit", "share": "1,000,000 Spindles · 500 Looms", "country": "China"},
-    {"name": "Huamao", "produce": "Composite Unit", "share": "700,000 Spindles · 1,000 Looms", "country": "China"},
-    {"name": "Xinhuayuan Group", "produce": "Spinning Unit", "share": "650,000 Spindles", "country": "China"},
-    {"name": "Changyuan Textile Group", "produce": "Spinning Unit", "share": "500,000 Spindles", "country": "China"},
-    {"name": "Tianyi Textile", "produce": "Spinning Unit", "share": "500,000 Spindles", "country": "China"},
-    {"name": "Xuyuan Textile", "produce": "Spinning Unit", "share": "500,000 Spindles", "country": "China"},
-    {"name": "DIW China", "produce": "Spinning Mills", "share": "400,000 Spindles", "country": "China"},
-    {"name": "Yueyang Kelijia Textile", "produce": "Spinning Unit", "share": "220,000 Spindles", "country": "China"},
-    {"name": "Changshixin Textile", "produce": "Composite Unit", "share": "200,000 Spindles · 3,000 Looms", "country": "China"},
-    {"name": "Sanyang Textile Co., Ltd", "produce": "Composite Unit", "share": "200,000 Spindles · Weaving new project", "country": "China"},
-    {"name": "Yueda Textile Group", "produce": "Spinning", "share": "200,000 Spindles", "country": "China"},
-    {"name": "Henyuan Textile", "produce": "Spinning Unit", "share": "200,000 Spindles", "country": "China"},
-    {"name": "Xiangyuan Textile", "produce": "Spinning Unit", "share": "150,000 Spindles", "country": "China"},
-    {"name": "Fujian Haixia Textile", "produce": "Spinning Unit", "share": "140,000 Spindles", "country": "China"},
-    {"name": "Weiqiao Group", "produce": "Spinning Unit", "share": "120,000 Spindles", "country": "China"},
-    {"name": "Huayuan Eco-Technology", "produce": "Spinning & O.E", "share": "80,000 Spindles · 40 Vortex Machines", "country": "China"},
-    {"name": "Wanzhou Group", "produce": "Weaving", "share": "4,200 Looms", "country": "China"},
-    {"name": "Longfeng Textile", "produce": "Weaving Unit", "share": "1,000 Looms", "country": "China"},
-    {"name": "Seazon", "produce": "Weaving", "share": "800 Looms", "country": "China"},
-    {"name": "Daiyin Group", "produce": "Weaving Unit", "share": "290 Looms", "country": "China"},
-    {"name": "Maofeng Textile", "produce": "Weaving Unit", "share": "290 Looms", "country": "China"},
-    {"name": "Jieen Textile", "produce": "Weaving Unit", "share": "192 Looms", "country": "China"},
-    {"name": "Nanhai Mingjie Textile", "produce": "Weaving Unit", "share": "180 Looms", "country": "China"},
-    {"name": "Lishun Textile", "produce": "Weaving Unit", "share": "140 Looms", "country": "China"},
-    {"name": "Xianglong Textile", "produce": "Weaving Unit", "share": "120 Looms", "country": "China"},
-    {"name": "Xianbao Textile", "produce": "Weaving Unit", "share": "120 Looms", "country": "China"},
-  ];
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const $ = id => document.getElementById(id);
@@ -263,11 +224,6 @@
     $('dAsideTitle').textContent = `AirKing for ${item.title.toLowerCase()}`;
     $('dAllTitle').textContent = 'All industries';
     $('dAll').innerHTML = INDUSTRIES.map(x => `<a href="${link(x)}" class="${x === item ? 'active' : ''}"${x === item ? ' aria-current="page"' : ''}>${esc(x.title)}</a>`).join('');
-    const customers = CLIENTS.filter(c => item.match.some(m => c.produce.includes(m)));
-    if (customers.length) {
-      $('dCustomers').hidden = false;
-      $('dCustomerRows').innerHTML = customers.slice(0, 12).map(c => `<tr><td>${esc(c.name)}</td><td>${esc(c.country)}</td><td>${esc(c.produce)}</td><td>${esc(c.share)}</td></tr>`).join('');
-    }
     $('dRelatedTitle').textContent = 'Equipment we use';
     const pick = ['showering', 'supply-fan', 'rotary-filter', 'inverters'];
     $('dRelated').innerHTML = pick.map(id => EQUIPMENT.find(e => e.id === id)).map(e => `<a class="card product rel-card" href="detail.html?eq=${e.id}">
