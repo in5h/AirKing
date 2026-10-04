@@ -1045,6 +1045,7 @@ tr.flash td { animation: rowflash 1.5s ease; }
 /* ---------- Client logo marquee ---------- */
 .logo-band { padding: 48px 0 52px; background: var(--bg-alt); border-top: 1px solid var(--line); }
 .logo-marquee { margin: 0; }
+#clients .logo-marquee { margin-top: 56px; }
 .logo-marquee-title { text-align: center; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
 .logo-track {
   display: flex; overflow: hidden;

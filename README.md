@@ -20,7 +20,7 @@ Static one-page website for AirKing (艾金空气工程). Open `index.html` in a
 - `assets/equipment/photos/` – real equipment photos (first photo is the thumbnail in the home page Products list; all photos + the 3D render show on each product's detail page)
 - `assets/industries/` – industry photos: `spinning.jpg`, `weaving.jpg`, `synthetic-fibre.jpg`, `knitting.jpg`, `nonwoven.jpg`, `other.jpg` (each card shows its icon until its photo is added)
 - `js/gallery.js` – full-screen photo viewer for any `[data-gallery]` section
-- `assets/clients/` – client logos for the scrolling "Trusted by" row above every footer (add the logo to `LOGOS` in `tools/build_nav.py` and run `python3 tools/build_nav.py`)
+- `assets/clients/` – client logos for the scrolling "Trusted by" row (inside Clients on the home page, above the footer on other pages) (add the logo to `LOGOS` in `tools/build_nav.py` and run `python3 tools/build_nav.py`)
 - `tools/renders/` – Three.js scenes that generated the equipment and service images (see below)
 
 ## Still to fill in
