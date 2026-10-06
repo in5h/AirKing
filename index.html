@@ -796,78 +796,6 @@
     </div>
   </section>
 
-  <!-- ===================== CONTACT ===================== -->
-  <section class="section section-alt" id="contact">
-    <div class="container contact-grid">
-      <div>
-        <p class="eyebrow">Contact Us</p>
-        <h2>Send us your query</h2>
-        <p>Tell us about your project and our team will get back to you.</p>
-        <ul class="contact-list">
-          <li>
-            <span class="ci" aria-hidden="true">📍</span>
-            <div><strong>Pakistan Office</strong><br>P-56, Main Kashmir Road, Amin Town, Faisalabad, Pakistan</div>
-          </li>
-          <li>
-            <span class="ci" aria-hidden="true">📞</span>
-            <div><strong>Phone</strong><br><a href="tel:+923276889999">0327 6889999</a></div>
-          </li>
-          <li>
-            <span class="ci" aria-hidden="true">✉️</span>
-            <div><strong>Email</strong><br><a href="mailto:sales@nextexpk.com">sales@nextexpk.com</a></div>
-          </li>
-          <li>
-            <span class="ci" aria-hidden="true">🏢</span>
-            <div><strong>Shanghai Office</strong> (上海办事处)<br>上海市松江区广富林路799弄中展瑞景22号楼808室<br><a href="https://en.airjing.cn/" target="_blank" rel="noopener" class="ext-link">en.airjing.cn <svg class="ext-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span class="sr-only"> (opens in a new tab)</span></a></div>
-          </li>
-          <li>
-            <span class="ci" aria-hidden="true">🏭</span>
-            <div><strong>Factory</strong> (工厂地址)<br>江苏省太仓市沙溪镇沙直路3号</div>
-          </li>
-        </ul>
-        <div class="map">
-          <iframe title="Pakistan office location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=P-56+Main+Kashmir+Road+Amin+Town+Faisalabad&output=embed"></iframe>
-        </div>
-      </div>
-
-      <!-- Netlify Forms: Netlify detects this form on deploy (name="quotation"); submissions appear under
-           Site > Forms and are emailed to the addresses set in Site configuration > Notifications > Form submissions. -->
-      <form class="form" id="queryForm" name="quotation" method="POST" data-netlify="true" netlify-honeypot="_honey" novalidate>
-        <input type="hidden" name="form-name" value="quotation">
-        <div>
-          <h3>Request a quotation</h3>
-          <p class="form-intro">Your request goes straight to our sales team at sales@nextexpk.com. We usually reply within one working day.</p>
-        </div>
-        <!-- spam trap: real visitors never see or fill this -->
-        <label class="hp-field" aria-hidden="true">Leave empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
-        <div class="form-row">
-          <label>Full name *<input type="text" name="name" required autocomplete="name"></label>
-          <label>Company<input type="text" name="company" autocomplete="organization"></label>
-        </div>
-        <div class="form-row">
-          <label>Email *<input type="email" name="email" required autocomplete="email"></label>
-          <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
-        </div>
-        <label>Interested in
-          <select name="product">
-            <option>General enquiry</option>
-            <option>New textile AC plant (turn-key)</option>
-            <option>Upgrade of existing AC plant</option>
-            <option>Automation &amp; controls</option>
-            <option>Air washer equipment</option>
-            <option>Fans, dampers &amp; louvres</option>
-            <option>Filtration &amp; dust handling</option>
-            <option>Service &amp; spare parts</option>
-          </select>
-        </label>
-        <label>Your query *<textarea name="message" rows="5" required></textarea></label>
-        <button type="submit" class="btn btn-block" id="formSubmit">Send Quotation Request</button>
-        <p class="form-consent">By sending this form you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
-        <p class="form-status" id="formStatus" role="status"></p>
-      </form>
-    </div>
-  </section>
 
 
   <!-- ===================== FOOTER ===================== -->
@@ -895,8 +823,8 @@
         <a href="#div-filtration">Filtration &amp; Dust</a>
         <a href="#control">Control System</a>
       </nav>
-      <div class="footer-col">
-        <h4>Contact</h4>
+      <div class="footer-col" id="contact">
+        <h4>Contact Us</h4>
         <p>P-56, Main Kashmir Road, Amin Town, Faisalabad, Pakistan</p>
         <a href="tel:+923276889999">0327 6889999</a>
         <a href="mailto:sales@nextexpk.com">sales@nextexpk.com</a>

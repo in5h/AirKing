@@ -176,7 +176,6 @@
   const slug = new URLSearchParams(location.search).get('s');
   const i = Math.max(0, SERVICES.findIndex(s => s.slug === slug));
   const svc = SERVICES[i];
-  const quoteUrl = `index.html?interest=${svc.interest}&about=${encodeURIComponent(svc.title)}#contact`;
 
   document.title = `${svc.title} | AirKing Services`;
   const meta = document.querySelector('meta[name="description"]');
@@ -202,8 +201,6 @@
       <div class="product-img"><img src="assets/equipment/${file}.jpg" alt="${esc(name)}" loading="lazy"></div>
       <div class="card-body"><h3>${esc(name)}</h3><span class="rel-more">View equipment →</span></div></a>`;
   }).join('');
-  document.querySelectorAll('[data-quote]').forEach(a => { a.href = quoteUrl; });
-  $('svcAsideTitle').textContent = `Interested in ${svc.title}?`;
 
   const prev = SERVICES[(i + SERVICES.length - 1) % SERVICES.length], next = SERVICES[(i + 1) % SERVICES.length];
   $('svcPrev').href = `service.html?s=${prev.slug}`; $('svcPrevTitle').textContent = prev.title;

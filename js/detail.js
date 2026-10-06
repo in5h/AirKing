@@ -177,8 +177,6 @@
   const photos = kind === 'eq'
     ? [...item.photos.map(([f, c]) => [`assets/equipment/photos/${f}.jpg`, c]), [`assets/equipment/${item.render}.jpg`, '3D model']]
     : [[`assets/industries/${item.id}.jpg`, item.title]];
-  const interest = kind === 'eq' ? DIVISIONS[item.div].interest : (item.id === 'weaving' || item.id === 'spinning' ? 'plant' : 'general');
-  const quoteUrl = `index.html?interest=${interest}&about=${encodeURIComponent(item.title)}#contact`;
 
   document.title = `${item.title} | AirKing ${kind === 'eq' ? 'Equipment' : 'Industries'}`;
   document.querySelector('meta[name="description"]').setAttribute('content', `${item.title} — ${item.tagline}`);
@@ -188,7 +186,6 @@
   $('dBadge').innerHTML = kind === 'eq' ? `Equipment · <strong>${esc(DIVISIONS[item.div].name)}</strong>` : `Industry <strong>${String(idx + 1).padStart(2, '0')}</strong>`;
   $('dTitle').textContent = item.title;
   $('dTagline').textContent = item.tagline;
-  document.querySelectorAll('[data-quote]').forEach(a => { a.href = quoteUrl; });
 
   // gallery (hero image opens the first photo)
   $('dGallery').dataset.gallery = item.title;
@@ -206,7 +203,6 @@
     $('dPointsTitle').textContent = 'Key points';
     $('dPoints').innerHTML = item.points.map(p => `<li>${esc(p)}</li>`).join('');
     $('dServices').innerHTML = item.services.map(s => `<a class="chip-link" href="service.html?s=${s}">${esc(SERVICES[s])} →</a>`).join('');
-    $('dAsideTitle').textContent = `Interested in ${item.title}?`;
     $('dAllTitle').textContent = DIVISIONS[item.div].name;
     const sameDiv = EQUIPMENT.filter(e => e.div === item.div);
     $('dAll').innerHTML = sameDiv.map(e => `<a href="${link(e)}" class="${e === item ? 'active' : ''}"${e === item ? ' aria-current="page"' : ''}>${esc(e.title)}</a>`).join('') +
@@ -221,7 +217,6 @@
     $('dPointsTitle').textContent = 'How we help';
     $('dPoints').innerHTML = ['Precision temperature & humidity control', 'Intelligent energy-saving automation (Tex-Auto, Beckhoff)', 'Return-air filtration and dust handling', 'Complete turnkey delivery — design to commissioning'].map(p => `<li>${esc(p)}</li>`).join('');
     $('dServices').innerHTML = Object.entries(SERVICES).map(([s, t]) => `<a class="chip-link" href="service.html?s=${s}">${esc(t)} →</a>`).join('');
-    $('dAsideTitle').textContent = `AirKing for ${item.title.toLowerCase()}`;
     $('dAllTitle').textContent = 'All industries';
     $('dAll').innerHTML = INDUSTRIES.map(x => `<a href="${link(x)}" class="${x === item ? 'active' : ''}"${x === item ? ' aria-current="page"' : ''}>${esc(x.title)}</a>`).join('');
     $('dRelatedTitle').textContent = 'Equipment we use';

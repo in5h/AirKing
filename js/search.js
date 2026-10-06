@@ -1,45 +1,9 @@
 // Site search (Spotlight-style overlay) and card links.
 (function () {
-  const form = document.getElementById('queryForm');
-  const productSelect = form.querySelector('select[name="product"]');
-  const message = form.querySelector('textarea[name="message"]');
-
-  // Form "Interested in" options, by key
-  const OPT = {
-    general: 'General enquiry',
-    plant: 'New textile AC plant (turn-key)',
-    upgrade: 'Upgrade of existing AC plant',
-    controls: 'Automation & controls',
-    washer: 'Air washer equipment',
-    fans: 'Fans, dampers & louvres',
-    filtration: 'Filtration & dust handling',
-    service: 'Service & spare parts',
-  };
-
-  const contactSec = document.getElementById('contact');
-
   const flash = el => {
     el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
     setTimeout(() => el.classList.remove('flash'), 1600);
   };
-
-  // Go to the form with the right option (and optionally a message) filled in
-  const openForm = (optKey, text) => {
-    if (optKey && OPT[optKey]) productSelect.value = OPT[optKey];
-    if (text && !message.value.trim()) message.value = text;
-    contactSec.scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => {
-      form.querySelector('input[name="name"]').focus({ preventScroll: true });
-      flash(form);
-    }, 650);
-  };
-
-  const params = new URLSearchParams(location.search);
-  if (params.get('interest') && OPT[params.get('interest')]) {
-    productSelect.value = OPT[params.get('interest')];
-    if (params.get('about') && !message.value) message.value = `I'm interested in: ${params.get('about')}.\n\n`;
-    if (location.hash === '#contact') setTimeout(() => { flash(form); form.querySelector('input[name="name"]').focus({ preventScroll: true }); }, 700);
-  }
 
   // a whole card opens its detail page; buttons and links inside keep their own action
   const cardLink = (card, url) => card.addEventListener('click', e => {
@@ -181,8 +145,7 @@
     results = search(q);
     active = 0;
     if (!results.length) {
-      list.innerHTML = `<p class="search-empty">No results for “${esc(q)}”.<br><button type="button" class="search-ask">Ask our team about it →</button></p>`;
-      list.querySelector('.search-ask').addEventListener('click', () => { close(); openForm('general', `${q}\n\n`); });
+      list.innerHTML = `<p class="search-empty">No results for “${esc(q)}”.<br><a class="search-ask" href="mailto:sales@nextexpk.com?subject=${encodeURIComponent(q)}">Ask our team about it →</a></p>`;
       return;
     }
     let html = q ? '' : '<p class="search-group">Suggestions</p>', lastCat = null;

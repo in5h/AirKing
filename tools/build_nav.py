@@ -90,7 +90,7 @@ def nav(p):  # p = '' on the home page, 'index.html' on inner pages
     company = dropdown('company', 'Company', [
         col(f'{p}#about', 'About AirKing', [(f'{p}#about', 'Who we are'), (f'{p}#history', 'Our history'), (f'{p}#factory', 'Inside AirKing (factory)'), (f'{p}#team', 'Meet our team')]),
         col(f'{p}#industries', 'Industries', [(ind('spinning'), 'Spinning'), (ind('weaving'), 'Weaving'), (ind('synthetic-fibre'), 'Synthetic Fibre'), (ind('knitting'), 'Knitted Fabric'), (ind('nonwoven'), 'Non-woven Fabric'), (ind('other'), 'Other Industries')]),
-        col(f'{p}#clients', 'References', [(f'{p}#clients', 'Key customers'), (f'{p}#why', 'Why AirKing?'), (f'{p}#contact', 'Contact us')]),
+        col(f'{p}#clients', 'References', [(f'{p}#clients', 'Key customers'), (f'{p}#why', 'Why AirKing?'), ('#contact', 'Contact us')]),
     ], 3, sections='company about history factory industries clients team why')
     return f'''<nav class="nav" id="nav" aria-label="Main">
         <span class="nav-bubble" id="navBubble" aria-hidden="true"></span>
@@ -98,7 +98,7 @@ def nav(p):  # p = '' on the home page, 'index.html' on inner pages
 {services}
 {equipment}
 {control}
-        <a href="{p}#contact" class="nav-link nav-link-mobile">Contact</a>
+        <a href="#contact" class="nav-link nav-link-mobile">Contact</a>
       </nav>'''
 
 
