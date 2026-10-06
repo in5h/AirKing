@@ -1,8 +1,5 @@
-// Site search (Spotlight-style overlay) and the dynamic, context-aware call-to-action.
+// Site search (Spotlight-style overlay) and card links.
 (function () {
-  // ======================================================================
-  // Dynamic CTA
-  // ======================================================================
   const form = document.getElementById('queryForm');
   const productSelect = form.querySelector('select[name="product"]');
   const message = form.querySelector('textarea[name="message"]');
@@ -19,55 +16,7 @@
     service: 'Service & spare parts',
   };
 
-  // What the CTA says (and pre-selects) while each part of the page is on screen
-  const CONTEXT = {
-    home: { label: 'Get a Quote', opt: 'general' },
-    about: { label: 'Get a Quote', opt: 'general' },
-    services: { label: 'Plan Your Project', opt: 'plant' },
-    history: { label: 'Talk to an Engineer', opt: 'general' },
-    'div-automation': { label: 'Quote Controls', opt: 'controls' },
-    'div-washer': { label: 'Quote Air Washer', opt: 'washer' },
-    'div-airhandling': { label: 'Quote Fans & Dampers', opt: 'fans' },
-    'div-filtration': { label: 'Quote Filtration', opt: 'filtration' },
-    equipment: { label: 'Quote Equipment', opt: 'general' },
-    control: { label: 'Upgrade My Controls', opt: 'controls' },
-    why: { label: 'Upgrade My Plant', opt: 'upgrade' },
-    results: { label: 'Get an Energy Audit', opt: 'upgrade' },
-    industries: { label: 'Discuss My Mill', opt: 'general' },
-    clients: { label: 'Join Our Clients', opt: 'plant' },
-    team: { label: 'Contact Our Team', opt: 'general' },
-    contact: { label: 'Write Your Query', opt: null },
-  };
-
-  // Ordered list of watched elements (later ones win when several are past the line)
-  const watched = ['home', 'about', 'services', 'history', 'equipment', 'div-automation', 'div-washer',
-    'div-airhandling', 'div-filtration', 'control', 'why', 'results', 'industries', 'clients', 'team', 'contact']
-    .map(id => document.getElementById(id)).filter(Boolean);
-
-  const ctas = [...document.querySelectorAll('[data-cta]')];
-  const floatCta = document.getElementById('floatCta');
   const contactSec = document.getElementById('contact');
-  let ctx = CONTEXT.home, ctxId = 'home';
-
-
-  const updateContext = () => {
-    const line = window.innerHeight * 0.4;
-    let id = 'home';
-    watched.forEach(el => { if (el.getBoundingClientRect().top <= line) id = el.id; });
-    // leaving the equipment area: drop the division-specific label
-    const eq = document.getElementById('equipment').getBoundingClientRect();
-    if (id.startsWith('div-') && eq.bottom < line) id = 'equipment';
-    if (id !== ctxId) {
-      ctxId = id; ctx = CONTEXT[id] || CONTEXT.home;
-      // the label stays "Get a Quote"; the section only decides which interest the form pre-selects
-    }
-    const c = contactSec.getBoundingClientRect();
-    const contactInView = c.top < window.innerHeight * 0.8 && c.bottom > 0;
-    floatCta.classList.toggle('show', window.scrollY > window.innerHeight * 0.7 && !contactInView);
-  };
-  window.addEventListener('scroll', updateContext, { passive: true });
-  window.addEventListener('resize', updateContext);
-  updateContext();
 
   const flash = el => {
     el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
@@ -92,24 +41,6 @@
     if (location.hash === '#contact') setTimeout(() => { flash(form); form.querySelector('input[name="name"]').focus({ preventScroll: true }); }, 700);
   }
 
-  ctas.forEach(el => el.addEventListener('click', e => {
-    e.preventDefault();
-    openForm(ctx.opt);
-  }));
-
-  // "Enquire" buttons on every equipment and service card
-  const divisionOpt = { 'div-automation': 'controls', 'div-washer': 'washer', 'div-airhandling': 'fans', 'div-filtration': 'filtration' };
-  const serviceOpt = { 'Design & Engineering': 'plant', 'Installation': 'plant', 'Commissioning': 'plant',
-    'Automation & Control': 'controls', 'Dust Handling': 'filtration', 'AC Plant Upgrade': 'upgrade' };
-
-  const addEnquire = (body, title, optKey) => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'card-cta';
-    b.innerHTML = 'Enquire <span aria-hidden="true">→</span>';
-    b.setAttribute('aria-label', `Enquire about ${title}`);
-    b.addEventListener('click', () => openForm(optKey, `I'm interested in: ${title}.\n\n`));
-    body.appendChild(b);
-  };
   // a whole card opens its detail page; buttons and links inside keep their own action
   const cardLink = (card, url) => card.addEventListener('click', e => {
     if (!e.target.closest('a, button')) window.location.href = url;
@@ -137,7 +68,6 @@
     const actions = document.createElement('div');
     actions.className = 'svc-actions';
     card.querySelector('.svc-body').appendChild(actions);
-    addEnquire(actions, title, serviceOpt[title] || 'general');
     const more = document.createElement('a');
     more.className = 'svc-more'; more.href = link.getAttribute('href');
     more.innerHTML = 'Learn more <span aria-hidden="true">→</span>';

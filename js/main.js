@@ -134,7 +134,7 @@ const realign = () => { if (bubbleTarget) moveBubble(bubbleTarget); };
 window.addEventListener('resize', realign);
 if ('ResizeObserver' in window) {
   const ro = new ResizeObserver(realign);
-  [nav, document.querySelector('.nav-shell'), document.querySelector('.nav-cta')].forEach(el => el && ro.observe(el));
+  [nav, document.querySelector('.nav-shell')].forEach(el => el && ro.observe(el));
 }
 document.fonts && document.fonts.ready.then(realign);
 
