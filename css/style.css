@@ -82,6 +82,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
+/* No blinking text caret or I-beam on ordinary text: only form fields are for typing */
+html { caret-color: transparent; cursor: default; }
+input, textarea, select, [contenteditable="true"] { caret-color: auto; cursor: text; }
+select { cursor: pointer; }
+a, button, label, summary, [role="tab"], [data-close] { cursor: pointer; }
 a { color: var(--brand); text-decoration: none; }
 a:hover { color: var(--brand-dark); }
 
