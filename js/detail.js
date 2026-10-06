@@ -8,8 +8,8 @@
     filtration: { name: 'Filtration & Dust Handling', anchor: 'div-filtration', interest: 'filtration' },
   };
   const SERVICES = {
-    design: 'Design & Engineering', installation: 'Installation', commissioning: 'Commissioning',
-    control: 'Automation & Control', dust: 'Dust Handling', upgrade: 'AC Plant Upgrade',
+    design: 'New HVAC Plant', upgrade: 'HVAC Plant Upgrade', control: 'Automation & Control',
+    installation: 'Installation', commissioning: 'Commissioning',
   };
 
   // id = the card id on the home page without "eq-"; render = 3D image in assets/equipment/
@@ -98,7 +98,7 @@
         'The same fans supply conditioned air to the production hall and bring return air back to the plant for filtering. Together with ABB inverters, the fan speed follows the real demand of the hall.',
       ],
       points: ['Energy-saving axial fan', 'Aerodynamic blades developed by AirKing (2010)', 'Used for supply air and return air', 'Speed control with ABB inverters'],
-      services: ['design', 'upgrade', 'dust'],
+      services: ['design', 'upgrade'],
     },
     {
       id: 'dampers', div: 'airhandling', title: 'Air Control Dampers', render: 'dampers',
@@ -129,7 +129,7 @@
         'The collected waste goes on to the dust collection system.',
       ],
       points: ['LDF rotary air filter', 'Continuous filtration of the return air', 'Large drum for big air volumes', 'Works with the dust collection system'],
-      services: ['dust'],
+      services: ['design', 'installation'],
     },
     {
       id: 'dust', div: 'filtration', title: 'Dust Collection System', render: 'dust-collection',
@@ -140,7 +140,7 @@
         'The waste can then be baled for easy removal.',
       ],
       points: ['Dust collector with filter bags', 'Dust collector fan', 'Centralized collection', 'Filtration and bailing'],
-      services: ['dust'],
+      services: ['design', 'installation'],
     },
   ];
 

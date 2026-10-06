@@ -2,10 +2,10 @@
 (function () {
   const SERVICES = [
     {
-      slug: 'design', title: 'Design & Engineering', img: 'assets/services/design.jpg', interest: 'plant',
-      tagline: 'Every efficient plant starts with the right numbers.',
+      slug: 'design', title: 'New HVAC Plant', img: 'assets/services/design.jpg', interest: 'plant',
+      tagline: 'A complete new HVAC plant for your mill, designed and built by one team.',
       intro: [
-        'We design the complete air conditioning plant around your mill — its production process, machine heat load, local climate and the room conditions your yarn or fabric needs.',
+        'We design and build complete new HVAC plants around your mill — its production process, machine heat load, local climate and the room conditions your yarn or fabric needs.',
         'The result is a plant sized correctly from day one: not oversized and wasting power, not undersized and losing control in peak season.',
       ],
       includes: [
@@ -25,6 +25,57 @@
       ],
       stats: [['30', 'years of textile AC'], ['1996', 'designing since'], ['10+', 'export countries']],
       related: ['eq-showering', 'eq-axial-fan', 'eq-rotary-filter', 'eq-panels'],
+    },
+    {
+      slug: 'upgrade', title: 'HVAC Plant Upgrade', img: 'assets/services/upgrade.jpg', interest: 'upgrade',
+      tagline: 'Measured savings of 60–67% in running power.',
+      intro: [
+        'Many mills run HVAC plants that use far more power than they need. AirKing modifies existing plants — fans, controls and air washers — to cut running power while improving temperature and RH stability.',
+        'In peak season (Jun–Aug 2026) two modified plants in Pakistan dropped from 153.5 to 61.4 kWh and from 145.0 to 48.0 kWh of running power. Annual average savings are expected to be higher still.',
+      ],
+      includes: [
+        'Energy audit of the existing plant',
+        'New aerodynamic energy-saving fans',
+        'Inverters on fans and pumps',
+        'Tex-Auto automation retrofit',
+        'Air washer and filtration improvements',
+        'Measured before / after results',
+      ],
+      benefits: ['Reduced power consumption', 'Improved temperature & RH stability', 'Lower maintenance costs', 'Improved production environment',
+        'Extended equipment life', 'Improved plant automation', 'Increased overall reliability'],
+      steps: [
+        ['Audit', 'Measure what the existing plant really uses.'],
+        ['Propose', 'Upgrade plan with expected savings.'],
+        ['Modify', 'Fans, inverters and controls upgraded.'],
+        ['Prove', 'Energy analyzer data before and after.'],
+      ],
+      stats: [['60.2%', 'saving · Plant A (92 kWh)'], ['66.9%', 'saving · Plant B (97 kWh)'], ['Peak', 'season data, Jun–Aug 2026']],
+      related: ['eq-axial-fan', 'eq-inverters', 'eq-sensors', 'eq-showering'],
+    },
+    {
+      slug: 'control', title: 'Automation & Control', img: 'assets/services/control.jpg', interest: 'controls',
+      tagline: 'Tex-Auto: precise conditions with the least possible energy.',
+      intro: [
+        'The Tex-Auto AirKing Automation System runs the plant automatically — adjusting fans, pumps and dampers to the outside conditions so the hall stays on target with the least possible energy.',
+        'It is built on original Beckhoff (Germany) automation with ABB inverters, developed for industrial use, with narrow tolerances for the best production conditions.',
+      ],
+      includes: [
+        'Beckhoff PLC and temperature & humidity sensors',
+        'ABB inverters on fans and pumps',
+        'ABB or Schneider electrical components',
+        'Rittal-equivalent electric panels',
+        'Central station with printer',
+        'Self-explanatory dashboard: plant overview, process values, T & RH curves',
+        'Alarm reporting, password protection, online manuals, maintenance information and reporting',
+      ],
+      steps: [
+        ['Measure', 'Sensors read room and outside conditions continuously.'],
+        ['Decide', 'Energy-saving logic picks the cheapest way to hit target.'],
+        ['Act', 'Inverters, pumps and dampers adjust automatically.'],
+        ['Report', 'Everything recorded, visualised and reported centrally.'],
+      ],
+      stats: [['2003', 'first automation system — No. 1 in China'], ['2018', 'national award for technological progress'], ['Beckhoff', 'original German automation']],
+      related: ['eq-inverters', 'eq-sensors', 'eq-components', 'eq-panels'],
     },
     {
       slug: 'installation', title: 'Installation', img: 'assets/services/installation.jpg', interest: 'plant',
@@ -76,80 +127,6 @@
       stats: [['T & RH', 'curves on the dashboard'], ['Alarm', 'reporting built in'], ['Online', 'manuals & maintenance info']],
       related: ['eq-sensors', 'eq-inverters', 'eq-panels', 'eq-dampers'],
     },
-    {
-      slug: 'control', title: 'Automation & Control', img: 'assets/services/control.jpg', interest: 'controls',
-      tagline: 'Tex-Auto: precise conditions with the least possible energy.',
-      intro: [
-        'The Tex-Auto AirKing Automation System runs the plant automatically — adjusting fans, pumps and dampers to the outside conditions so the hall stays on target with the least possible energy.',
-        'It is built on original Beckhoff (Germany) automation with ABB inverters, developed for industrial use, with narrow tolerances for the best production conditions.',
-      ],
-      includes: [
-        'Beckhoff PLC and temperature & humidity sensors',
-        'ABB inverters on fans and pumps',
-        'ABB or Schneider electrical components',
-        'Rittal-equivalent electric panels',
-        'Central station with printer',
-        'Self-explanatory dashboard: plant overview, process values, T & RH curves',
-        'Alarm reporting, password protection, online manuals, maintenance information and reporting',
-      ],
-      steps: [
-        ['Measure', 'Sensors read room and outside conditions continuously.'],
-        ['Decide', 'Energy-saving logic picks the cheapest way to hit target.'],
-        ['Act', 'Inverters, pumps and dampers adjust automatically.'],
-        ['Report', 'Everything recorded, visualised and reported centrally.'],
-      ],
-      stats: [['2003', 'first automation system — No. 1 in China'], ['2018', 'national award for technological progress'], ['Beckhoff', 'original German automation']],
-      related: ['eq-inverters', 'eq-sensors', 'eq-components', 'eq-panels'],
-    },
-    {
-      slug: 'dust', title: 'Dust Handling', img: 'assets/services/dust.jpg', interest: 'filtration',
-      tagline: 'Clean return air, clean machines, compact waste.',
-      intro: [
-        'Fibre and dust in the return air hurt product quality, clog equipment and waste energy.',
-        'AirKing dust handling systems collect it centrally, filter the return air continuously and bale the waste for easy removal.',
-      ],
-      includes: [
-        'Rotary air filtration (drum filters) with suction nozzles',
-        'Centralized dust and waste collection',
-        'Cyclones and collection units',
-        'Bailing press for compact waste',
-        'Integration with the AC plant\'s return air',
-      ],
-      steps: [
-        ['Collect', 'Dust and fibre drawn from the production hall.'],
-        ['Filter', 'Rotary filters clean the return air continuously.'],
-        ['Separate', 'Waste separated and collected centrally.'],
-        ['Bale', 'Compressed into bales for easy handling.'],
-      ],
-      stats: [['Centralized', 'collection'], ['Continuous', 'rotary filtration'], ['Compact', 'baled waste']],
-      related: ['eq-rotary-filter', 'eq-dust', 'eq-axial-fan', 'eq-dampers'],
-    },
-    {
-      slug: 'upgrade', title: 'AC Plant Upgrade', img: 'assets/services/upgrade.jpg', interest: 'upgrade',
-      tagline: 'Measured savings of 60–67% in running power.',
-      intro: [
-        'Many mills run AC plants that use far more power than they need. AirKing modifies existing plants — fans, controls and air washers — to cut running power while improving temperature and RH stability.',
-        'In peak season (Jun–Aug 2026) two modified plants in Pakistan dropped from 153.5 to 61.4 kWh and from 145.0 to 48.0 kWh of running power. Annual average savings are expected to be higher still.',
-      ],
-      includes: [
-        'Energy audit of the existing plant',
-        'New aerodynamic energy-saving fans',
-        'Inverters on fans and pumps',
-        'Tex-Auto automation retrofit',
-        'Air washer and filtration improvements',
-        'Measured before / after results',
-      ],
-      benefits: ['Reduced power consumption', 'Improved temperature & RH stability', 'Lower maintenance costs', 'Improved production environment',
-        'Extended equipment life', 'Improved plant automation', 'Increased overall reliability'],
-      steps: [
-        ['Audit', 'Measure what the existing plant really uses.'],
-        ['Propose', 'Upgrade plan with expected savings.'],
-        ['Modify', 'Fans, inverters and controls upgraded.'],
-        ['Prove', 'Energy analyzer data before and after.'],
-      ],
-      stats: [['60.2%', 'saving · Plant A (92 kWh)'], ['66.9%', 'saving · Plant B (97 kWh)'], ['Peak', 'season data, Jun–Aug 2026']],
-      related: ['eq-axial-fan', 'eq-inverters', 'eq-sensors', 'eq-showering'],
-    },
   ];
 
   // Equipment referenced by "related" (names/images match the home page cards)
@@ -173,7 +150,8 @@
 
   // ---------- render ----------
   const slug = new URLSearchParams(location.search).get('s');
-  const i = Math.max(0, SERVICES.findIndex(s => s.slug === slug));
+  const OLD = { dust: 'design' };   // the Dust Handling page was removed
+  const i = Math.max(0, SERVICES.findIndex(s => s.slug === (OLD[slug] || slug)));
   const svc = SERVICES[i];
 
   document.title = `${svc.title} | AirKing Services`;

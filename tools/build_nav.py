@@ -6,8 +6,8 @@ The home page links to its own sections (#about); inner pages link to index.html
 """
 import re
 
-SERVICES = [('design', 'Design &amp; Engineering'), ('installation', 'Installation'), ('commissioning', 'Commissioning'),
-            ('control', 'Automation &amp; Control'), ('dust', 'Dust Handling'), ('upgrade', 'AC Plant Upgrade')]
+SERVICES = [('design', 'New HVAC Plant'), ('upgrade', 'HVAC Plant Upgrade'), ('control', 'Automation &amp; Control'),
+            ('installation', 'Installation'), ('commissioning', 'Commissioning')]
 EQUIPMENT = [
     ('div-automation', 'Automation &amp; Controls', [('panels', 'Electric Panels'), ('inverters', 'Inverters &amp; Automation System'), ('components', 'Electrical Components'), ('sensors', 'Temperature &amp; Humidity Sensors')]),
     ('div-washer', 'Air Washer', [('showering', 'Showering Area'), ('nozzles', 'Water Spray Nozzles'), ('eliminators', 'Eliminator Plates')]),
@@ -77,28 +77,22 @@ def nav(p):  # p = '' on the home page, 'index.html' on inner pages
     svc = lambda s: f'service.html?s={s}'
     eq = lambda e: f'detail.html?eq={e}'
     services = dropdown('services', 'Services', [
-        col(f'{p}#services', 'Project delivery', [(svc(s), t) for s, t in SERVICES[:3]]),
-        col(f'{p}#services', 'Plant solutions', [(svc(s), t) for s, t in SERVICES[3:]]),
+        col(f'{p}#services', 'HVAC Solutions', [(svc(s), t) for s, t in SERVICES[:3]]),
+        col(f'{p}#services', 'Project Delivery', [(svc(s), t) for s, t in SERVICES[3:]]),
     ], 2)
     equipment = dropdown('equipment', 'Products', [col(f'{p}#{a}', h, [(eq(e), t) for e, t in items]) for a, h, items in EQUIPMENT], 4)
-    control = dropdown('control', 'Control', [
-        col(f'{p}#control', 'Tex-Auto system', [(f'{p}#control', 'System overview'), (f'{p}#control', 'Self-explanatory dashboard'), (f'{p}#results', 'Measured energy savings')]),
-        col(f'{p}#div-automation', 'Control hardware', [(eq(e), t) for e, t in EQUIPMENT[0][2]]),
-        col(f'{p}#services', 'Related services', [(svc('control'), 'Automation &amp; Control'), (svc('upgrade'), 'AC Plant Upgrade'), (svc('commissioning'), 'Commissioning')]),
-    ], 3, sections='control results')
     ind = lambda i: f'detail.html?ind={i}'
     company = dropdown('company', 'Company', [
         col(f'{p}#about', 'About AirKing', [(f'{p}#about', 'Who we are'), (f'{p}#history', 'Our history'), (f'{p}#factory', 'Inside AirKing (factory)'), (f'{p}#team', 'Meet our team')]),
         col(f'{p}#industries', 'Industries', [(ind('spinning'), 'Spinning'), (ind('weaving'), 'Weaving'), (ind('synthetic-fibre'), 'Synthetic Fibre'), (ind('knitting'), 'Knitted Fabric'), (ind('nonwoven'), 'Non-woven Fabric'), (ind('other'), 'Other Industries')]),
-        col(f'{p}#clients', 'References', [(f'{p}#clients', 'Key customers'), (f'{p}#why', 'Why AirKing?'), ('#contact', 'Contact us')]),
+        col(f'{p}#clients', 'References', [(f'{p}#clients', 'Key customers'), (f'{p}#why', 'Why AirKing?')]),
     ], 3, sections='company about history factory industries clients team why')
     return f'''<nav class="nav" id="nav" aria-label="Main">
         <span class="nav-bubble" id="navBubble" aria-hidden="true"></span>
 {company}
 {services}
 {equipment}
-{control}
-        <a href="#contact" class="nav-link nav-link-mobile">Contact</a>
+        <a href="#contact" class="nav-link">Contact Us</a>
       </nav>'''
 
 
