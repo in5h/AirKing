@@ -11,7 +11,7 @@ SERVICES = [('design', 'Design &amp; Engineering'), ('installation', 'Installati
 EQUIPMENT = [
     ('div-automation', 'Automation &amp; Controls', [('panels', 'Electric Panels'), ('inverters', 'Inverters &amp; Automation System'), ('components', 'Electrical Components'), ('sensors', 'Temperature &amp; Humidity Sensors')]),
     ('div-washer', 'Air Washer', [('showering', 'Showering Area'), ('nozzles', 'Water Spray Nozzles'), ('eliminators', 'Eliminator Plates')]),
-    ('div-airhandling', 'Air Handling', [('supply-fan', 'Supply &amp; Return Air Fan'), ('return-fan', 'Return Air Fan'), ('dampers', 'Air Control Dampers'), ('louvre', 'Weather Control Louvre')]),
+    ('div-airhandling', 'Air Distribution', [('axial-fan', 'Axial Fan'), ('dampers', 'Air Control Dampers'), ('louvre', 'Weather Control Louvre')]),
     ('div-filtration', 'Filtration &amp; Dust Handling', [('rotary-filter', 'Rotary Air Filtration System'), ('dust', 'Dust Collection System')]),
 ]
 

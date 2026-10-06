@@ -24,7 +24,7 @@
         ['Review', 'Drawings and proposal reviewed with your team.'],
       ],
       stats: [['30', 'years of textile AC'], ['1996', 'designing since'], ['10+', 'export countries']],
-      related: ['eq-showering', 'eq-supply-fan', 'eq-rotary-filter', 'eq-panels'],
+      related: ['eq-showering', 'eq-axial-fan', 'eq-rotary-filter', 'eq-panels'],
     },
     {
       slug: 'installation', title: 'Installation', img: 'assets/services/installation.jpg', interest: 'plant',
@@ -36,7 +36,7 @@
       includes: [
         'Supply of all plant equipment from our own factory',
         'Air washer chamber, spray nozzles and eliminator plates',
-        'Supply and return air fans, dampers and louvres',
+        'Axial fans, dampers and louvres',
         'Ducting and air distribution',
         'Rotary filters and dust collection',
         'Electric panels, cabling and sensors',
@@ -122,7 +122,7 @@
         ['Bale', 'Compressed into bales for easy handling.'],
       ],
       stats: [['Centralized', 'collection'], ['Continuous', 'rotary filtration'], ['Compact', 'baled waste']],
-      related: ['eq-rotary-filter', 'eq-dust', 'eq-return-fan', 'eq-dampers'],
+      related: ['eq-rotary-filter', 'eq-dust', 'eq-axial-fan', 'eq-dampers'],
     },
     {
       slug: 'upgrade', title: 'AC Plant Upgrade', img: 'assets/services/upgrade.jpg', interest: 'upgrade',
@@ -148,7 +148,7 @@
         ['Prove', 'Energy analyzer data before and after.'],
       ],
       stats: [['60.2%', 'saving · Plant A (92 kWh)'], ['66.9%', 'saving · Plant B (97 kWh)'], ['Peak', 'season data, Jun–Aug 2026']],
-      related: ['eq-supply-fan', 'eq-inverters', 'eq-sensors', 'eq-showering'],
+      related: ['eq-axial-fan', 'eq-inverters', 'eq-sensors', 'eq-showering'],
     },
   ];
 
@@ -161,8 +161,7 @@
     'eq-showering': ['Showering Area', 'showering-area'],
     'eq-nozzles': ['Water Spray Nozzles', 'spray-nozzle'],
     'eq-eliminators': ['Eliminator Plates', 'eliminator-plates'],
-    'eq-supply-fan': ['Supply & Return Air Fan', 'supply-return-fan'],
-    'eq-return-fan': ['Return Air Fan', 'return-air-fan'],
+    'eq-axial-fan': ['Axial Fan', 'supply-return-fan'],
     'eq-dampers': ['Air Control Dampers', 'dampers'],
     'eq-louvre': ['Weather Control Louvre', 'weather-louvre'],
     'eq-rotary-filter': ['Rotary Air Filtration System', 'rotary-filter'],

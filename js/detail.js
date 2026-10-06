@@ -4,7 +4,7 @@
   const DIVISIONS = {
     automation: { name: 'Automation & Controls', anchor: 'div-automation', interest: 'controls' },
     washer: { name: 'Air Washer', anchor: 'div-washer', interest: 'washer' },
-    airhandling: { name: 'Air Handling', anchor: 'div-airhandling', interest: 'fans' },
+    airhandling: { name: 'Air Distribution', anchor: 'div-airhandling', interest: 'fans' },
     filtration: { name: 'Filtration & Dust Handling', anchor: 'div-filtration', interest: 'filtration' },
   };
   const SERVICES = {
@@ -90,25 +90,15 @@
       services: ['installation', 'upgrade'],
     },
     {
-      id: 'supply-fan', div: 'airhandling', title: 'Supply & Return Air Fan', render: 'supply-return-fan',
-      tagline: 'Energy-saving axial fans developed by AirKing.',
-      photos: [['supply-return-fan-1', 'AirKing energy-saving axial fan'], ['supply-return-fan-2', 'Energy-saving axial fan — rotor and nose cone']],
+      id: 'axial-fan', div: 'airhandling', title: 'Axial Fan', render: 'supply-return-fan',
+      tagline: 'Energy-saving axial fans developed by AirKing, for supply and return air.',
+      photos: [['supply-return-fan-1', 'AirKing energy-saving axial fan'], ['supply-return-fan-2', 'Energy-saving axial fan — rotor and nose cone'], ['return-air-fan-1', 'Axial fan installed in a plant wall'], ['return-air-fan-2', 'Axial fan with safety guard']],
       intro: [
         'In 2010 AirKing developed its new aerodynamic energy-saving fans. They move the large air volumes a textile mill needs while using less power.',
-        'Together with ABB inverters, the fan speed follows the real demand of the hall.',
+        'The same fans supply conditioned air to the production hall and bring return air back to the plant for filtering. Together with ABB inverters, the fan speed follows the real demand of the hall.',
       ],
-      points: ['Energy-saving axial fan', 'Aerodynamic blades developed by AirKing (2010)', 'Large air volumes', 'Speed control with ABB inverters'],
-      services: ['design', 'upgrade'],
-    },
-    {
-      id: 'return-fan', div: 'airhandling', title: 'Return Air Fan', render: 'return-air-fan',
-      tagline: 'Brings air back from the hall for filtering and reconditioning.',
-      photos: [['return-air-fan-1', 'Return air fan installed in a plant wall'], ['return-air-fan-2', 'Return air fan with safety guard']],
-      intro: [
-        'Return air fans draw air from the production hall back to the plant, where it is filtered and reconditioned before going back to the hall.',
-      ],
-      points: ['Wall-mounted in the plant room', 'Fitted with a safety guard', 'Feeds the return-air filtration'],
-      services: ['dust', 'installation'],
+      points: ['Energy-saving axial fan', 'Aerodynamic blades developed by AirKing (2010)', 'Used for supply air and return air', 'Speed control with ABB inverters'],
+      services: ['design', 'upgrade', 'dust'],
     },
     {
       id: 'dampers', div: 'airhandling', title: 'Air Control Dampers', render: 'dampers',
@@ -169,7 +159,9 @@
   const params = new URLSearchParams(location.search);
   const kind = params.has('ind') ? 'ind' : 'eq';
   const list = kind === 'eq' ? EQUIPMENT : INDUSTRIES;
-  const idx = Math.max(0, list.findIndex(x => x.id === params.get(kind)));
+  const OLD_IDS = { 'supply-fan': 'axial-fan', 'return-fan': 'axial-fan' };
+  const want = params.get(kind);
+  const idx = Math.max(0, list.findIndex(x => x.id === (OLD_IDS[want] || want)));
   const item = list[idx];
   const link = x => `detail.html?${kind}=${x.id}`;
 
@@ -220,7 +212,7 @@
     $('dAllTitle').textContent = 'All industries';
     $('dAll').innerHTML = INDUSTRIES.map(x => `<a href="${link(x)}" class="${x === item ? 'active' : ''}"${x === item ? ' aria-current="page"' : ''}>${esc(x.title)}</a>`).join('');
     $('dRelatedTitle').textContent = 'Equipment we use';
-    const pick = ['showering', 'supply-fan', 'rotary-filter', 'inverters'];
+    const pick = ['showering', 'axial-fan', 'rotary-filter', 'inverters'];
     $('dRelated').innerHTML = pick.map(id => EQUIPMENT.find(e => e.id === id)).map(e => `<a class="card product rel-card" href="detail.html?eq=${e.id}">
       <div class="product-img"><img src="assets/equipment/photos/${e.photos[0][0]}.jpg" alt="${esc(e.title)}" loading="lazy"></div>
       <div class="card-body"><h3>${esc(e.title)}</h3><span class="rel-more">View details →</span></div></a>`).join('');

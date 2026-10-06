@@ -106,7 +106,7 @@
     return st.length >= 3 && it.words.some(w => w.startsWith(st)) ? 1 : 0;
   };
 
-  const SUGGEST = ['Air Washer', 'Rotary Air Filtration System', 'Supply & Return Air Fan', 'Measured energy savings', 'Tex-Auto automation', 'Pakistan Office'];
+  const SUGGEST = ['Air Washer', 'Rotary Air Filtration System', 'Axial Fan', 'Measured energy savings', 'Tex-Auto automation', 'Pakistan Office'];
 
   const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const highlight = (s, terms) => {
