@@ -175,7 +175,7 @@ p + p { margin-top: 1rem; }
 }
 
 .brand { display: flex; align-items: center; flex: none; }
-.brand img { height: 24px; width: auto; }
+.brand img { height: 38px; width: auto; }
 .logo-on-light { display: none; }
 .header:not(.on-dark) .logo-on-light { display: block; }
 .header:not(.on-dark) .logo-on-dark { display: none; }
@@ -358,7 +358,7 @@ p + p { margin-top: 1rem; }
 /* ---------- Footer ---------- */
 .footer { background: linear-gradient(180deg, #0f2742, #081a2e); color: #9fb3c8; padding: 72px 0 0; font-size: 0.93rem; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 40px; padding-bottom: 48px; }
-.footer-logo { height: 30px; width: auto; }
+.footer-logo { height: 52px; width: auto; }
 .tagline { letter-spacing: 0.22em; font-weight: 700; color: #fff; font-size: 0.72rem; margin: 14px 0 12px; }
 .footer-brand p:not(.tagline) { max-width: 320px; }
 .footer-col { display: grid; align-content: start; gap: 10px; }
@@ -373,7 +373,7 @@ p + p { margin-top: 1rem; }
 /* ---------- Tighter nav between tablet and wide desktop (keeps the long CTA labels inside the bar) ---------- */
 @media (min-width: 1081px) and (max-width: 1320px) {
   .nav-shell { padding-left: 18px; gap: 6px; }
-  .brand img { height: 21px; }
+  .brand img { height: 32px; }
   .nav { gap: 6px; }
   .nav-link { padding: 9px 15px; font-size: 0.92rem; gap: 6px; }
   .nav-cta { padding: 10px 14px; font-size: 0.84rem; gap: 6px; }
