@@ -80,7 +80,7 @@ def nav(p):  # p = '' on the home page, 'index.html' on inner pages
         col(f'{p}#services', 'HVAC Solutions', [(svc(s), t) for s, t in SERVICES[:3]]),
         col(f'{p}#services', 'Project Delivery', [(svc(s), t) for s, t in SERVICES[3:]]),
     ], 2)
-    equipment = dropdown('equipment', 'Products', [col(f'{p}#{a}', h, [(eq(e), t) for e, t in items]) for a, h, items in EQUIPMENT], 4)
+    equipment = dropdown('products', 'Products', [col(f'{p}#{a}', h, [(eq(e), t) for e, t in items]) for a, h, items in EQUIPMENT], 4)
     ind = lambda i: f'detail.html?ind={i}'
     company = dropdown('company', 'Company', [
         col(f'{p}#about', 'About AirKing', [(f'{p}#about', 'Who we are'), (f'{p}#history', 'Our history'), (f'{p}#factory', 'Inside AirKing (factory)'), (f'{p}#team', 'Meet our team')]),

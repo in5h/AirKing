@@ -92,7 +92,7 @@
     {
       id: 'axial-fan', div: 'airhandling', title: 'Axial Fan', render: 'supply-return-fan',
       tagline: 'Energy-saving axial fans developed by AirKing, for supply and return air.',
-      photos: [['supply-return-fan-1', 'AirKing energy-saving axial fan'], ['supply-return-fan-2', 'Energy-saving axial fan — rotor and nose cone'], ['return-air-fan-1', 'Axial fan installed in a plant wall'], ['return-air-fan-2', 'Axial fan with safety guard']],
+      photos: [['axial-fan-1', 'AirKing energy-saving axial fan'], ['supply-return-fan-1', 'Axial fan with nose cone'], ['supply-return-fan-2', 'Energy-saving axial fan — rotor and nose cone'], ['return-air-fan-1', 'Axial fan installed in a plant wall'], ['return-air-fan-2', 'Axial fan with safety guard']],
       intro: [
         'In 2010 AirKing developed its new aerodynamic energy-saving fans. They move the large air volumes a textile mill needs while using less power.',
         'The same fans supply conditioned air to the production hall and bring return air back to the plant for filtering. Together with ABB inverters, the fan speed follows the real demand of the hall.',
@@ -170,12 +170,12 @@
     ? [...item.photos.map(([f, c]) => [`assets/equipment/photos/${f}.jpg`, c]), [`assets/equipment/${item.render}.jpg`, '3D model']]
     : [[`assets/industries/${item.id}.jpg`, item.title]];
 
-  document.title = `${item.title} | AirKing ${kind === 'eq' ? 'Equipment' : 'Industries'}`;
+  document.title = `${item.title} | AirKing ${kind === 'eq' ? 'Products' : 'Industries'}`;
   document.querySelector('meta[name="description"]').setAttribute('content', `${item.title} — ${item.tagline}`);
-  $('dCrumbSection').textContent = kind === 'eq' ? 'Equipment' : 'Industries';
-  $('dCrumbSection').href = kind === 'eq' ? 'index.html#equipment' : 'index.html#industries';
+  $('dCrumbSection').textContent = kind === 'eq' ? 'Products' : 'Industries';
+  $('dCrumbSection').href = kind === 'eq' ? 'index.html#products' : 'index.html#industries';
   $('dCrumb').textContent = item.title;
-  $('dBadge').innerHTML = kind === 'eq' ? `Equipment · <strong>${esc(DIVISIONS[item.div].name)}</strong>` : `Industry <strong>${String(idx + 1).padStart(2, '0')}</strong>`;
+  $('dBadge').innerHTML = kind === 'eq' ? `Product · <strong>${esc(DIVISIONS[item.div].name)}</strong>` : `Industry <strong>${String(idx + 1).padStart(2, '0')}</strong>`;
   $('dTitle').textContent = item.title;
   $('dTagline').textContent = item.tagline;
 
@@ -198,9 +198,9 @@
     $('dAllTitle').textContent = DIVISIONS[item.div].name;
     const sameDiv = EQUIPMENT.filter(e => e.div === item.div);
     $('dAll').innerHTML = sameDiv.map(e => `<a href="${link(e)}" class="${e === item ? 'active' : ''}"${e === item ? ' aria-current="page"' : ''}>${esc(e.title)}</a>`).join('') +
-      `<a href="index.html#${DIVISIONS[item.div].anchor}" class="all-link">All equipment →</a>`;
+      `<a href="index.html#${DIVISIONS[item.div].anchor}" class="all-link">All products →</a>`;
     const rel = [...sameDiv.filter(e => e !== item), ...EQUIPMENT.filter(e => e.div !== item.div && e.services.some(s => item.services.includes(s)))].slice(0, 4);
-    $('dRelatedTitle').textContent = 'Related equipment';
+    $('dRelatedTitle').textContent = 'Related products';
     $('dRelated').innerHTML = rel.map(e => `<a class="card product rel-card" href="${link(e)}">
       <div class="product-img"><img src="assets/equipment/photos/${e.photos[0][0]}.jpg" alt="${esc(e.title)}" loading="lazy"></div>
       <div class="card-body"><h3>${esc(e.title)}</h3><span class="rel-more">View details →</span></div></a>`).join('');
@@ -211,7 +211,7 @@
     $('dServices').innerHTML = Object.entries(SERVICES).map(([s, t]) => `<a class="chip-link" href="service.html?s=${s}">${esc(t)} →</a>`).join('');
     $('dAllTitle').textContent = 'All industries';
     $('dAll').innerHTML = INDUSTRIES.map(x => `<a href="${link(x)}" class="${x === item ? 'active' : ''}"${x === item ? ' aria-current="page"' : ''}>${esc(x.title)}</a>`).join('');
-    $('dRelatedTitle').textContent = 'Equipment we use';
+    $('dRelatedTitle').textContent = 'Products we use';
     const pick = ['showering', 'axial-fan', 'rotary-filter', 'inverters'];
     $('dRelated').innerHTML = pick.map(id => EQUIPMENT.find(e => e.id === id)).map(e => `<a class="card product rel-card" href="detail.html?eq=${e.id}">
       <div class="product-img"><img src="assets/equipment/photos/${e.photos[0][0]}.jpg" alt="${esc(e.title)}" loading="lazy"></div>
@@ -219,9 +219,9 @@
   }
 
   const prev = list[(idx + list.length - 1) % list.length], next = list[(idx + 1) % list.length];
-  const noun = kind === 'eq' ? 'equipment' : 'industry';
+  const noun = kind === 'eq' ? 'product' : 'industry';
   $('dPrev').href = link(prev); $('dPrevLabel').textContent = `← Previous ${noun}`; $('dPrevTitle').textContent = prev.title;
   $('dNext').href = link(next); $('dNextLabel').textContent = `Next ${noun} →`; $('dNextTitle').textContent = next.title;
 
-  window.initPageChrome({ heroId: 'dHero', activeHref: kind === 'eq' ? 'index.html#equipment' : 'index.html#industries' });
+  window.initPageChrome({ heroId: 'dHero', activeHref: kind === 'eq' ? 'index.html#products' : 'index.html#industries' });
 })();

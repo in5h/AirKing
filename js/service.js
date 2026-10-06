@@ -15,7 +15,7 @@
         'Supply and return air ducting design',
         'Return-air filtration and dust handling layout',
         'Electrical and control system design',
-        'Layout drawings and equipment schedule',
+        'Layout drawings and product schedule',
       ],
       steps: [
         ['Survey', 'We study your halls, machines and current plant on site.'],
@@ -42,7 +42,7 @@
         'Measured before / after results',
       ],
       benefits: ['Reduced power consumption', 'Improved temperature & RH stability', 'Lower maintenance costs', 'Improved production environment',
-        'Extended equipment life', 'Improved plant automation', 'Increased overall reliability'],
+        'Extended product life', 'Improved plant automation', 'Increased overall reliability'],
       steps: [
         ['Audit', 'Measure what the existing plant really uses.'],
         ['Propose', 'Upgrade plan with expected savings.'],
@@ -82,10 +82,10 @@
       tagline: 'One company responsible — from our factory to your production hall.',
       intro: [
         'AirKing supplies and installs the complete plant with its own teams: air washers, fans, ducting, filtration and electrical systems.',
-        'Because the equipment comes from our own 25,000 m² factory, quality and delivery stay under one roof — and so does responsibility.',
+        'Because the products come from our own 25,000 m² factory, quality and delivery stay under one roof — and so does responsibility.',
       ],
       includes: [
-        'Supply of all plant equipment from our own factory',
+        'Supply of all plant products from our own factory',
         'Air washer chamber, spray nozzles and eliminator plates',
         'Axial fans, dampers and louvres',
         'Ducting and air distribution',
@@ -94,7 +94,7 @@
         'Site supervision by AirKing engineers',
       ],
       steps: [
-        ['Manufacture', 'Equipment built in our factory in Jiangsu, China.'],
+        ['Manufacture', 'Products built in our factory in Jiangsu, China.'],
         ['Deliver', 'Shipped to site and checked on arrival.'],
         ['Install', 'Mechanical and electrical installation by our teams.'],
         ['Hand over', 'Ready for commissioning and start-up.'],
@@ -138,7 +138,7 @@
     'eq-showering': ['Showering Area', 'showering-area'],
     'eq-nozzles': ['Water Spray Nozzles', 'spray-nozzle'],
     'eq-eliminators': ['Eliminator Plates', 'eliminator-plates'],
-    'eq-axial-fan': ['Axial Fan', 'supply-return-fan'],
+    'eq-axial-fan': ['Axial Fan', 'photos/axial-fan-1'],
     'eq-dampers': ['Air Control Dampers', 'dampers'],
     'eq-louvre': ['Weather Control Louvre', 'weather-louvre'],
     'eq-rotary-filter': ['Rotary Air Filtration System', 'rotary-filter'],
@@ -176,7 +176,7 @@
     const [name, file] = EQUIPMENT[id];
     return `<a class="card product rel-card" href="index.html#${id}">
       <div class="product-img"><img src="assets/equipment/${file}.jpg" alt="${esc(name)}" loading="lazy"></div>
-      <div class="card-body"><h3>${esc(name)}</h3><span class="rel-more">View equipment →</span></div></a>`;
+      <div class="card-body"><h3>${esc(name)}</h3><span class="rel-more">View product →</span></div></a>`;
   }).join('');
 
   const prev = SERVICES[(i + SERVICES.length - 1) % SERVICES.length], next = SERVICES[(i + 1) % SERVICES.length];
