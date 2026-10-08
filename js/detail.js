@@ -92,7 +92,7 @@
     {
       id: 'louvre', div: 'airhandling', title: 'Rainproof Louvers',
       tagline: 'Fresh air in — rain and debris out.',
-      photos: [['weather-louvre-1', 'Rainproof louvers installed on a plant room'], ['weather-louvre-2', 'Louver blades — close-up'], ['weather-louvre-3', 'Rainproof louver, full height']],
+      photos: [['rainproof-louver-1', 'Rainproof louvers at a plant room air intake'], ['weather-louvre-1', 'Rainproof louvers installed on a plant room'], ['weather-louvre-2', 'Louver blades — close-up'], ['weather-louvre-3', 'Rainproof louver, full height']],
       intro: [
         'Rainproof louvers are installed at the fresh-air intake of the plant room. Their angled blades let air in while keeping rain and debris out.',
       ],
@@ -124,12 +124,12 @@
     {
       id: 'centrifugal-fan', div: 'filtration', title: 'Centrifugal Fan',
       tagline: 'Strong suction for dust collection and waste transport.',
-      photos: [['dust-collection-4', 'Centrifugal fan with scroll housing'], ['dust-collection-3', 'Centrifugal fan with dust collection hopper']],
+      photos: [['centrifugal-fan-1', 'Centrifugal fan with motor on a base frame'], ['centrifugal-fan-2', 'Backward-curved centrifugal fan impeller'], ['centrifugal-fan-3', 'Forward-curved centrifugal fan wheel']],
       intro: [
         'Centrifugal fans give the high suction pressure that dust collection needs. They draw fibre and dust from the rotary filters and move it through the ducting to the dust collectors.',
-        'The fan wheel turns inside a scroll housing, which builds up pressure and sends the air out at a right angle to the inlet.',
+        'Air enters the centre of the fan wheel (impeller) and is thrown outwards by its blades, building up pressure. Backward-curved and forward-curved wheels suit different duties.',
       ],
-      points: ['High suction pressure', 'Scroll housing with side inlet', 'Moves fibre and dust to the collectors', 'Works with the rotary air filter and dust collection system'],
+      points: ['High suction pressure', 'Backward- or forward-curved impeller', 'Moves fibre and dust to the collectors', 'Works with the rotary air filter and dust collection system'],
       services: ['design', 'installation'],
     },
   ];

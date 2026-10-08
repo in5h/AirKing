@@ -138,7 +138,7 @@
     'eq-air-washer': ['Air Washer', 'air-washer-1'],
     'eq-axial-fan': ['Axial Fan', 'axial-fan-1'],
     'eq-dampers': ['Air Control Dampers', 'dampers-1'],
-    'eq-louvre': ['Rainproof Louvers', 'weather-louvre-1'],
+    'eq-louvre': ['Rainproof Louvers', 'rainproof-louver-1'],
     'eq-rotary-filter': ['Rotary Air Filter System', 'rotary-filter-1'],
     'eq-dust': ['Dust Collection System', 'dust-collection-1'],
   };
