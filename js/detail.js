@@ -3,41 +3,40 @@
 (function () {
   const DIVISIONS = {
     automation: { name: 'Automation & Controls', anchor: 'div-automation', interest: 'controls' },
-    washer: { name: 'Air Washer', anchor: 'div-washer', interest: 'washer' },
     airhandling: { name: 'Air Distribution', anchor: 'div-airhandling', interest: 'fans' },
     filtration: { name: 'Filtration & Dust Handling', anchor: 'div-filtration', interest: 'filtration' },
   };
   const SERVICES = {
-    design: 'New HVAC Plant', upgrade: 'HVAC Plant Upgrade', control: 'Automation & Control',
-    installation: 'Installation', commissioning: 'Commissioning',
+    design: 'New HVAC Plant', upgrade: 'HVAC Plant Upgrade', control: 'Automation & Control Systems',
+    installation: 'Installation Support', commissioning: 'Testing & Commissioning',
   };
 
-  // id = the card id on the home page without "eq-"; render = 3D image in assets/equipment/
+  // id = the card id on the home page without "eq-"; photos are in assets/equipment/photos/
   const EQUIPMENT = [
     {
-      id: 'panels', div: 'automation', title: 'Electric Panels', render: 'electric-panels',
+      id: 'panels', div: 'automation', title: 'Electric Panels',
       tagline: 'Rittal-equivalent quality enclosures for every AirKing plant.',
       photos: [['electric-panels-1', 'Installed AirKing control panel line-up'], ['electric-panels-2', 'Panel interior: neatly wired DIN rails and components']],
       intro: [
         'Every AirKing plant is controlled from electric panels built to Rittal-equivalent quality. Rittal GmbH & Co. KG (Germany) is the world\'s largest maker of industrial electrical enclosures.',
-        'Inside, the ABB inverters, the Beckhoff automation system and ABB or Schneider components are neatly wired on DIN rails, ready for the Tex-Auto control system.',
+        'Inside, the ABB inverters, the Beckhoff automation system and ABB or Schneider components are neatly wired on DIN rails, ready for the AirKing automation & control system.',
       ],
       points: ['Rittal-equivalent quality enclosures', 'House the ABB inverters and Beckhoff automation', 'ABB or Schneider electrical components', 'Indicator lamps, push buttons and HMI on the doors', 'Neat, labelled wiring for easy maintenance'],
       services: ['control', 'installation'],
     },
     {
-      id: 'inverters', div: 'automation', title: 'Inverters & Automation System', render: 'inverters',
+      id: 'inverters', div: 'automation', title: 'Inverters & Automation System',
       tagline: 'ABB inverters with original Beckhoff (Germany) automation.',
       photos: [['inverters-1', 'ABB inverters (VFDs) installed in the panel'], ['inverters-2', 'Beckhoff (Germany) PLC and I/O modules']],
       intro: [
         'ABB inverters (variable frequency drives) run the fans and pumps at the speed the process actually needs instead of full speed all the time — one of the main sources of AirKing\'s energy savings.',
-        'They are controlled by original Beckhoff automation from Germany, the platform behind the Tex-Auto AirKing Automation System.',
+        'They are controlled by original Beckhoff automation from Germany, the platform behind the AirKing Automation & Control System.',
       ],
       points: ['ABB inverters on fans and pumps', 'Original Beckhoff (Germany) PLC and I/O modules', 'Speed follows the real demand, saving energy', 'Centralized reporting and monitoring', 'Developed for industrial use'],
       services: ['control', 'upgrade'],
     },
     {
-      id: 'components', div: 'automation', title: 'Electrical Components', render: 'components',
+      id: 'components', div: 'automation', title: 'Electrical Components',
       tagline: 'ABB or Schneider components for dependable, long-life panels.',
       photos: [['components-1', 'ABB / Schneider motor protection breakers'], ['components-2', 'Panel indicator lamps and wiring']],
       intro: [
@@ -48,51 +47,20 @@
       services: ['control', 'installation'],
     },
     {
-      id: 'sensors', div: 'automation', title: 'Temperature & Humidity Sensors', render: 'sensors',
+      id: 'sensors', div: 'automation', title: 'Temperature & Humidity Sensors',
       tagline: 'Beckhoff (Germany) sensors that measure what the plant controls.',
       photos: [['sensors-1', 'Temperature sensor reading in a spinning hall'], ['sensors-2', 'Humidity sensor reading in a spinning hall']],
       intro: [
-        'Temperature and humidity sensors from Beckhoff (Germany) give the Tex-Auto system accurate, real-time readings from the production halls.',
+        'Temperature and humidity sensors from Beckhoff (Germany) give the control system accurate, real-time readings from the production halls.',
         'With precise measurements the plant can hold narrow tolerances for the best production conditions.',
       ],
-      points: ['Beckhoff (Germany) temperature & humidity sensors', 'Real-time readings on the Tex-Auto dashboard', 'Temperature and humidity curves recorded', 'The basis of precise temperature & RH control'],
+      points: ['Beckhoff (Germany) temperature & humidity sensors', 'Real-time readings on the control dashboard', 'Temperature and humidity curves recorded', 'The basis of precise temperature & RH control'],
       services: ['control', 'commissioning'],
     },
     {
-      id: 'showering', div: 'washer', title: 'Showering Area', render: 'showering-area',
-      tagline: 'The heart of the air washer, built by AirKing.',
-      photos: [['showering-area-1', 'Showering area by AirKing — risers and nozzles spraying'], ['showering-area-2', 'Showering area — spray headers in operation']],
-      intro: [
-        'In the showering area, rows of spray risers fill the air washer with a fine water spray. The air passing through is humidified and cooled before it goes to the production hall.',
-      ],
-      points: ['Built by AirKing', 'Vertical spray risers with AirKing nozzles', 'Even spray across the whole chamber', 'Humidification and evaporative cooling'],
-      services: ['design', 'installation', 'upgrade'],
-    },
-    {
-      id: 'nozzles', div: 'washer', title: 'Water Spray Nozzles', render: 'spray-nozzle',
-      tagline: 'Water spray nozzles designed by AirKing.',
-      photos: [['spray-nozzle-1', 'AirKing-designed water spray nozzle'], ['spray-nozzle-2', 'Nozzle parts with sealing ring'], ['spray-nozzle-3', 'Nozzle with mounting clip'], ['spray-nozzle-4', 'Nozzle — side view']],
-      intro: [
-        'AirKing designs its own water spray nozzles for an even, efficient spray pattern in the air washer.',
-        'Each nozzle has a sealing ring and clips onto the spray risers.',
-      ],
-      points: ['Designed by AirKing', 'Even, efficient spray pattern', 'Sealing ring', 'Clip-on mounting on the risers'],
-      services: ['installation', 'upgrade'],
-    },
-    {
-      id: 'eliminators', div: 'washer', title: 'Eliminator Plates', render: 'eliminator-plates',
-      tagline: 'Conditioned air goes to the hall — the water stays in the washer.',
-      photos: [['eliminator-plates-1', 'Eliminator plates installed in an air washer'], ['eliminator-plates-2', 'Eliminator plate wall — close view']],
-      intro: [
-        'After the showering area, eliminator plates catch the water droplets so that only conditioned air — not water — reaches the production hall.',
-      ],
-      points: ['Separate water droplets from the conditioned air', 'Full-height plate walls', 'Installed at the end of the air washer', 'Keep the production hall dry'],
-      services: ['installation', 'upgrade'],
-    },
-    {
-      id: 'axial-fan', div: 'airhandling', title: 'Axial Fan', render: 'supply-return-fan',
+      id: 'axial-fan', div: 'airhandling', title: 'Axial Fan',
       tagline: 'Energy-saving axial fans developed by AirKing, for supply and return air.',
-      photos: [['axial-fan-1', 'AirKing energy-saving axial fan'], ['supply-return-fan-1', 'Axial fan with nose cone'], ['supply-return-fan-2', 'Energy-saving axial fan — rotor and nose cone'], ['return-air-fan-1', 'Axial fan installed in a plant wall'], ['return-air-fan-2', 'Axial fan with safety guard']],
+      photos: [['axial-fan-1', 'AirKing energy-saving axial fan'], ['axial-fan-2', 'Axial fans installed in a plant room'], ['axial-fan-3', 'Axial fan with ABB motor'], ['axial-fan-4', 'Axial fans installed in the plant wall'], ['supply-return-fan-1', 'Axial fan with nose cone'], ['supply-return-fan-2', 'Energy-saving axial fan — rotor and nose cone'], ['return-air-fan-1', 'Axial fan installed in a plant wall'], ['return-air-fan-2', 'Axial fan with safety guard']],
       intro: [
         'In 2010 AirKing developed its new aerodynamic energy-saving fans. They move the large air volumes a textile mill needs while using less power.',
         'The same fans supply conditioned air to the production hall and bring return air back to the plant for filtering. Together with ABB inverters, the fan speed follows the real demand of the hall.',
@@ -101,27 +69,38 @@
       services: ['design', 'upgrade'],
     },
     {
-      id: 'dampers', div: 'airhandling', title: 'Air Control Dampers', render: 'dampers',
+      id: 'air-washer', div: 'airhandling', title: 'Air Washer',
+      tagline: 'Humidifies, cools and cleans the air before it reaches the production hall.',
+      photos: [['showering-area-1', 'Air washer showering area — risers and nozzles spraying'], ['showering-area-2', 'Spray headers in operation'], ['spray-nozzle-1', 'AirKing-designed water spray nozzle'], ['spray-nozzle-2', 'Nozzle parts with sealing ring'], ['eliminator-plates-1', 'Eliminator plates installed in an air washer'], ['eliminator-plates-2', 'Eliminator plate wall — close view']],
+      intro: [
+        'The air washer is the heart of a textile HVAC plant. In the showering area, rows of spray risers fill the chamber with a fine water spray, so the air passing through is humidified and evaporatively cooled.',
+        'AirKing designs its own water spray nozzles for an even, efficient spray pattern. At the end of the washer, eliminator plates catch the water droplets so that only conditioned air — not water — reaches the production hall.',
+      ],
+      points: ['Showering area built by AirKing', 'AirKing-designed water spray nozzles', 'Eliminator plates keep water out of the hall', 'Humidification and evaporative cooling'],
+      services: ['design', 'installation', 'upgrade'],
+    },
+    {
+      id: 'dampers', div: 'airhandling', title: 'Air Control Dampers',
       tagline: 'Dampers with auto drive motors, positioned by the control system.',
       photos: [['dampers-1', 'Air control damper'], ['dampers-2', 'Auto drive motor (actuator) mounted on a damper']],
       intro: [
-        'Air control dampers set how much fresh and return air the plant uses. Each damper has an auto drive motor, so the Tex-Auto system can position it automatically.',
+        'Air control dampers set how much fresh and return air the plant uses. Each damper has an auto drive motor, so the control system can position it automatically.',
       ],
       points: ['Auto drive motor (actuator)', 'Positioned automatically by the control system', 'Mixes fresh and return air'],
       services: ['control', 'installation'],
     },
     {
-      id: 'louvre', div: 'airhandling', title: 'Weather Control Louvre', render: 'weather-louvre',
+      id: 'louvre', div: 'airhandling', title: 'Rainproof Louvers',
       tagline: 'Fresh air in — rain and debris out.',
-      photos: [['weather-louvre-1', 'Weather control louvres installed on a plant room'], ['weather-louvre-2', 'Louvre blades — close-up'], ['weather-louvre-3', 'Weather control louvre, full height']],
+      photos: [['weather-louvre-1', 'Rainproof louvers installed on a plant room'], ['weather-louvre-2', 'Louver blades — close-up'], ['weather-louvre-3', 'Rainproof louver, full height']],
       intro: [
-        'Weather control louvres are installed at the fresh-air intake of the plant room. Their angled blades let air in while keeping rain and debris out.',
+        'Rainproof louvers are installed at the fresh-air intake of the plant room. Their angled blades let air in while keeping rain and debris out.',
       ],
       points: ['Angled weather blades', 'Keep rain and debris out of the plant', 'Full-height installations'],
       services: ['installation', 'design'],
     },
     {
-      id: 'rotary-filter', div: 'filtration', title: 'Rotary Air Filtration System', render: 'rotary-filter',
+      id: 'rotary-filter', div: 'filtration', title: 'Rotary Air Filter System',
       tagline: 'The LDF rotary air filter.',
       photos: [['rotary-filter-1', 'LDF rotary air filter — inside the drum'], ['rotary-filter-2', 'LDF rotary air filter drum and frame']],
       intro: [
@@ -132,7 +111,7 @@
       services: ['design', 'installation'],
     },
     {
-      id: 'dust', div: 'filtration', title: 'Dust Collection System', render: 'dust-collection',
+      id: 'dust', div: 'filtration', title: 'Dust Collection System',
       tagline: 'Centralized collection, filtration and bailing.',
       photos: [['dust-collection-1', 'Dust collector'], ['dust-collection-2', 'Dust collector filter bags'], ['dust-collection-3', 'Dust collector fan with collection hopper'], ['dust-collection-4', 'Dust collector fan']],
       intro: [
@@ -140,6 +119,17 @@
         'The waste can then be baled for easy removal.',
       ],
       points: ['Dust collector with filter bags', 'Dust collector fan', 'Centralized collection', 'Filtration and bailing'],
+      services: ['design', 'installation'],
+    },
+    {
+      id: 'centrifugal-fan', div: 'filtration', title: 'Centrifugal Fan',
+      tagline: 'Strong suction for dust collection and waste transport.',
+      photos: [['dust-collection-4', 'Centrifugal fan with scroll housing'], ['dust-collection-3', 'Centrifugal fan with dust collection hopper']],
+      intro: [
+        'Centrifugal fans give the high suction pressure that dust collection needs. They draw fibre and dust from the rotary filters and move it through the ducting to the dust collectors.',
+        'The fan wheel turns inside a scroll housing, which builds up pressure and sends the air out at a right angle to the inlet.',
+      ],
+      points: ['High suction pressure', 'Scroll housing with side inlet', 'Moves fibre and dust to the collectors', 'Works with the rotary air filter and dust collection system'],
       services: ['design', 'installation'],
     },
   ];
@@ -159,7 +149,7 @@
   const params = new URLSearchParams(location.search);
   const kind = params.has('ind') ? 'ind' : 'eq';
   const list = kind === 'eq' ? EQUIPMENT : INDUSTRIES;
-  const OLD_IDS = { 'supply-fan': 'axial-fan', 'return-fan': 'axial-fan' };
+  const OLD_IDS = { 'supply-fan': 'axial-fan', 'return-fan': 'axial-fan', showering: 'air-washer', nozzles: 'air-washer', eliminators: 'air-washer' };
   const want = params.get(kind);
   const idx = Math.max(0, list.findIndex(x => x.id === (OLD_IDS[want] || want)));
   const item = list[idx];
@@ -167,7 +157,7 @@
 
   // shared bits of the layout
   const photos = kind === 'eq'
-    ? [...item.photos.map(([f, c]) => [`assets/equipment/photos/${f}.jpg`, c]), [`assets/equipment/${item.render}.jpg`, '3D model']]
+    ? item.photos.map(([f, c]) => [`assets/equipment/photos/${f}.jpg`, c])
     : [[`assets/industries/${item.id}.jpg`, item.title]];
 
   document.title = `${item.title} | AirKing ${kind === 'eq' ? 'Products' : 'Industries'}`;
@@ -207,12 +197,12 @@
   } else {
     $('dIntro').innerHTML = `<p>${esc(item.tagline)}</p><p>AirKing designs, supplies, installs and commissions complete air conditioning, automation and dust handling for ${esc(item.title.toLowerCase())} — and upgrades existing plants to save energy.</p>`;
     $('dPointsTitle').textContent = 'How we help';
-    $('dPoints').innerHTML = ['Precision temperature & humidity control', 'Intelligent energy-saving automation (Tex-Auto, Beckhoff)', 'Return-air filtration and dust handling', 'Complete turnkey delivery — design to commissioning'].map(p => `<li>${esc(p)}</li>`).join('');
+    $('dPoints').innerHTML = ['Precision temperature & humidity control', 'Intelligent energy-saving automation (Beckhoff, ABB)', 'Return-air filtration and dust handling', 'Complete turnkey delivery — design to commissioning'].map(p => `<li>${esc(p)}</li>`).join('');
     $('dServices').innerHTML = Object.entries(SERVICES).map(([s, t]) => `<a class="chip-link" href="service.html?s=${s}">${esc(t)} →</a>`).join('');
     $('dAllTitle').textContent = 'All industries';
     $('dAll').innerHTML = INDUSTRIES.map(x => `<a href="${link(x)}" class="${x === item ? 'active' : ''}"${x === item ? ' aria-current="page"' : ''}>${esc(x.title)}</a>`).join('');
     $('dRelatedTitle').textContent = 'Products we use';
-    const pick = ['showering', 'axial-fan', 'rotary-filter', 'inverters'];
+    const pick = ['air-washer', 'axial-fan', 'rotary-filter', 'inverters'];
     $('dRelated').innerHTML = pick.map(id => EQUIPMENT.find(e => e.id === id)).map(e => `<a class="card product rel-card" href="detail.html?eq=${e.id}">
       <div class="product-img"><img src="assets/equipment/photos/${e.photos[0][0]}.jpg" alt="${esc(e.title)}" loading="lazy"></div>
       <div class="card-body"><h3>${esc(e.title)}</h3><span class="rel-more">View details →</span></div></a>`).join('');

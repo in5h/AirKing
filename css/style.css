@@ -964,20 +964,6 @@ tr.flash td { animation: rowflash 1.5s ease; }
   .lb-prev, .lb-next { top: auto; bottom: 16px; margin: 0; }
 }
 
-/* ---------- Equipment cards with real photos + 3D model ---------- */
-.product-img.has-photos { position: relative; aspect-ratio: 4 / 3; background: var(--bg-alt); }
-.pi-slide { position: absolute; inset: 0; margin: 0; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s; }
-.pi-slide.active { opacity: 1; visibility: visible; }
-.pi-slide .g-open { display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
-.pi-slide img { width: 100%; height: 100%; object-fit: cover; }
-.pi-tabs {
-  position: absolute; left: 10px; bottom: 10px; z-index: 4; display: flex; gap: 2px; padding: 3px; border-radius: 999px;
-  background: rgba(10,24,42,0.45); border: 1px solid rgba(255,255,255,0.25);
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-}
-.pi-tab { font: inherit; font-size: 0.72rem; font-weight: 600; color: #fff; background: none; border: 0; padding: 5px 10px; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s; }
-.pi-tab:hover { background: rgba(255,255,255,0.15); }
-.pi-tab.active { background: #fff; color: var(--navy); }
 .card:hover .product-img.has-photos img { transform: none; }
 
 /* ---------- Equipment / industry detail page ---------- */
@@ -1102,7 +1088,7 @@ tr.flash td { animation: rowflash 1.5s ease; }
 }
 
 /* ---------- Compact products (home page) ---------- */
-.prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; }
+.prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
 .prod-col { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
 .prod-head { display: flex; align-items: center; gap: 10px; font-size: 1rem; margin: 2px 4px 12px; }
 .prod-head span { font-size: 0.75rem; color: #fff; background: var(--brand); border-radius: 7px; padding: 3px 8px; }
@@ -1112,8 +1098,7 @@ tr.flash td { animation: rowflash 1.5s ease; }
 .prod-link span:first-of-type { flex: 1; }
 .prod-arrow { color: var(--brand); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
 .prod-link:hover .prod-arrow { opacity: 1; transform: none; }
-@media (max-width: 1080px) { .prod-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .prod-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .prod-grid { grid-template-columns: 1fr; } }
 
 /* ---------- History as a flow chart: year nodes joined by arrows ---------- */
 .timeline { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0 14px; max-width: none; position: relative; }

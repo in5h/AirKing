@@ -24,7 +24,7 @@
         ['Review', 'Drawings and proposal reviewed with your team.'],
       ],
       stats: [['30', 'years of textile AC'], ['1996', 'designing since'], ['10+', 'export countries']],
-      related: ['eq-showering', 'eq-axial-fan', 'eq-rotary-filter', 'eq-panels'],
+      related: ['eq-air-washer', 'eq-axial-fan', 'eq-rotary-filter', 'eq-panels'],
     },
     {
       slug: 'upgrade', title: 'HVAC Plant Upgrade', img: 'assets/services/upgrade.jpg', interest: 'upgrade',
@@ -37,7 +37,7 @@
         'Energy audit of the existing plant',
         'New aerodynamic energy-saving fans',
         'Inverters on fans and pumps',
-        'Tex-Auto automation retrofit',
+        'Automation & control system retrofit',
         'Air washer and filtration improvements',
         'Measured before / after results',
       ],
@@ -49,14 +49,14 @@
         ['Modify', 'Fans, inverters and controls upgraded.'],
         ['Prove', 'Energy analyzer data before and after.'],
       ],
-      stats: [['60.2%', 'saving · Plant A (92 kWh)'], ['66.9%', 'saving · Plant B (97 kWh)'], ['Peak', 'season data, Jun–Aug 2026']],
-      related: ['eq-axial-fan', 'eq-inverters', 'eq-sensors', 'eq-showering'],
+      stats: [['60.2%', 'saving · Nishat Chunian Ltd. (92 kWh)'], ['66.9%', 'saving · Naveena Denim Ltd. (97 kWh)'], ['Peak', 'season data, Jun–Aug 2026']],
+      related: ['eq-axial-fan', 'eq-inverters', 'eq-sensors', 'eq-air-washer'],
     },
     {
-      slug: 'control', title: 'Automation & Control', img: 'assets/services/control.jpg', interest: 'controls',
-      tagline: 'Tex-Auto: precise conditions with the least possible energy.',
+      slug: 'control', title: 'Automation & Control Systems', img: 'assets/services/control.jpg', interest: 'controls',
+      tagline: 'Precise conditions with the least possible energy.',
       intro: [
-        'The Tex-Auto AirKing Automation System runs the plant automatically — adjusting fans, pumps and dampers to the outside conditions so the hall stays on target with the least possible energy.',
+        'The AirKing Automation & Control System runs the plant automatically — adjusting fans, pumps and dampers to the outside conditions so the hall stays on target with the least possible energy.',
         'It is built on original Beckhoff (Germany) automation with ABB inverters, developed for industrial use, with narrow tolerances for the best production conditions.',
       ],
       includes: [
@@ -78,7 +78,7 @@
       related: ['eq-inverters', 'eq-sensors', 'eq-components', 'eq-panels'],
     },
     {
-      slug: 'installation', title: 'Installation', img: 'assets/services/installation.jpg', interest: 'plant',
+      slug: 'installation', title: 'Installation Support', img: 'assets/services/installation.jpg', interest: 'plant',
       tagline: 'One company responsible — from our factory to your production hall.',
       intro: [
         'AirKing supplies and installs the complete plant with its own teams: air washers, fans, ducting, filtration and electrical systems.',
@@ -100,10 +100,10 @@
         ['Hand over', 'Ready for commissioning and start-up.'],
       ],
       stats: [['25,000 m²', 'own factory'], ['150+', 'professional staff'], ['$45M+', 'annual output']],
-      related: ['eq-showering', 'eq-eliminators', 'eq-dampers', 'eq-louvre'],
+      related: ['eq-air-washer', 'eq-axial-fan', 'eq-dampers', 'eq-louvre'],
     },
     {
-      slug: 'commissioning', title: 'Commissioning', img: 'assets/services/commissioning.jpg', interest: 'plant',
+      slug: 'commissioning', title: 'Testing & Commissioning', img: 'assets/services/commissioning.jpg', interest: 'plant',
       tagline: 'Tuned until temperature and humidity hold steady in every hall.',
       intro: [
         'A plant is only as good as its tuning. Our engineers start up every system, balance the air flows and fine-tune the control loops.',
@@ -115,7 +115,7 @@
         'Air-flow balancing between halls',
         'Temperature & RH control-loop tuning',
         'Alarm and safety tests',
-        'Operator training on the Tex-Auto dashboard',
+        'Operator training on the control dashboard',
         'Documentation and handover',
       ],
       steps: [
@@ -131,18 +131,16 @@
 
   // Equipment referenced by "related" (names/images match the home page cards)
   const EQUIPMENT = {
-    'eq-panels': ['Electric Panels', 'electric-panels'],
-    'eq-inverters': ['Inverters & Automation System', 'inverters'],
-    'eq-components': ['Electrical Components', 'components'],
-    'eq-sensors': ['Temperature & Humidity Sensors', 'sensors'],
-    'eq-showering': ['Showering Area', 'showering-area'],
-    'eq-nozzles': ['Water Spray Nozzles', 'spray-nozzle'],
-    'eq-eliminators': ['Eliminator Plates', 'eliminator-plates'],
-    'eq-axial-fan': ['Axial Fan', 'photos/axial-fan-1'],
-    'eq-dampers': ['Air Control Dampers', 'dampers'],
-    'eq-louvre': ['Weather Control Louvre', 'weather-louvre'],
-    'eq-rotary-filter': ['Rotary Air Filtration System', 'rotary-filter'],
-    'eq-dust': ['Dust Collection System', 'dust-collection'],
+    'eq-panels': ['Electric Panels', 'electric-panels-1'],
+    'eq-inverters': ['Inverters & Automation System', 'inverters-1'],
+    'eq-components': ['Electrical Components', 'components-1'],
+    'eq-sensors': ['Temperature & Humidity Sensors', 'sensors-1'],
+    'eq-air-washer': ['Air Washer', 'showering-area-1'],
+    'eq-axial-fan': ['Axial Fan', 'axial-fan-1'],
+    'eq-dampers': ['Air Control Dampers', 'dampers-1'],
+    'eq-louvre': ['Rainproof Louvers', 'weather-louvre-1'],
+    'eq-rotary-filter': ['Rotary Air Filter System', 'rotary-filter-1'],
+    'eq-dust': ['Dust Collection System', 'dust-collection-1'],
   };
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -174,8 +172,8 @@
   }
   $('svcRelated').innerHTML = svc.related.map(id => {
     const [name, file] = EQUIPMENT[id];
-    return `<a class="card product rel-card" href="index.html#${id}">
-      <div class="product-img"><img src="assets/equipment/${file}.jpg" alt="${esc(name)}" loading="lazy"></div>
+    return `<a class="card product rel-card" href="detail.html?eq=${id.slice(3)}">
+      <div class="product-img"><img src="assets/equipment/photos/${file}.jpg" alt="${esc(name)}" loading="lazy"></div>
       <div class="card-body"><h3>${esc(name)}</h3><span class="rel-more">View product →</span></div></a>`;
   }).join('');
 

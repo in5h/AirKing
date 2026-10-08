@@ -74,7 +74,7 @@
     desc: text(t.querySelector('p')), target: t, icon: '◷',
   }));
   document.querySelectorAll('.feature-list li, #control .checklist li').forEach(li => push({
-    cat: 'Control System', title: text(li), desc: 'Tex-Auto AirKing automation', target: document.getElementById('control'), icon: '⚙',
+    cat: 'Control System', title: text(li), desc: 'AirKing automation & control system', target: document.getElementById('control'), icon: '⚙',
   }));
   document.querySelectorAll('.why').forEach(w => push({ cat: 'Why AirKing', title: text(w), target: w, icon: '★' }));
   document.querySelectorAll('.industry').forEach(i => push({
@@ -106,7 +106,7 @@
     return st.length >= 3 && it.words.some(w => w.startsWith(st)) ? 1 : 0;
   };
 
-  const SUGGEST = ['Air Washer', 'Rotary Air Filtration System', 'Axial Fan', 'Measured energy savings', 'Tex-Auto automation', 'Pakistan Office'];
+  const SUGGEST = ['Air Washer', 'Rotary Air Filter System', 'Axial Fan', 'Centrifugal Fan', 'Automation & Control System', 'Pakistan Office'];
 
   const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const highlight = (s, terms) => {

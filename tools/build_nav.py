@@ -6,13 +6,12 @@ The home page links to its own sections (#about); inner pages link to index.html
 """
 import re
 
-SERVICES = [('design', 'New HVAC Plant'), ('upgrade', 'HVAC Plant Upgrade'), ('control', 'Automation &amp; Control'),
-            ('installation', 'Installation'), ('commissioning', 'Commissioning')]
+SERVICES = [('design', 'New HVAC Plant'), ('upgrade', 'HVAC Plant Upgrade'), ('control', 'Automation &amp; Control Systems'),
+            ('installation', 'Installation Support'), ('commissioning', 'Testing &amp; Commissioning')]
 EQUIPMENT = [
     ('div-automation', 'Automation &amp; Controls', [('panels', 'Electric Panels'), ('inverters', 'Inverters &amp; Automation System'), ('components', 'Electrical Components'), ('sensors', 'Temperature &amp; Humidity Sensors')]),
-    ('div-washer', 'Air Washer', [('showering', 'Showering Area'), ('nozzles', 'Water Spray Nozzles'), ('eliminators', 'Eliminator Plates')]),
-    ('div-airhandling', 'Air Distribution', [('axial-fan', 'Axial Fan'), ('dampers', 'Air Control Dampers'), ('louvre', 'Weather Control Louvre')]),
-    ('div-filtration', 'Filtration &amp; Dust Handling', [('rotary-filter', 'Rotary Air Filtration System'), ('dust', 'Dust Collection System')]),
+    ('div-airhandling', 'Air Distribution', [('axial-fan', 'Axial Fan'), ('air-washer', 'Air Washer'), ('dampers', 'Air Control Dampers'), ('louvre', 'Rainproof Louvers')]),
+    ('div-filtration', 'Filtration &amp; Dust Handling', [('rotary-filter', 'Rotary Air Filter System'), ('dust', 'Dust Collection System'), ('centrifugal-fan', 'Centrifugal Fan')]),
 ]
 
 
@@ -80,7 +79,7 @@ def nav(p):  # p = '' on the home page, 'index.html' on inner pages
         col(f'{p}#services', 'HVAC Solutions', [(svc(s), t) for s, t in SERVICES[:3]]),
         col(f'{p}#services', 'Project Delivery', [(svc(s), t) for s, t in SERVICES[3:]]),
     ], 2)
-    equipment = dropdown('products', 'Products', [col(f'{p}#{a}', h, [(eq(e), t) for e, t in items]) for a, h, items in EQUIPMENT], 4)
+    equipment = dropdown('products', 'Products', [col(f'{p}#{a}', h, [(eq(e), t) for e, t in items]) for a, h, items in EQUIPMENT], 3)
     ind = lambda i: f'detail.html?ind={i}'
     company = dropdown('company', 'Company', [
         col(f'{p}#about', 'About AirKing', [(f'{p}#about', 'Who we are'), (f'{p}#history', 'Our history'), (f'{p}#factory', 'Inside AirKing (factory)'), (f'{p}#team', 'Meet our team')]),
