@@ -12,7 +12,7 @@ EQUIPMENT = [
     ('div-automation', 'Automation &amp; Controls', [('panels', 'Electric Panels'), ('inverters', 'Inverters &amp; Automation System'), ('components', 'Electrical Components'), ('sensors', 'Temperature &amp; Humidity Sensors')]),
     ('div-airhandling', 'Air Distribution', [('axial-fan', 'Axial Fan'), ('air-washer', 'Air Washer'), ('dampers', 'Air Control Dampers'), ('louvre', 'Rainproof Louvers')]),
     ('div-filtration', 'Filtration &amp; Dust Handling', [('rotary-filter', 'Rotary Air Filter System'), ('dust', 'Dust Collection System'), ('centrifugal-fan', 'Centrifugal Fan')]),
-    ('div-fire', 'Fire Protection Systems', [('fire-protection', 'Spark, Metal &amp; Fire Protection'), ('mdx02', 'MDX02 Metal &amp; Spark Diverter'), ('asd119a3', 'ASD119A3 Spark Diverter'), ('xta3', 'XTA3 Multi-mixer Fire Protection')]),
+    ('div-fire', 'Fire Protection Systems', [('fire-protection', 'Overview &amp; Product Range'), ('mdx02', 'MDX02 Metal &amp; Spark Diverter'), ('amd2000plus', 'AMD2000Plus Diverter'), ('amd3000plus', 'AMD3000Plus Diverter'), ('asd119a3', 'ASD119A3 Spark Diverter'), ('asd119m2', 'ASD-119M2 Multi-route Diverter'), ('asd119fd', 'ASD119FD Spark Detector'), ('xta3', 'XTA3 Multi-mixer Protection'), ('tf27a', 'TF-27A Bridge Magnet'), ('fa001a', 'FA001A Pneumatic Distributor'), ('md20', 'MD20 Metal Detector'), ('iot', 'AIRKING IoT Platform')]),
 ]
 
 
