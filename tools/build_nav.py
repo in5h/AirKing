@@ -12,6 +12,7 @@ EQUIPMENT = [
     ('div-automation', 'Automation &amp; Controls', [('panels', 'Electric Panels'), ('inverters', 'Inverters &amp; Automation System'), ('components', 'Electrical Components'), ('sensors', 'Temperature &amp; Humidity Sensors')]),
     ('div-airhandling', 'Air Distribution', [('axial-fan', 'Axial Fan'), ('air-washer', 'Air Washer'), ('dampers', 'Air Control Dampers'), ('louvre', 'Rainproof Louvers')]),
     ('div-filtration', 'Filtration &amp; Dust Handling', [('rotary-filter', 'Rotary Air Filter System'), ('dust', 'Dust Collection System'), ('centrifugal-fan', 'Centrifugal Fan')]),
+    ('div-fire', 'Fire Protection Systems', [('fire-protection', 'Spark, Metal &amp; Fire Protection'), ('mdx02', 'MDX02 Metal &amp; Spark Diverter'), ('asd119a3', 'ASD119A3 Spark Diverter'), ('xta3', 'XTA3 Multi-mixer Fire Protection')]),
 ]
 
 
@@ -79,7 +80,7 @@ def nav(p):  # p = '' on the home page, 'index.html' on inner pages
         col(f'{p}#services', 'HVAC Solutions', [(svc(s), t) for s, t in SERVICES[:3]]),
         col(f'{p}#services', 'Project Delivery', [(svc(s), t) for s, t in SERVICES[3:]]),
     ], 2)
-    equipment = dropdown('products', 'Products', [col(f'{p}#{a}', h, [(eq(e), t) for e, t in items]) for a, h, items in EQUIPMENT], 3)
+    equipment = dropdown('products', 'Products', [col(f'{p}#{a}', h, [(eq(e), t) for e, t in items]) for a, h, items in EQUIPMENT], 4)
     ind = lambda i: f'detail.html?ind={i}'
     company = dropdown('company', 'Company', [
         col(f'{p}#about', 'About AirKing', [(f'{p}#about', 'Who we are'), (f'{p}#history', 'Our history'), (f'{p}#factory', 'Inside AirKing (factory)'), (f'{p}#team', 'Meet our team')]),

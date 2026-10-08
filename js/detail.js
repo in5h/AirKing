@@ -5,6 +5,7 @@
     automation: { name: 'Automation & Controls', anchor: 'div-automation', interest: 'controls' },
     airhandling: { name: 'Air Distribution', anchor: 'div-airhandling', interest: 'fans' },
     filtration: { name: 'Filtration & Dust Handling', anchor: 'div-filtration', interest: 'filtration' },
+    fire: { name: 'Fire Protection Systems', anchor: 'div-fire', interest: 'general' },
   };
   const SERVICES = {
     design: 'New HVAC Plant', upgrade: 'HVAC Plant Upgrade', control: 'Automation & Control Systems',
@@ -132,6 +133,92 @@
       points: ['High suction pressure', 'Backward- or forward-curved impeller', 'Moves fibre and dust to the collectors', 'Works with the rotary air filter and dust collection system'],
       services: ['design', 'installation'],
     },
+    {
+      id: 'fire-protection', div: 'fire', title: 'Spark, Metal & Fire Protection System',
+      tagline: 'Complete spark, metal & fire detection and suppression — building the anti-fire wall for the textile industry.',
+      photos: [['xta3-install-4', 'AIRKING fire protection installed on a blow room line'], ['fire-protection-1', 'Metal & spark diverter with collection box'], ['asd119a3-install-1', 'Spark diverter installed between the cleaner and the carding']],
+      intro: [
+        'AIRKING spark, metal and fire protection systems guard every critical point of the blow room and carding line. They detect metal, sparks, embers and smoke, and divert or extinguish the hazard automatically.',
+        'In milliseconds the system diverts the material or starts metal diverters, CO2 and dry-chemical or water-spray suppression, stops the production line and sounds local and central alarms. Your team is notified instantly through the AIRKING central control panel and mobile app.',
+      ],
+      points: [
+        'Detects metal, sparks, embers and smoke at every critical point of the blow room and carding line',
+        'Detects all metallic particles — ferrous and non-ferrous such as brass, stainless steel, copper and aluminium',
+        'Highly sensitive to infrared radiation from fast-moving small sparks in pneumatic fibre transport',
+        'Three infrared digital spark detectors — 360° detection without blind areas',
+        'Large collection box with cotton level detection, air pressure detection and water spray extinguishing',
+        'Intelligent identification of metal speed and mass — removal time calculated automatically to reduce material waste',
+        'Works under both positive and negative air pressure',
+        'Automatic compensation and digital filtering keep sensitivity stable without drift',
+        'Full digital programming — RS485, network port, WiFi and Bluetooth',
+      ],
+      tables: [{ title: 'Product range', rows: [
+        ['MDX02', 'Metal & Spark Diverter for pneumatic fibre transport'],
+        ['ASD119A3', 'Spark Diverter with collection box and water spray'],
+        ['ASD-119M2', 'Multi-route Spark Diverter — one host for up to 30 IR spark detectors'],
+        ['ASD119AP', 'Fire Protection System for Bale Openers — water-mist jets beside the beater'],
+        ['XTA3', 'Multi-mixer Fire Protection System with water spray and CO2'],
+        ['AV20', 'Carbon Dioxide (CO2) Extinguishing System'],
+        ['119DCS / 119WS', 'Automatic spark extinguishing — dry powder / water mist'],
+        ['ASD119FD', 'Digital IR Spark Detector — response under 10 ms, IP65'],
+        ['AMD2000Plus', 'Metal & Spark Diverter'],
+        ['AMD3000Plus', 'Metal, Spark & Heavy Material Diverter'],
+        ['TF-27A', 'Bridge Magnet — rare-earth magnet, ≥ 4500 Gauss'],
+        ['FA001A', 'Pneumatic Distributor — one machine to two-line feeding'],
+        ['MD20', 'Hand-held Metal Detector — detects Φ1.2 mm iron'],
+        ['AIRKING IoT', 'Cloud platform — alarms by SMS, WeChat and app; remote control from computer or phone'],
+      ] }],
+      services: ['design', 'installation', 'commissioning'],
+    },
+    {
+      id: 'mdx02', div: 'fire', title: 'MDX02 Metal & Spark Diverter',
+      tagline: 'Removes metal and sparks from pneumatic fibre transport before they reach the next machine.',
+      photos: [['fire-protection-1', 'MDX02 Metal & Spark Diverter with collection box'], ['mdx02-dimensions', 'MDX02 mounting dimensions (mm)']],
+      intro: [
+        'The MDX02 Metal and Spark Diverter is installed on the pipe of pneumatic transport systems for fibres or tufts. It detects metallic particles and sparks mixed into or generated in the production process.',
+        'When metal or a spark is detected, the material is diverted into the collection box, the line is stopped and the alarm sounds. The MDX02-L has a taller 1825 mm collection box, and the MDX02(NF) is for lines where only metal detection is required.',
+      ],
+      points: ['Detects ferrous and non-ferrous metal', 'Infrared spark detection', 'Response time under 100 ms', 'Collection box 1225 mm (MDX02) or 1825 mm (MDX02-L)', 'For pipe heights of 3–4 m (MDX02) or 3.6–4.6 m (MDX02-L)', 'Pipe diameters Φ200, Φ300, Φ350 and Φ400 mm'],
+      tables: [{ title: 'Technical data', rows: [
+        ['Metal detection sensitivity', '≥ Φ2 mm iron ball, ≥ Φ4 mm aluminium ball'],
+        ['Spark detection sensitivity', '≥ Φ0.5 mm spark, dark environment'],
+        ['Response time', '< 100 ms'],
+        ['Signal output', 'Relay output, contact capacity 5 A, 250 V~'],
+        ['Communication interface', 'RS485, LAN'],
+        ['Operating temperature & humidity', '-10 °C to +50 °C, ≤ 75% RH'],
+      ] }],
+      services: ['design', 'installation', 'commissioning'],
+    },
+    {
+      id: 'asd119a3', div: 'fire', title: 'ASD119A3 Spark Diverter',
+      tagline: 'Detects and separates sparks in the blow room–carding line to eliminate fire hazards.',
+      photos: [['asd119a3-1', 'ASD119A3 Spark Diverter'], ['asd119a3-install-1', 'ASD119A3 installed between the cleaner and the carding'], ['asd119a3-install-2', 'ASD119A3 installed on a multi-mixer']],
+      intro: [
+        'The ASD119A3 spark diverter is used in the blow room–carding process of the textile industry, and suits any pipeline that transports material by air. It detects and separates sparks mixed into or generated during production.',
+        'When a spark is detected, the burning cotton flow is transferred to the collection box and the water spray extinguishing device starts. A double perforated plate makes sure sparks and embers do not reach the next process.',
+      ],
+      points: ['Highly sensitive to infrared radiation from fast-moving small sparks', 'A single spark or ember activates the diverter, stops machinery and sounds an alarm', 'Air pressure, water level and flap action detection, with spark self-test', 'Water spray extinguishing system', 'Works under positive or negative air pressure'],
+      tables: [{ title: 'Technical data', rows: [
+        ['Spark detection sensitivity', '≥ Φ0.5 mm spark, dark environment'],
+        ['Response time', '< 120 ms'],
+        ['Power', 'AC 100–250 V'],
+        ['Signal output', 'Relay output, contact capacity 5 A, 250 V~'],
+        ['Communication interface', 'RS485, LAN'],
+        ['Operating temperature & humidity', '-10 °C to +50 °C, ≤ 75% RH'],
+      ] }],
+      services: ['design', 'installation', 'commissioning'],
+    },
+    {
+      id: 'xta3', div: 'fire', title: 'XTA3 Multi-mixer Fire Protection System',
+      tagline: 'Fire protection for the multi-mixer — the focus of fire prevention in the blowing–carding process.',
+      photos: [['xta3-install-1', 'XTA3 installed on a multi-mixer line'], ['xta3-install-2', 'XTA3 control panel and alarm on the multi-mixer'], ['xta3-install-3', 'Detector connections along the multi-mixer'], ['xta3-install-4', 'AV20 CO2 extinguishing system with alarm beacon']],
+      intro: [
+        'With its large cotton storage, the multi-mixer is the focus of fire prevention in the blowing–carding process. Common causes of fire are stones, stray metal and wire in bales, loose metal from machines, electrical short circuits, friction and choking.',
+        'XTA3 has three high-sensitivity digital infrared spark detectors with narrow-band filtering. Spark detectors SD1 and SD2 at the cotton inlet start the spark removal mechanism and water spray; SD3 activates the AV20 CO2 extinguishing system. AIRKING\'s digital automatic compensation keeps the sensors stable at different temperatures.',
+      ],
+      points: ['Three digital infrared spark detectors', 'Water spray and AV20 CO2 extinguishing', 'Machine stops with sound and light alarm when a spark is detected', 'CO sensor confirms the combustion situation', 'WiFi, Bluetooth and 4G for monitoring from mobile phones and remote terminals'],
+      services: ['design', 'installation', 'commissioning'],
+    },
   ];
 
   const INDUSTRIES = [
@@ -184,6 +271,8 @@
     $('dIntro').innerHTML = item.intro.map(p => `<p>${esc(p)}</p>`).join('');
     $('dPointsTitle').textContent = 'Key points';
     $('dPoints').innerHTML = item.points.map(p => `<li>${esc(p)}</li>`).join('');
+    $('dTables').innerHTML = (item.tables || []).map(t => `<h2 class="svc-h2">${esc(t.title)}</h2>
+      <table class="spec-table"><tbody>${t.rows.map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}</tbody></table>`).join('');
     $('dServices').innerHTML = item.services.map(s => `<a class="chip-link" href="service.html?s=${s}">${esc(SERVICES[s])} →</a>`).join('');
     $('dAllTitle').textContent = DIVISIONS[item.div].name;
     const sameDiv = EQUIPMENT.filter(e => e.div === item.div);

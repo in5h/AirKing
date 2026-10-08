@@ -1088,7 +1088,7 @@ tr.flash td { animation: rowflash 1.5s ease; }
 }
 
 /* ---------- Compact products (home page) ---------- */
-.prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
+.prod-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: start; }
 .prod-col { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
 .prod-head { display: flex; align-items: center; gap: 10px; font-size: 1rem; margin: 2px 4px 12px; }
 .prod-head span { font-size: 0.75rem; color: #fff; background: var(--brand); border-radius: 7px; padding: 3px 8px; }
@@ -1098,7 +1098,8 @@ tr.flash td { animation: rowflash 1.5s ease; }
 .prod-link span:first-of-type { flex: 1; }
 .prod-arrow { color: var(--brand); opacity: 0; transform: translateX(-4px); transition: opacity 0.2s, transform 0.2s; }
 .prod-link:hover .prod-arrow { opacity: 1; transform: none; }
-@media (max-width: 900px) { .prod-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1080px) { .prod-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .prod-grid { grid-template-columns: 1fr; } }
 
 /* ---------- History as a flow chart: year nodes joined by arrows ---------- */
 .timeline { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0 14px; max-width: none; position: relative; }
@@ -1159,3 +1160,11 @@ tr.flash td { animation: rowflash 1.5s ease; }
   .form { padding: 24px; }
   .form-row { grid-template-columns: 1fr; }
 }
+
+/* ---------- Technical data tables on product pages ---------- */
+.spec-table { width: 100%; border-collapse: collapse; margin: 0 0 2rem; font-size: 0.95rem; }
+.spec-table th, .spec-table td { text-align: left; vertical-align: top; padding: 11px 14px; border-bottom: 1px solid var(--line); }
+.spec-table th { width: 38%; font-weight: 600; color: var(--ink); }
+.spec-table td { color: var(--muted); }
+.spec-table tr:first-child th, .spec-table tr:first-child td { border-top: 1px solid var(--line); }
+@media (max-width: 600px) { .spec-table th { width: 44%; } .spec-table th, .spec-table td { padding: 10px 8px; } }
