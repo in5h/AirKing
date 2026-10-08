@@ -135,7 +135,7 @@
     'eq-inverters': ['Inverters & Automation System', 'inverters-1'],
     'eq-components': ['Electrical Components', 'components-1'],
     'eq-sensors': ['Temperature & Humidity Sensors', 'sensors-1'],
-    'eq-air-washer': ['Air Washer', 'showering-area-1'],
+    'eq-air-washer': ['Air Washer', 'air-washer-1'],
     'eq-axial-fan': ['Axial Fan', 'axial-fan-1'],
     'eq-dampers': ['Air Control Dampers', 'dampers-1'],
     'eq-louvre': ['Rainproof Louvers', 'weather-louvre-1'],

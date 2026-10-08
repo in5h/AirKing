@@ -71,7 +71,7 @@
     {
       id: 'air-washer', div: 'airhandling', title: 'Air Washer',
       tagline: 'Humidifies, cools and cleans the air before it reaches the production hall.',
-      photos: [['showering-area-1', 'Air washer showering area — risers and nozzles spraying'], ['showering-area-2', 'Spray headers in operation'], ['spray-nozzle-1', 'AirKing-designed water spray nozzle'], ['spray-nozzle-2', 'Nozzle parts with sealing ring'], ['eliminator-plates-1', 'Eliminator plates installed in an air washer'], ['eliminator-plates-2', 'Eliminator plate wall — close view']],
+      photos: [['air-washer-1', 'AirKing water spray nozzles in operation'], ['air-washer-2', 'Spray risers fitted with AirKing nozzles'], ['air-washer-3', 'Eliminator plates — close view'], ['air-washer-4', 'Air washer screen with access door'], ['air-washer-5', 'Air washer chamber during construction']],
       intro: [
         'The air washer is the heart of a textile HVAC plant. In the showering area, rows of spray risers fill the chamber with a fine water spray, so the air passing through is humidified and evaporatively cooled.',
         'AirKing designs its own water spray nozzles for an even, efficient spray pattern. At the end of the washer, eliminator plates catch the water droplets so that only conditioned air — not water — reaches the production hall.',
